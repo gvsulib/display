@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body>
+
+<div class="page-container">
+
+	<div class="logo-container">
+		<img src="img/gvsu_logo.png">
+	</div>
+
+	<div class="date-time-container">
+		<h3 id="day">Month 00</h3>
+		<h4 id="time">00:00 AM/PM</h4>
+	</div>
+
+	<div class="weather-container">
+		<h3 id="weather">--<span>&deg;F</span></h3>
+	</div>
+
+	<div class="notifications-container">
+		<h2>Notifications</h2>
+		<h3>GVSU is part of the Google Glass Explorer program. Stop by the Technology Showcase in the Atrium to try out the latest in wearable tech!</h3>
+	</div>
+
+	<div class="computer-availability-container">
+		<h2>Library Computer Availability</h2>
+
+		<iframe width="100%" height="290" id="cpumap" style="padding-left: 20px; padding-right: 10px; padding-top: 10px;" src="http://gvsulib.com/labs/computer_availability/?x=true&amp;library=maryi&amp;notitle"></iframe>
+	</div>
+
+	<div class="room-availability-container">
+		<h2>Study Room Availability</h2>
+
+		<div class="room-preview">
+			<h3>Reserve these rooms at <span style="color: #0065a4">gvsu.edu/reserve</span></h3>
+            
+            <div class="room-big-container">
+
+
+                <!-- 
+
+                    ATRIUM FLOOR
+
+                -->
+    			<div class="room-container atrium-floor">
+                    <div class="room" style="margin-right: 30px;">
+                        <img src="img/rooms/media_playback.jpg">
+                        <h4>MEDIA PREP &amp; DIGITAL COLLABORATION ROOMS</h4>
+                        
+                        <ul class="tag-container">
+                            <li class="tag">5 SEATS</li>
+                            <li class="tag">WHITEBOARD</li>
+                            <li class="tag">HD VIDEO</li>
+                            <li class="tag">SCREEN</li>
+                        </ul>
+
+                        <p>These rooms are equipped with whiteboards, a computer, HD video capture, and MediaScape equipment that allows up to 4 laptops to be connected to the 46" display.</p>
+
+                        <p class="location"><b>Location:</b> Rooms 003, 004, &amp; 005</p>
+                    </div>
+                </div>
+
+
+                <!-- 
+
+                    FIRST FLOOR
+
+                -->
+                <div class="room-container first-floor">
+                    <div class="room" style="margin-right: 30px;">
+                        <img src="img/rooms/pres_prep.jpg">
+                        <h4>PRESENTATION PRACTICE</h4>
+                        
+                        <ul class="tag-container">
+                            <li class="tag">4 SEATS</li>
+                            <li class="tag">PROJECTOR</li>
+                            <li class="tag">DOCUMENT CAMERA</li>
+                            <li class="tag">COMPUTER</li>
+                        </ul>
+
+                        <p>Located in the Knowledge Market, these rooms offer technology for practicing and recording live presentations in a classroom setting.</p>
+
+                        <p class="location"><b>Location:</b> Rooms 134 &amp; 135</p>
+                    </div>
+
+                    <div class="room">
+                        <img src="img/rooms/media_playback.jpg">
+                        <h4>MEDIA PREP &amp; DIGITAL COLLABORATION ROOMS</h4>
+
+                        <ul class="tag-container">
+                            <li class="tag">5 SEATS</li>
+                            <li class="tag">WHITEBOARD</li>
+                            <li class="tag">HD VIDEO</li>
+                            <li class="tag">COMPUTER</li>
+                            <li class="tag">COMPUTER</li>
+                        </ul>
+
+                        <p>These rooms offer soft seating and a whiteboard, and are equipped with a 46" flat-panel display and a digital camera with microphone.</p>
+
+                        <p class="location"><b>Location:</b> Room 303</p>
+                    </div>
+                </div>
+
+
+                <!-- 
+
+                    SECOND FLOOR
+
+                -->
+                <div class="room-container second-floor">
+                    <div class="room" style="margin-right: 30px;">
+                       <img src="img/rooms/study_room.jpg">
+                        <h4>CONFERENCE-STYLE STUDY ROOM</h4>
+                        
+                        <ul class="tag-container">
+                            <li class="tag">6 Seats</li>
+                            <li class="tag">Table</li>
+                            <li class="tag">Whiteboard</li>
+                            <li class="tag">Screen</li>
+                            <li class="tag">Webcam</li>
+                        </ul>
+
+                        <p>These rooms include a large table, chairs, a whiteboard, and are equipped with a 46" flat-panel display and a digital camera with microphone.</p>
+
+                        <p class="location"><b>Location:</b> Rooms 202, 204 &amp; 205</p>
+                    </div>
+
+                    <div class="room">
+                        <img src="img/rooms/multi_purpose.jpg">
+                        <h4>LOUNGE-STYLE STUDY ROOM</h4>
+
+                        <ul class="tag-container">
+                            <li class="tag">4 Seats</li>
+                            <li class="tag">Whiteboard</li>
+                            <li class="tag">Screen</li>
+                            <li class="tag">Webcam</li>
+                        </ul>
+
+                        <p>These rooms offer soft seating and a whiteboard, and are equipped with a 46" flat-panel display and a digital camera with microphone.</p>
+
+                        <p class="location"><b>Location:</b> Room 204</p>
+                    </div>
+
+                    <!--
+                    <div class="room">
+                        <img src="img/rooms/seminar.png">
+                        <h4>SEMINAR ROOM</h4>
+
+                        <ul class="tag-container">
+                            <li class="tag">12 Seats</li>
+                            <li class="tag">TABLE</li>
+                            <li class="tag">WHITEBOARDS</li>
+                            <li class="tag">PROJECTOR</li>
+                        </ul>
+
+                        <p>The largest group study room provides a large table, chairs, whiteboards, and is equipped with a projector and screen.</p>
+
+                        <p class="location"><b>Location:</b> Room 216</p>
+                    </div>
+                    -->
+                </div>
+
+
+                <!-- 
+
+                    THIRD FLOOR
+
+                -->
+                <div class="room-container third-floor">
+
+                    <div class="room" style="margin-right: 30px;">
+                        <img src="img/rooms/study_room.jpg">
+                        <h4>CONFERENCE-STYLE STUDY ROOM</h4>
+                        
+                        <ul class="tag-container">
+                            <li class="tag">6 Seats</li>
+                            <li class="tag">Table</li>
+                            <li class="tag">Whiteboard</li>
+                            <li class="tag">Screen</li>
+                            <li class="tag">Webcam</li>
+                        </ul>
+
+                        <p>These rooms include a large table, chairs, a whiteboard, and are equipped with a 46" flat-panel display and a digital camera with microphone.</p>
+
+                        <p class="location"><b>Location:</b> Rooms 302, 304 &amp; 305</p>
+                    </div>
+
+                    <div class="room">
+                        <img src="img/rooms/multi_purpose.jpg">
+                        <h4>LOUNGE-STYLE STUDY ROOM</h4>
+
+                        <ul class="tag-container">
+                            <li class="tag">4 Seats</li>
+                            <li class="tag">Whiteboard</li>
+                            <li class="tag">Screen</li>
+                            <li class="tag">Webcam</li>
+                        </ul>
+
+                        <p>These rooms offer soft seating and a whiteboard, and are equipped with a 46" flat-panel display and a digital camera with microphone.</p>
+
+                        <p class="location"><b>Location:</b> Room 303</p>
+                    </div>
+
+                </div>
+
+
+                <!-- 
+
+                    FOURTH FLOOR
+
+                -->
+                <div class="room-container fourth-floor">
+
+                    <div class="room" style="margin-right: 30px;">
+                        <img src="img/rooms/study_room.jpg">
+                        <h4>CONFERENCE-STYLE STUDY ROOM</h4>
+                        
+                        <ul class="tag-container">
+                            <li class="tag">6 Seats</li>
+                            <li class="tag">Table</li>
+                            <li class="tag">Whiteboard</li>
+                            <li class="tag">Screen</li>
+                            <li class="tag">Webcam</li>
+                        </ul>
+
+                        <p>These rooms include a large table, chairs, a whiteboard, and are equipped with a 46" flat-panel display and a digital camera with microphone.</p>
+
+                        <p class="location"><b>Location:</b> Rooms 404 &amp; 405</p>
+                    </div>
+
+                </div>
+            </div>
+
+		</div>
+
+		<div class="find-group">
+			<h3>Find Your Study Room</h3>
+
+			<div class="group-list">
+				<ul>
+					<li class="level">Atrium</li>
+					<li>Dan B<span>003 Media Prep Room 11:00 AM</span></li>
+					<li>Lauren T<span>004 Media Prep Room 11:30 AM</span></li>
+					<li>Everett S<span>005 Media Prep Room 11:00 AM</span></li>
+
+					<li class="level">1st Floor</li>
+					<li>Katie M<span>216 Seminar Room 10:45 AM</span></li>
+					<li>Dan B<span>135 Presentation Practice 10:30 AM</span></li>
+					<li>Amy T<span>003 Media Prep Room 11:50 AM</span></li>
+
+					<li class="level">2nd Floor</li>
+					<li>Nick E<span>202 216 Seminar Room 12:00 PM</span></li>
+					<li>Wes I<span>203 Media Prep Room 12:30 PM</span></li>
+					<li>Stephanie P<span>203 Media Prep Room 12:20 PM</span></li>
+					<li>Jim M<span>215 216 Seminar Room 1:00 PM</span></li>
+
+					<li class="level">3rd Floor</li>
+					<li>Dan B<span>304 Multi-Purpose Room 1:00 PM</span></li>
+					<li>Lauren T<span>305 Multi-Purpose Room 11:00 AM</span></li>
+					<li>Ben S<span>306 Media Prep Room 11:30 AM</span></li>
+
+					<li class="level">4th Floor</li>
+					<li>Wes I<span>405 Multi-Purpose Room 11:00 AM</span></li>
+					<li>Kim P<span>404 Media Prep Room 1:00 PM</span></li>
+					<li>Katie M<span>406 Media Prep Room 2:00 AM</span></li>
+                </ul>
+			</div>
+		</div>
+
+
+	</div>
+
+	<div class="traffic-map-container">
+		<h2>Library Traffic</h2>
+
+
+
+		<ul class="traffic-legend">
+			<li class="low"><div></div>Low Traffic</li>
+			<li class="medium"><div></div>Medium Traffic</li>
+			<li class="high"><div></div>High Traffic</li>
+		</ul>
+
+        <div class="areas-container">
+
+            <ul class="areas atrium-floor">
+                <li class="you-are-here">Elevator<br><span class="small">You are here</span><span class="star">&#9733;</span></li>
+                <li class="concourse0 yellow">Concourse</li>
+                <!--<li class="seating0 green">Seating Area</li>-->
+            </ul>
+
+            <ul class="areas first-floor">
+                <li class="you-are-here">Elevator<br><span class="small">You are here</span><span class="star">&#9733;</span></li>
+                <li class="knowledge-market1 yellow">Knowledge Market</li>
+                <li class="cafeseating1 green">Cafe Seating</li>
+            </ul>
+
+            <ul class="areas second-floor">
+                <li class="you-are-here">Elevator<br><span class="small">You are here</span><span class="star">&#9733;</span></li>
+                <li class="seating2 yellow">Seating Area</li>
+                <li class="studyarea2 green">Study Area</li>
+                <li class="computers2 green">Computers</li>
+            </ul>
+
+            <ul class="areas third-floor">
+                <li class="you-are-here">Elevator<br><span class="small">You are here</span><span class="star">&#9733;</span></li>
+                <li class="innovation-zone3 green">Innovation<br>Zone</li>
+                <li class="readingroom3 red">Reading Room</li>
+                <li class="computers3 yellow">Computers</li>
+            </ul>
+
+            <ul class="areas fourth-floor">
+                <li class="you-are-here">Elevator<br><span class="small">You are here</span><span class="star">&#9733;</span></li>
+                <li class="readingroom4 green">Reading Room</li>
+                <li class="computers4 green">Computers</li>
+            </ul>
+
+        </div>
+
+	</div>
+
+    <div class="floor-toggle">
+
+        <ul class="floors">
+            <li class="atrium-floor-button first">Atrium</li>
+            <li class="first-floor-button">1st Floor</li>
+            <li class="second-floor-button">2nd Floor</li>
+            <li class="third-floor-button selected">3rd Floor</li>
+            <li class="fourth-floor-button last">4th Floor</li>
+        </ul>
+
+    </div>
+
+</div>
+
+</body>
+<script src="js/jquery-1.11.1.min.js" ></script>
+<script src="js/jquery.simpleWeather.min.js"></script>
+
+<script>
+
+    $( document ).ready(function() {
+        resetButtons();
+        getFloor();
+    });
+
+    $(".atrium-floor-button").click(function() {
+        selectAtrium();
+    });
+    $(".first-floor-button").click(function() {
+        selectFirstFloor();
+    });
+    $(".second-floor-button").click(function() {
+        selectSecondFloor();
+    });
+    $(".third-floor-button").click(function() {
+        selectThirdFloor();
+    });
+    $(".fourth-floor-button").click(function() {
+        selectFourthFloor();
+    });
+
+    function selectAtrium() {
+        resetButtons();
+        $( ".atrium-floor" ).show();
+        $( ".atrium-floor-button" ).addClass("selected");
+    }
+    function selectFirstFloor() {
+        resetButtons();
+        $( ".first-floor" ).show();
+        $( ".first-floor-button" ).addClass("selected");
+    }
+    function selectSecondFloor() {
+        resetButtons();
+        $( ".second-floor" ).show();
+        $( ".second-floor-button" ).addClass("selected");
+    }
+    function selectThirdFloor() {
+        resetButtons();
+        $( ".third-floor" ).show();
+        $( ".third-floor-button" ).addClass("selected");
+    }
+    function selectFourthFloor() {
+        resetButtons();
+        $( ".fourth-floor" ).show();
+        $( ".fourth-floor-button" ).addClass("selected");
+    }
+
+    function resetButtons() {
+        $( ".room-big-container" ).children().hide();
+        $(".floors").find('li').removeClass("selected");
+
+        $( ".areas-container" ).children().hide();
+    }
+
+    function getFloor() {
+        var hash = location.hash.replace("#","");
+        hash = parseInt(hash);
+        switch(hash) {
+            case 0:
+                selectAtrium();
+                break;
+            case 1:
+                selectFirstFloor();
+                break;
+            case 2:
+                selectSecondFloor();
+                break;
+            case 3:
+                selectThirdFloor();
+                break;
+            case 4:
+                selectFourthFloor();
+                break;
+            default:
+                selectThirdFloor();
+        }
+    }
+
+    function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+    }
+
+    function startTime() {
+        var today = new Date();
+
+        var month = today.getMonth();
+        var day = today.getDate();
+
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        var ampm = 'AM';
+
+        if (h > 12) {
+            ampm = 'PM';
+            h = h - 12;
+        }
+
+        // add a zero in front of numbers<10
+        m = checkTime(m);
+        s = checkTime(s);
+
+        document.getElementById('time').innerHTML = h + ":" + m + " " + ampm;
+        t = setTimeout(function () {
+            startTime()
+        }, 500);
+    }
+    startDay();
+
+
+    function startDay() {
+        var today = new Date();
+        var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+
+        document.getElementById('day').innerHTML = monthNames[today.getMonth()] + " " + today.getDate();
+        t = setTimeout(function () {
+            startTime()
+        }, 500);
+    }
+    startDay();
+
+
+    getWeather(); //Get the initial weather.
+    setInterval(getWeather, 600000); //Update the weather every 10 minutes.
+
+    function getWeather() {
+        $.simpleWeather({
+            location: 'Allendale, MI',
+            woeid: '',
+            unit: 'f',
+            success: function(weather) {
+                html = '<i class="icon-'+weather.code+'"></i>'+weather.temp+'<span>&deg;'+weather.units.temp+'</span>';
+
+                $("#weather").html(html);
+            },
+            error: function(error) {
+                $("#weather").html('--<span>&deg;F</span>');
+            }
+        });
+    }
+    
+
+</script>
+
+</html>
