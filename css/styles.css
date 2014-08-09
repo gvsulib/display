@@ -16,7 +16,7 @@ body {
 
 .page-container {
 	margin: 0 auto;
-	height: 1920px;
+	height: 1910px;
 	width: 1080px;
 	background-color: #0065a4;
 }
@@ -319,6 +319,11 @@ b {
     padding: 10px;
 }
 
+.grey {
+    background-color: #eee;
+    color: #222;
+}
+
 .green {
     background-color: #6c6;
     color: #222;
@@ -362,21 +367,21 @@ b {
 /* AREAS */
 .concourse0, .seating0, .knowledge-market1, .cafeseating1,
 .seating2, .studyarea2, .computers2,
-.innovation-zone3, .readingroom3, .computers3,
+#third_innovation_zone, #third_reading_room, #third_collaboration_space, #third_quiet_space,
 .readingroom4, .computers4 {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
 
     display: inline-block;
     position: relative;
 
     text-align: center;
-    padding-top: 90px !important;
+    padding-top: 80px !important;
 
-    border-radius: 100px;
+    border-radius: 90px;
 }
 
-/* 
+/*
     Atrium
 */
 .areas-container .concourse0 {
@@ -388,7 +393,7 @@ b {
     left: -200px;
 }
 
-/* 
+/*
     1st floor
 */
 .areas-container .knowledge-market1 {
@@ -401,7 +406,7 @@ b {
 }
 
 
-/* 
+/*
     2nd floor
 */
 .areas-container .seating2 {
@@ -418,29 +423,32 @@ b {
     left: 680px;
 }
 
-/* 
+/*
     3rd floor
 */
-.areas-container .innovation-zone3 {
+.areas-container #third_innovation_zone {
     top: 240px;
     left: 80px;
 }
-.areas-container .readingroom3 {
+.areas-container #third_reading_room {
 	top: 20px;
-    left: -200px;
-
+    left: -140px;
 }
-.areas-container .computers3 {
-    top: -0px;
+.areas-container #third_collaboration_space {
+    top: 80px;
     left: 680px;
 }
+.areas-container #third_quiet_space {
+    top: -160px;
+    left: 480px;
+}
 
-/* 
+/*
     4th floor
 */
 .areas-container .readingroom4 {
     top: 20px;
-    
+
 }
 .areas-container .computers4 {
      top: 200px;
@@ -486,7 +494,7 @@ b {
 
 .floor-toggle {
     background-color: #fff;
-    height: 140px;
+    height: 132px;
 }
 
 .floors{
