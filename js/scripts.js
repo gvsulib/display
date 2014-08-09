@@ -154,6 +154,8 @@ function getTraffic() {
     console.log('traffic getJSON ...');
     $.getJSON( "getTraffic.php", function( data ) {
 
+        $('.spinner').hide();
+
         console.log(data);
 
         $('#third_innovation_zone').removeClass().addClass(getColor(data["3rd Floor East Wing (Quiet Space)"]));

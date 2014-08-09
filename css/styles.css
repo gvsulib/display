@@ -308,12 +308,12 @@ b {
 /** TRAFFIC MAP **/
 
 .traffic-map-container {
-	height: 550px;
+	height: 556px;
 	background-color: #fff;
 }
 
 .areas li {
-    font-size: 18px;
+    font-size: 16px;
     font-family: Arial, sans-serif;
     text-transform: uppercase;
     padding: 10px;
@@ -348,7 +348,7 @@ b {
 
 	display: inline-block;
 	position: relative;
-	top: 200px;
+	top: 230px;
 	left: 470px;
 
 	text-align: center;
@@ -427,20 +427,20 @@ b {
     3rd floor
 */
 .areas-container #third_innovation_zone {
-    top: 240px;
-    left: 80px;
+    top: 260px;
+    left: 100px;
 }
 .areas-container #third_reading_room {
 	top: 20px;
-    left: -140px;
+    left: -120px;
 }
 .areas-container #third_collaboration_space {
-    top: 80px;
-    left: 680px;
+    top: 280px;
+    left: 140px;
 }
 .areas-container #third_quiet_space {
-    top: -160px;
-    left: 480px;
+    top: -140px;
+    left: 640px;
 }
 
 /*
@@ -458,15 +458,15 @@ b {
 .traffic-map-container .traffic-legend {
 	display: inline-block;
 	float: right;
-	margin-right: 20px;
-	margin-top: 30px;
+	margin-right: 10px;
+	margin-top: 20px;
 	font-family: arial;
-	font-size: 16px;
+	font-size: 12px;
 }
 .traffic-map-container .traffic-legend div {
 	display: inline-block;
-	height: 20px;
-	width: 20px;
+	height: 15px;
+	width: 15px;
 	background-color: blue;
 	margin-right: 5px;
 }
@@ -483,8 +483,8 @@ b {
 
 .traffic-map-container .traffic-legend li{
 	display: inline-block;
-	padding-right: 40px;
-	line-height: 22px;
+	padding-right: 20px;
+    line-height: 16px;
 	vertical-align: top;
 	padding-top: 2px;
 }
@@ -494,11 +494,11 @@ b {
 
 .floor-toggle {
     background-color: #fff;
-    height: 132px;
 }
 
 .floors{
-    margin-top: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
     margin-left: 40px;
     display: inline-block;
 }
@@ -552,5 +552,32 @@ b {
     color: #575757;
 }
 
+.spinner {
+  width: 60px;
+  height: 60px;
+  margin: 210px auto;
+  background-color: #333;
 
+  border-radius: 100%;  
+  -webkit-animation: scaleout 1.0s infinite ease-in-out;
+  animation: scaleout 1.0s infinite ease-in-out;
+}
 
+@-webkit-keyframes scaleout {
+  0% { -webkit-transform: scale(0.0) }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes scaleout {
+  0% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 100% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
