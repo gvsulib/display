@@ -158,10 +158,26 @@ function getTraffic() {
 
         console.log(data);
 
-        $('#third_innovation_zone').removeClass().addClass(getColor(data["3rd Floor East Wing (Quiet Space)"]));
+        $('#atrium_exhibition_room').removeClass().addClass(getColor(data["Atrium: Exhibition Room"]));
+        $('#atrium_living_room').removeClass().addClass(getColor(data["Atrium: Living Room"]));
+        $('#atrium_multipurpose_room').removeClass().addClass(getColor(data["Atrium: Multi-Purpose Room"]));
+        $('#atrium_seating_area').removeClass().addClass(getColor(data["Atrium: Seating Outside 001 and 002"]));
+        $('#atrium_under_stairs').removeClass().addClass(getColor(data["Atrium: Tables under Stairs"]));
+
+        $('#first_knowledge_market').removeClass().addClass(getColor(data["1st Floor: Knowledge Market"]));
+        $('#first_cafe_seating').removeClass().addClass(getColor(data["1st Floor: Cafe Seating"]));
+
+        $('#second_collaboration_space').removeClass().addClass(getColor(data["2nd Floor: West Wing (Collaborative Space)"]));
+        $('#second_quiet_space').removeClass().addClass(getColor(data["2nd Floor: East Wing (Quiet Space)"]));
+
+        $('#third_innovation_zone').removeClass().addClass(getColor(data["3rd Floor: Innovation Zone"]));
         $('#third_collaboration_space').removeClass().addClass(getColor(data["3rd Floor: West Wing (Collaborative Space)"]));
         $('#third_reading_room').removeClass().addClass(getColor(data["3rd Floor: Reading Room"]));
-        $('#third_quiet_space').removeClass().addClass(getColor(data["3rd Floor East Wing (Quiet Space)"]));
+        $('#third_quiet_space').removeClass().addClass(getColor(data["3rd Floor: East Wing (Quiet Space)"]));
+
+        $('#fourth_collaboration_space').removeClass().addClass(getColor(data["4th Floor: West Wing (Collaborative Space)"]));
+        $('#fourth_reading_room').removeClass().addClass(getColor(data["4th Floor: Reading Room"]));
+        $('#fourth_quiet_space').removeClass().addClass(getColor(data["4th Floor: East Wing (Quiet Space)"]));
 
     })
     .done(function() { console.log('traffic getJSON request succeeded!'); $('.areas-container').fadeIn(); $('.traffic-legend').fadeIn();})

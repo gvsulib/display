@@ -33,7 +33,7 @@ $second = array(
 
 $third = array(
     "3rd Floor: West Wing (Collaborative Space)" => GetTraffic($xml->entry[9]->content->__toString()),
-    "3rd Floor East Wing (Quiet Space)" => GetTraffic($xml->entry[10]->content->__toString()),
+    "3rd Floor: East Wing (Quiet Space)" => GetTraffic($xml->entry[10]->content->__toString()),
     "3rd Floor: Reading Room" => GetTraffic($xml->entry[11]->content->__toString()),
     "3rd Floor: Innovation Zone" => GetTraffic($xml->entry[12]->content->__toString())
 );
