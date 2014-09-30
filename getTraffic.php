@@ -1,11 +1,9 @@
 <?php
-
+include('connection.php');
+$data;
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$url = 'https://spreadsheets.google.com/feeds/list/0AtK8MmFmQfL1dFMzazNNRzZBRDNkOGdOLVBTelNSLXc/od4/public/basic';
-
-$xml = new SimpleXMLElement(file_get_contents($url));
 
 /*
 echo '<pre>';
@@ -14,34 +12,34 @@ echo '</pre>';
 */
 
 $atrium = array(
-    "Atrium: Living Room" => GetTraffic($xml->entry[0]->content->__toString()),
-    "Atrium: Multi-Purpose Room" => GetTraffic($xml->entry[1]->content->__toString()),
-    "Atrium: Exhibition Room" => GetTraffic($xml->entry[2]->content->__toString()),
-    "Atrium: Tables under Stairs" => GetTraffic($xml->entry[3]->content->__toString()),
-    "Atrium: Seating Outside 001 and 002" => GetTraffic($xml->entry[4]->content->__toString())
+    "Atrium: Living Room" => getSpaceTrafficFromID(1),
+    "Atrium: Multi-Purpose Room" => getSpaceTrafficFromID(2),
+    "Atrium: Exhibition Room" => getSpaceTrafficFromID(3),
+    "Atrium: Tables under Stairs" => getSpaceTrafficFromID(4),
+    "Atrium: Seating Outside 001 and 002" => getSpaceTrafficFromID(5)
 );
 
 $first = array(
-    "1st Floor: Knowledge Market" => GetTraffic($xml->entry[5]->content->__toString()),
-    "1st Floor: Cafe Seating" => GetTraffic($xml->entry[6]->content->__toString())
+    "1st Floor: Knowledge Market" => getSpaceTrafficFromID(6),
+    "1st Floor: Cafe Seating" => getSpaceTrafficFromID(7),
 );
 
 $second = array(
-    "2nd Floor: West Wing (Collaborative Space)" => GetTraffic($xml->entry[7]->content->__toString()),
-    "2nd Floor: East Wing (Quiet Space)" => GetTraffic($xml->entry[8]->content->__toString())
+    "2nd Floor: West Wing (Collaborative Space)" => getSpaceTrafficFromID(8),
+    "2nd Floor: East Wing (Quiet Space)" => getSpaceTrafficFromID(9)
 );
 
 $third = array(
-    "3rd Floor: West Wing (Collaborative Space)" => GetTraffic($xml->entry[9]->content->__toString()),
-    "3rd Floor: East Wing (Quiet Space)" => GetTraffic($xml->entry[10]->content->__toString()),
-    "3rd Floor: Reading Room" => GetTraffic($xml->entry[11]->content->__toString()),
-    "3rd Floor: Innovation Zone" => GetTraffic($xml->entry[12]->content->__toString())
+    "3rd Floor: West Wing (Collaborative Space)" => getSpaceTrafficFromID(10),
+    "3rd Floor: East Wing (Quiet Space)" => getSpaceTrafficFromID(11),
+    "3rd Floor: Reading Room" => getSpaceTrafficFromID(12),
+    "3rd Floor: Innovation Zone" => getSpaceTrafficFromID(13),
 );
 
 $fourth = array(
-    "4th Floor: West Wing (Collaborative Space)" => GetTraffic($xml->entry[13]->content->__toString()),
-    "4th Floor: East Wing (Quiet Space)" => GetTraffic($xml->entry[14]->content->__toString()),
-    "4th Floor: Reading Room" => GetTraffic($xml->entry[15]->content->__toString())
+    "4th Floor: West Wing (Collaborative Space)" => getSpaceTrafficFromID(14),
+    "4th Floor: East Wing (Quiet Space)" => getSpaceTrafficFromID(15),
+    "4th Floor: Reading Room" => getSpaceTrafficFromID(16)
 );
 
 
@@ -70,18 +68,22 @@ if (isset($_GET['floor'])) {
     echo json_encode(array_merge($atrium, $first, $second, $third, $fourth));
 }
 
-
-function GetTraffic($pool) {
-
-    $var1 = ": ";
-    $var2 = ",";
-
-    $temp1 = strpos($pool,$var1)+strlen($var1);
-    $result = substr($pool,$temp1,strlen($pool));
-    $dd=strpos($result,$var2);
-    if($dd == 0){
-        $dd = strlen($result);
+function loadDatafromDb(){
+    $con = getConnection();
+    global $data;
+    if (1==1){
+        $query = "SELECT space, level FROM traffic WHERE entryID = (select max(entryID) from entries);";
+        $db_result = $con->query($query);
+        while ($space = $db_result->fetch_row()) {
+            $data[$space[0]] = $space[1];
+        }
+        return $data;
+    } else {
+        return $data;
     }
+}
 
-    return substr($result,0,$dd);
+function getSpaceTrafficFromID($id){
+    $data = loadDatafromDb();
+    return $data[$id];
 }
