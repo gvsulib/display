@@ -208,107 +208,55 @@ i {
 
 .room-availability-container {
 	background-color: #fff;
-}
-.room-availability-container h3 {
-	font-family: 'AlternateGothic', Arial, sans-serif;
-	margin: 20px 20px;
-	font-size: 25px;
+    height: 395px;
 }
 
 .room-availability-container p {
     line-height: 18px;
-    font-size: 13px;
-}
-
-.room-availability-container .location {
-	background-color: #dedede;
-    border: 1px solid #bbb;
-    padding: 5px 10px;
     font-size: 14px;
-    float: left;
-    margin-top: 20px;
 }
 
-b {
-    font-weight: bold;
+.room-availability-container .room-availability-floors {
+    margin-top: 50px;
+    margin-left: 20px;
+    display: block;
 }
 
-.room-availability-container .room-preview {
-	width: 60%;
-	display: inline-block;
-	vertical-align: top;
-    max-width: 648px;
-}
-.room-container{
-	margin: 20px 20px;
-}
-.room-availability-container .room {
-	display: inline-block;
-	width: 280px;
+.room-availability-container .room-availability-floors .floor-container {
     vertical-align: top;
-}
-.room-availability-container .room h4 {
-	font-weight: bold;
-    text-transform: uppercase;
-    font-size: 14px;
-    padding: 5px 0;
-}
-.room-availability-container .room img{
-	width: 100px;
-    float: right;
-    margin-left: 10px;
-    margin-bottom: 20px;
-}
-
-.tag-container {
-    margin: 5px 0;
-}
-
-.tag-container .tag {
     display: inline-block;
-	font-size: 12px;
-	color: #fff;
-    background-color: #575757;
-	padding: 2px 4px;
-	margin: 2px;
-    text-transform: uppercase;
+    width: 18%;
+    margin-right: 15px;
+    text-align: center;
+    padding-bottom: 5px;
 }
 
-.room-availability-container .find-group {
-	width: 38%;
-	display: inline-block;
-	vertical-align: top;
-}
-.room-availability-container .group-list {
-	margin: 20px 20px;
-	overflow: scroll;
-	height: 260px;
-}
-.room-availability-container .group-list li {
-	font-size: 14px;
-	padding: 8px 14px;
-	font-weight: 400;
-}
-.room-availability-container .group-list li:nth-child(odd) {
-	background: #eee;
-}
-.room-availability-container .group-list .level {
-	background-color: #004875 !important;
-	font-family: 'AlternateGothic', Arial, sans-serif;
-	padding: 4px 14px;
-	font-size: 18px;
-	color: #fff;
-}
-.room-availability-container .group-list span {
-	float: right;
-	font-weight: 300;
+.room-availability-container .room-availability-floors .floor-title {
+    border-bottom: 1px solid #bcbcbc;
+    margin-bottom: 5px;
 }
 
+.room-availability-floors .room-container {
+    padding: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+    height: 42px;
+}
+.room-container .room-title {
+    display: block;
+}
+.room-container .reserved-by {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 18px;
+}
 
 /** TRAFFIC MAP **/
 
 .traffic-map-container {
-	height: 556px;
+	height: 562px;
 	background-color: #fff;
 }
 
@@ -324,17 +272,17 @@ b {
     color: #222;
 }
 
-.green {
+.green, .available {
     background-color: #6c6;
     color: #222;
 }
 
-.yellow {
+.yellow, .reserved_soon {
     background-color: #f7ec1e;
     color: #222;
 }
 
-.red {
+.red, .reserved {
     background-color: #c00;
     color: #fff;
 }
@@ -385,23 +333,33 @@ b {
 /*
     Atrium
 */
-.areas-container .concourse0 {
+#atrium_exhibition_room {
     top: 120px;
     left: 30px;
 }
-.areas-container .seating0 {
+#atrium_living_room {
     top: 20px;
     left: -200px;
 }
+#atrium_multipurpose_room {
+
+}
+#atrium_seating_area {
+
+}
+#atrium_under_stairs {
+
+}
+
 
 /*
     1st floor
 */
-.areas-container #first_knowledge_market {
+#first_knowledge_market {
     top: 200px;
     left: 40px;
 }
-.areas-container #first_cafe_seating {
+#first_cafe_seating {
     top: 180px;
     left: 320px;
 }
@@ -410,11 +368,11 @@ b {
 /*
     2nd floor
 */
-.areas-container #second_quiet_space {
+#second_quiet_space {
     top: 40px;
     left: 310px;
 }
-.areas-container #second_collaboration_space {
+#second_collaboration_space {
     top: 290px;
     left: 510px;
 }
@@ -422,19 +380,19 @@ b {
 /*
     3rd floor
 */
-.areas-container #third_innovation_zone {
+#third_innovation_zone {
     top: 260px;
     left: 100px;
 }
-.areas-container #third_reading_room {
+#third_reading_room {
 	top: 20px;
     left: -120px;
 }
-.areas-container #third_collaboration_space {
+#third_collaboration_space {
     top: 280px;
     left: 140px;
 }
-.areas-container #third_quiet_space {
+#third_quiet_space {
     top: -140px;
     left: 640px;
 }
@@ -442,15 +400,15 @@ b {
 /*
     4th floor
 */
-.areas-container #fourth_reading_room {
+#fourth_reading_room {
     top: 20px;
     left: 120px;
 }
-.areas-container #fourth_collaboration_space {
+#fourth_collaboration_space {
     top: 280px;
     left: 340px;
 }
-.areas-container #fourth_quiet_space {
+#fourth_quiet_space {
     top: 40px;
     left: 140px;
 }
@@ -459,15 +417,15 @@ b {
 /*
     Traffic Legend
  */
-.traffic-map-container .traffic-legend {
+.traffic-legend {
 	display: inline-block;
 	float: right;
 	margin-right: 10px;
-	margin-top: 20px;
+	margin-top: 15px;
 	font-family: arial;
 	font-size: 12px;
 }
-.traffic-map-container .traffic-legend div {
+.traffic-legend div {
 	display: inline-block;
 	height: 15px;
 	width: 15px;
@@ -475,17 +433,17 @@ b {
 	margin-right: 5px;
 }
 
-.traffic-map-container .traffic-legend .low div {
+.traffic-legend .low div {
 	background-color: #6c6;
 }
-.traffic-map-container .traffic-legend .medium div{
+.traffic-legend .medium div{
 	background-color: #f7ec1e;
 }
-.traffic-map-container .traffic-legend .high div {
+.traffic-legend .high div {
 	background-color: #c00;
 }
 
-.traffic-map-container .traffic-legend li{
+.traffic-legend li{
 	display: inline-block;
 	padding-right: 20px;
     line-height: 16px;
@@ -562,7 +520,7 @@ b {
   margin: 210px auto;
   background-color: #333;
 
-  border-radius: 100%;  
+  border-radius: 100%;
   -webkit-animation: scaleout 1.0s infinite ease-in-out;
   animation: scaleout 1.0s infinite ease-in-out;
 }
@@ -576,7 +534,7 @@ b {
 }
 
 @keyframes scaleout {
-  0% { 
+  0% {
     transform: scale(0.0);
     -webkit-transform: scale(0.0);
   } 100% {
