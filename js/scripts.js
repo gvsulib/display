@@ -196,13 +196,15 @@ function getTraffic() {
 
 function getColor(traffic) {
     switch (traffic) {
-        case '1':
-        case '2':
+        case 'Empty':
             return 'green';
-        case '3':
+        case 'A few students':
+            return 'green';
+        case 'Half full':
             return 'yellow';
-        case '4':
-        case '5':
+        case 'Mostly full':
+            return 'red';
+        case 'Totally full':
             return 'red';
         default:
             return 'grey';
@@ -292,20 +294,5 @@ function getRoomAvailability() {
     }
 }
 
-
-
-var code = "4231";
-var codeSoFar = "";
-
-jQuery(".refresh").click(function(){
-    var num = jQuery(this).data("refresh");
-    codeSoFar += num;
-    if (!codeSoFar == code.substring(0,codeSoFar.length)){
-        codeSoFar = "";
-    };
-    if (codeSoFar == code){
-        location.reload();
-    }
-});
 
 
