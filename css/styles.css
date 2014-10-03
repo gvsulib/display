@@ -21,9 +21,16 @@ body {
 	background-color: #0065a4;
 }
 
-@font-face{
-	font-family: 'AlternateGothic';
-	src: url('../fonts/Alternate_Gothic.ttf') format('truetype');
+@font-face {
+    font-family: 'AlternateGothic';
+    src: url('../fonts/AlternateGothicNo3-webfont.eot');
+    src: url('../fonts/AlternateGothicNo3-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/AlternateGothicNo3-webfont.woff') format('woff'),
+    url('../fonts/AlternateGothicNo3-webfont.ttf') format('truetype'),
+    url('../fonts/AlternateGothicNo3-webfont.svg#AlternateGothicFSNo3') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 h2 {
