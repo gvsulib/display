@@ -107,9 +107,12 @@ function startTime() {
     var s = today.getSeconds();
     var ampm = 'AM';
 
-    if (h > 12) {
+    if (h >= 12) {
         ampm = 'PM';
-        h = h - 12;
+        if (h > 13) {
+            h = h - 12;
+        }
+
     }
 
     // add a zero in front of numbers<10
