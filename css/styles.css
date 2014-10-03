@@ -260,11 +260,10 @@ i {
 	background-color: #fff;
 }
 
-.areas li {
+.areas div {
     font-size: 16px;
     font-family: Arial, sans-serif;
     text-transform: uppercase;
-    padding: 10px;
 }
 
 .grey {
@@ -287,9 +286,9 @@ i {
     color: #fff;
 }
 
-.traffic-map-container .you-are-here {
-	width: 140px;
-	height: 160px;
+.traffic-map-container .elevator {
+	width: 110px;
+    height: 80px;
 
 	background-color: #575757;
     color: #fff;
@@ -300,7 +299,7 @@ i {
 	left: 470px;
 
 	text-align: center;
-	padding-top: 42px;
+	padding-top: 35px;
 
 }
 .traffic-map-container .small {
@@ -310,6 +309,15 @@ i {
     font-size: 40px;
     display: block;
     padding-top: 10px;
+}
+
+.areas .here {
+    position: relative;
+    background-color: #0000ff;
+    color: #0000ff;
+    width: 0px;
+    height: 0px;
+    z-index: 999;
 }
 
 /* AREAS */
@@ -325,7 +333,7 @@ i {
     position: relative;
 
     text-align: center;
-    padding-top: 80px !important;
+    padding-top: 80px;
 
     border-radius: 90px;
 }
@@ -333,21 +341,41 @@ i {
 /*
     Atrium
 */
+.atrium-floor .here {
+    top: 480px;
+    left: 830px;
+}
+.atrium-floor .elevator{
+    top: 190px;
+    left: 150px;
+}
 #atrium_exhibition_room {
-    top: 120px;
-    left: 30px;
+    top: 250px;
+    left: 470px;
 }
 #atrium_living_room {
-    top: 20px;
-    left: -200px;
+    top: 335px;
+    left: -180px;
+    width: 380px;
+    margin-right: -200px;
 }
 #atrium_multipurpose_room {
-
+    top: 40px;
+    left: 50px;
+    width: 230px;
+    height: 180px;
 }
 #atrium_seating_area {
-
+    top: -140px;
+    left: 780px;
+    height: 420px;
+    padding-top: 180px;
 }
 #atrium_under_stairs {
+    top: -160px;
+    left: 170px;
+    height: 240px;
+    padding-top: 110px;
 
 }
 
@@ -356,12 +384,17 @@ i {
     1st floor
 */
 #first_knowledge_market {
-    top: 200px;
-    left: 40px;
+    top: 130px;
+    left: 580px;
 }
 #first_cafe_seating {
-    top: 180px;
-    left: 320px;
+    top: 130px;
+    left: -100px;
+}
+
+.first-floor .here {
+    top: 350px;
+    left: 400px;
 }
 
 
@@ -377,9 +410,20 @@ i {
     left: 510px;
 }
 
+.second-floor .here {
+    top: 240px;
+    left: 400px;
+}
+
 /*
     3rd floor
 */
+
+.third-floor .here {
+    top: 240px;
+    left: 400px;
+}
+
 #third_innovation_zone {
     top: 260px;
     left: 100px;
@@ -445,10 +489,16 @@ i {
 
 .traffic-legend li{
 	display: inline-block;
-	padding-right: 20px;
+	padding-right: 4px;
     line-height: 16px;
 	vertical-align: top;
 	padding-top: 2px;
+}
+.traffic-legend li .star{
+    display: inline;
+    font-size: 20px;
+    color: #0000ff;
+    margin-right: 5px;
 }
 
 
