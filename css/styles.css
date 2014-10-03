@@ -451,6 +451,12 @@ i {
 /*
     4th floor
 */
+
+.fourth-floor .here {
+    top: 240px;
+    left: 400px;
+}
+
 #fourth_reading_room {
     top: 20px;
     left: 120px;
