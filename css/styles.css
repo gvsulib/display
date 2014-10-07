@@ -427,25 +427,41 @@ i {
 */
 
 .third-floor .here {
-    top: 240px;
-    left: 400px;
+    top: 290px;
+    left: 310px;
+}
+
+.third-floor .elevator {
+    top: 250px;
+    left: 380px;
 }
 
 #third_innovation_zone {
-    top: 260px;
-    left: 100px;
+    top: 310px;
+    left: -30px;
+    width: 220px;
+    height: 200px;
+    margin-right: -40px;
+    padding-top: 90px;
 }
 #third_reading_room {
 	top: 20px;
-    left: -120px;
+    left: -200px;
+    height: 270px;
+    margin-bottom: -140px;
+    padding-top: 120px;
 }
 #third_collaboration_space {
-    top: 280px;
-    left: 140px;
+    top: -40px;
+    left: 700px;
+    width: 270px;
+    height: 350px;
+    padding-top: 160px;
 }
 #third_quiet_space {
-    top: -140px;
-    left: 640px;
+    top: -280px;
+    left: 30px;
+    width: 400px;
 }
 
 /*
