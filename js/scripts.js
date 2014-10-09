@@ -206,6 +206,7 @@ function getColor(traffic) {
             return 'yellow';
         case '4':
         case '5':
+        case '6':
             return 'red';
         default:
             return 'grey';
