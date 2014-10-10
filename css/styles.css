@@ -608,6 +608,7 @@ i {
 
 .floors .selected {
     background-color: rgb(82, 168, 232);
+    background-origin: padding-box;
     border-bottom-color: rgb(32, 85, 154);
     border-bottom-style: solid;
     border-bottom-width: 1px;
