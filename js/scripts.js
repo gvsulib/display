@@ -11,6 +11,7 @@ $( document ).ready(function() {
     getFloor();
     getTraffic();
     getRoomAvailability();
+    selectFloor();
 
     setInterval('getTraffic();',600000); // every 10 minutes
     setInterval('getRoomAvailability();',60000); // every minute
@@ -31,6 +32,26 @@ $(".third-floor-button").click(function() {
 $(".fourth-floor-button").click(function() {
     selectFourthFloor();
 });
+
+function selectFloor(){
+    switch (window.location.hash) {
+        case '#0':
+            selectAtrium();
+            break;
+        case '#1':
+            selectFirstFloor();
+            break;
+        case '#2':
+            selectSecondFloor();
+            break;
+        case '#3':
+            selectThirdFloor();
+            break;
+        case '#4':
+            selectFourthFloor();
+            break;
+    }
+}
 
 function selectAtrium() {
     resetButtons();

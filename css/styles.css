@@ -396,18 +396,32 @@ i {
 /*
     1st floor
 */
+.first-floor .elevator {
+    top: 270px;
+    left: 470px;
+}
 #first_knowledge_market {
-    top: 130px;
+    top: 60px;
     left: 580px;
+    width: 300px;
+    height: 300px;
+    padding-top: 150px;
 }
 #first_cafe_seating {
-    top: 130px;
-    left: -100px;
+    top: 60px;
+    left: -340px;
+    width: 300px;
+    height: 300px;
+    padding-top: 150px;
 }
 
-.first-floor .here {
+.first-floor .here-1 {
     top: 350px;
     left: 400px;
+}
+.first-floor .here-2 {
+    top: 350px;
+    left: 790px;
 }
 
 
@@ -415,17 +429,26 @@ i {
     2nd floor
 */
 #second_quiet_space {
-    top: 40px;
-    left: 310px;
+    top: -320px;
+    left: 305px;
+    width: 400px;
 }
 #second_collaboration_space {
-    top: 290px;
-    left: 510px;
+    top: 175px;
+    left: 585px;
+    width: 270px;
+    height: 350px;
+    padding-top: 160px;
 }
 
 .second-floor .here {
-    top: 240px;
-    left: 400px;
+    top: 290px;
+    left: 310px;
+}
+
+.second-floor .elevator {
+    top: 195px;
+    left: 380px;
 }
 
 /*
@@ -474,22 +497,33 @@ i {
     4th floor
 */
 
+.fourth-floor .elevator {
+    top: 194px;
+    left: 380px;
+}
+
 .fourth-floor .here {
-    top: 240px;
-    left: 400px;
+    top: 290px;
+    left: 310px;
 }
 
 #fourth_reading_room {
-    top: 20px;
-    left: 120px;
+    top: -36px;
+    left: -15px;
+    height: 270px;
+    padding-top: 120px;
 }
 #fourth_collaboration_space {
-    top: 280px;
-    left: 340px;
+    top: 184px;
+    left: 409px;
+    height: 350px;
+    padding-top: 160px;
+    width: 270px;
 }
 #fourth_quiet_space {
-    top: 40px;
-    left: 140px;
+    top: -320px;
+    left: 305px;
+    width: 400px;
 }
 
 
