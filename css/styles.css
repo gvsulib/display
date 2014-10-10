@@ -607,9 +607,7 @@ i {
 }
 
 .floors .selected {
-    -webkit-box-shadow: rgba(255, 255, 255, 0.298039) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.298039) 0px 0px 2px 0px inset, rgba(0, 0, 0, 0.290196) 0px 1px 2px 0px;
-    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0.2, rgb(82, 168, 232)), to(rgb(46, 118, 207)));
-    background-origin: padding-box;
+    background-color: rgb(82, 168, 232);
     border-bottom-color: rgb(32, 85, 154);
     border-bottom-style: solid;
     border-bottom-width: 1px;
