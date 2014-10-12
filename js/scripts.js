@@ -1,6 +1,7 @@
 
 $( document ).ready(function() {
 
+    $(document).idleTimer(30000);
     $('.areas-container').hide();
     $('#area-traffic-legend').hide();
 
@@ -11,10 +12,12 @@ $( document ).ready(function() {
     getFloor();
     getTraffic();
     getRoomAvailability();
-    selectFloor();
+    selectFloor(floor);
 
     setInterval('getTraffic();',600000); // every 10 minutes
     setInterval('getRoomAvailability();',60000); // every minute
+
+    $(document).on('idle.idleTimer',function(){selectFloor(floor)});
 });
 
 $(".atrium-floor-button").click(function() {
@@ -33,21 +36,21 @@ $(".fourth-floor-button").click(function() {
     selectFourthFloor();
 });
 
-function selectFloor(){
-    switch (window.location.hash) {
-        case '#0':
+function selectFloor(floor){
+    switch (floor) {
+        case 0:
             selectAtrium();
             break;
-        case '#1':
+        case 1:
             selectFirstFloor();
             break;
-        case '#2':
+        case 2:
             selectSecondFloor();
             break;
-        case '#3':
+        case 3:
             selectThirdFloor();
             break;
-        case '#4':
+        case 4:
             selectFourthFloor();
             break;
     }
