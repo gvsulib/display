@@ -1,7 +1,9 @@
 
 $( document ).ready(function() {
+    var seconds = 1000;
+    var minutes = seconds * 60;
 
-    $(document).idleTimer(30000);
+    $(document).idleTimer(30 * seconds);
     $('.areas-container').hide();
     $('#area-traffic-legend').hide();
 
@@ -9,13 +11,12 @@ $( document ).ready(function() {
     $('#room-traffic-legend').hide();
 
     resetButtons();
-    getFloor();
     getTraffic();
     getRoomAvailability();
     selectFloor(floor);
 
-    setInterval('getTraffic();',600000); // every 10 minutes
-    setInterval('getRoomAvailability();',60000); // every minute
+    setInterval(getTraffic, 15 * minutes); // every 10 minutes
+    setInterval(getRoomAvailability, 1 * minutes); // every minute
 
     $(document).on('idle.idleTimer',function(){selectFloor(floor)});
 });
@@ -87,30 +88,6 @@ function resetButtons() {
     $(".floors").find('li').removeClass("selected");
 
     $( ".areas-container" ).children().hide();
-}
-
-function getFloor() {
-    var hash = location.hash.replace("#","");
-    hash = parseInt(hash);
-    switch(hash) {
-        case 0:
-            selectAtrium();
-            break;
-        case 1:
-            selectFirstFloor();
-            break;
-        case 2:
-            selectSecondFloor();
-            break;
-        case 3:
-            selectThirdFloor();
-            break;
-        case 4:
-            selectFourthFloor();
-            break;
-        default:
-            selectThirdFloor();
-    }
 }
 
 function checkTime(i) {

@@ -163,9 +163,9 @@
                 <div class="here"><span class="star">&#9733;</span></div>
                 <div class="elevator">Elevator</div>
                 <div id="atrium_exhibition_room" class="grey">Exhibition Room</div>
-                <div id="atrium_living_room" class="grey">Living Room</div>
+                <div id="atrium_seating_area" class="grey">Seating Area</div>
                 <div id="atrium_multipurpose_room" class="grey">Multipurpose<br>Room</div>
-                <div id="atrium_seating_area" class="grey">Seating<br>Area</div>
+                <div id="atrium_living_room" class="grey">Living<br>Room</div>
                 <div id="atrium_under_stairs" class="grey">Tables under Stairs</div>
             </div>
 
