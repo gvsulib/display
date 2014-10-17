@@ -87,3 +87,4 @@ function getSpaceTrafficFromID($id){
     $data = loadDatafromDb();
     return $data[$id];
 }
+?>
