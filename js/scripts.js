@@ -188,6 +188,8 @@ function getTraffic() {
         $('#fourth_collaboration_space').removeClass().addClass(getColor(data["4th Floor: West Wing (Collaborative Space)"]));
         $('#fourth_reading_room').removeClass().addClass(getColor(data["4th Floor: Reading Room"]));
         $('#fourth_quiet_space').removeClass().addClass(getColor(data["4th Floor: East Wing (Quiet Space)"]));
+        
+        $('#last-updated').html(data['updated']);
 
     })
     .done(function() { console.log('traffic getJSON request succeeded!'); $('.areas-container').fadeIn(); $('.traffic-legend').fadeIn();})

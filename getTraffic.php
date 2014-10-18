@@ -73,16 +73,17 @@ if (isset($_GET['floor'])) {
 function loadDatafromDb(){
     $con = getConnection();
     global $data;
-    if (1==1){
+    if ($data == NULL){
         $query = "SELECT space, level FROM traffic WHERE entryID = (select max(entryID) from entries);";
         $db_result = $con->query($query);
         while ($space = $db_result->fetch_row()) {
             $data[$space[0]] = $space[1];
         }
-        return $data;
-    } else {
-        return $data;
+        $query = "SELECT DATE_FORMAT(time, '%r') FROM entries ORDER BY time DESC LIMIT 1;";
+        $db_result = $con->query($query);
+        $data['updated'] = $db_result.fetch_row()[0];
     }
+    return $data;
 }
 
 function getSpaceTrafficFromID($id){

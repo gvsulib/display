@@ -146,7 +146,7 @@
 
 	<div class="traffic-map-container">
         <div class="refresh" data-refresh="4"></div>
-		<h2>Library Traffic<small>Updated Hourly</small></h2>
+		<h2>Library Traffic<small>Updated: <span id="last-updated"></span></small></h2>
 
         <div class="spinner"></div>
 
