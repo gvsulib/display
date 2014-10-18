@@ -81,7 +81,7 @@ function loadDatafromDb(){
         }
         $query = "SELECT DATE_FORMAT(time, '%r') FROM entries ORDER BY time DESC LIMIT 1;";
         $db_result = $con->query($query);
-        $data['updated'] = $db_result.fetch_row()[0];
+        $data['updated'] = $db_result->fetch_row()[0];
     }
     return $data;
 }
