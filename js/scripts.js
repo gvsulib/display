@@ -1,4 +1,4 @@
-
+$.ajaxSetup({ cache: false });
 $( document ).ready(function() {
     var seconds = 1000;
     var minutes = seconds * 60;
