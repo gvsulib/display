@@ -15,8 +15,8 @@ $( document ).ready(function() {
     getRoomAvailability();
     selectFloor(floor);
 
-    setInterval(getTraffic, 15 * minutes); // every 10 minutes
-    setInterval(getRoomAvailability, updateSecondsForRooms * seconds); // every minute
+    setInterval(getTraffic, trafficDelay * minutes); // default 10 minutes
+    setInterval(getRoomAvailability, roomsDelay * minutes); // default 3
 
     $(document).on('idle.idleTimer',function(){selectFloor(floor)});
 });
