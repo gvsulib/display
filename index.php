@@ -222,8 +222,10 @@
 </body>
 <script>
     var floor = <?php echo isset($_GET['floor']) ? $_GET['floor'] : 1;?>;
-    var roomsDelay = <?php echo isset($_GET['roomsDelay']) ? $_GET['roomsDelay'] : 3 //default 3 minutes?>;
-    var trafficDelay = <?php echo isset($_GET['trafficDelay']) ? $_GET['trafficsDelay'] : 10 //default 10 minutes?>;
+    var roomsDelay = <?php echo isset($_GET['roomsDelay']) ? $_GET['roomsDelay'] : 3;?>;
+    var trafficDelay = <?php echo isset($_GET['trafficDelay']) ? $_GET['trafficDelay'] : 10;?>;
+
+
 </script>
 <script src="js/jquery-1.11.1.min.js" ></script>
 <script src="js/jquery.simpleWeather.min.js"></script>
