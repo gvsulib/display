@@ -276,7 +276,7 @@ function getRoomAvailability() {
     $('#room-traffic-legend').fadeIn();
 
     function getRoomData(roomId) {
-        $('#' + roomId).removeClass().addClass('grey');
+        $('#' + roomId).removeClass().addClass('grey').addClass('room-container');
         $.ajax({
         type: "POST",
         url: "getRoomAvailability.php",
