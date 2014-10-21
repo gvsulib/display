@@ -16,7 +16,7 @@ $( document ).ready(function() {
     selectFloor(floor);
 
     setInterval(getTraffic, 15 * minutes); // every 10 minutes
-    setInterval(getRoomAvailability, 1 * minutes); // every minute
+    setInterval(getRoomAvailability, updateSecondsForRooms * seconds); // every minute
 
     $(document).on('idle.idleTimer',function(){selectFloor(floor)});
 });
@@ -276,6 +276,7 @@ function getRoomAvailability() {
     $('#room-traffic-legend').fadeIn();
 
     function getRoomData(roomId) {
+        $('#' + roomId).removeClass().addClass('grey');
         $.ajax({
         type: "POST",
         url: "getRoomAvailability.php",

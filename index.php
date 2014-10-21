@@ -220,7 +220,10 @@
 </div>
 
 </body>
-<script>var floor = <?php echo isset($_GET['floor']) ? $_GET['floor'] : 1;?>;</script>
+<script>
+    var floor = <?php echo isset($_GET['floor']) ? $_GET['floor'] : 1;?>;
+    var updateSecondsForRooms = <?php echo isset($_GET['roomsDelay']) ? $_GET['roomsDelay'] : 30?>
+</script>
 <script src="js/jquery-1.11.1.min.js" ></script>
 <script src="js/jquery.simpleWeather.min.js"></script>
 <script src="js/jquery-idletimer.js"></script>
