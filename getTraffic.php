@@ -13,6 +13,7 @@ print_r($xml);
 echo '</pre>';
 */
 
+
 $atrium = array(
     "Atrium: Living Room" => getSpaceTrafficFromID(1),
     "Atrium: Multi-Purpose Room" => getSpaceTrafficFromID(2),
@@ -44,11 +45,13 @@ $fourth = array(
     "4th Floor: Reading Room" => getSpaceTrafficFromID(16)
 );
 
+$meta = array("updated" => getLastUpdatedTime());
 
 
-if (isset($_GET['floor'])) {
 
-    switch ($_GET['floor']) {
+if (isset($_POST['floor'])) {
+
+    switch ($_POST['floor']) {
         case 'atrium':
             echo json_encode($atrium);
             break;
@@ -67,25 +70,30 @@ if (isset($_GET['floor'])) {
     }
 
 } else {
-    echo json_encode(array_merge($atrium, $first, $second, $third, $fourth));
+    echo json_encode(array_merge($atrium, $first, $second, $third, $fourth, $meta));
 }
 
 function loadDatafromDb(){
     $con = getConnection();
-    global $data;
+    global $data, $meta;
     if ($data == NULL){
         $query = "SELECT space, level FROM traffic WHERE entryID = (select max(entryID) from entries);";
         $db_result = $con->query($query);
         while ($space = $db_result->fetch_row()) {
             $data[$space[0]] = $space[1];
         }
-        $query = "SELECT DATE_FORMAT(time, '%r') FROM entries ORDER BY time DESC LIMIT 1;";
-        $db_result = $con->query($query);
-        $lastUpdated = $db_result->fetch_row();
-        
-        $data['updated'] = $lastUpdated[0];
+
     }
     return $data;
+}
+
+function getLastUpdatedTime(){
+    global $con;
+    $query = "SELECT DATE_FORMAT(time, '%h:%m %p') FROM entries ORDER BY time DESC LIMIT 1;";
+    $db_result = $con->query($query);
+    $lastUpdated = $db_result->fetch_row();
+
+    return $lastUpdated[0];
 }
 
 function getSpaceTrafficFromID($id){

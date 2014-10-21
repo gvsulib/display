@@ -2,12 +2,12 @@
 
 date_default_timezone_set('America/Detroit');
 
-if (isset($_GET['roomId'])) {
+if (isset($_POST['roomId'])) {
 
     $today = new dateTime();
     $today = $today->format('Y-m-d');
 
-    $url = 'http://gvsu.edu/reserve/files/cfc/functions.cfc?method=bookings&roomId='.$_GET['roomId'].'&startDate='.$today.'&endDate='.$today.'';
+    $url = 'http://gvsu.edu/reserve/files/cfc/functions.cfc?method=bookings&roomId='.$_POST['roomId'].'&startDate='.$today.'&endDate='.$today.'';
     $xml = new SimpleXMLElement(file_get_contents($url));
     
     echo $xml;
