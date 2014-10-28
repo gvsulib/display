@@ -5,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" type="text/css" href="http://gvsuliblabs.com/labs/opac/css/fonts.css" />
+    <script type="text/javascript" src="logging/log.php"></script>
 </head>
 
 <body>

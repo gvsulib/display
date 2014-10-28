@@ -1,0 +1,76 @@
+/*
+ * Navbar
+ */
+body {
+  padding-top: 50px; /* Move down content by height of fixed navbar (50px) */
+}
+
+.navbar-fixed-top {
+  border: 0;
+}
+
+.navbar-form > button {
+  margin-left: 10px;
+}
+
+
+/*
+ * Sidebars
+ */
+.sidebar {
+  display: none; /* Hide for mobile, show later */
+}
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 15px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-right: 1px solid #eee;
+  }
+}
+
+li > a.item {
+    padding: 10px;
+    cursor: default;
+    color: blue;
+}
+
+li > .hovertools {
+    position: absolute;
+    right: 6px;
+    top: 10px;
+    display: none;
+}
+li > .hovertools > a {
+    color: silver;
+}
+li > .hovertools > a:hover {
+    color: black;
+}
+li.active > .hovertools > a:hover {
+    color: yellow;
+}
+
+li:hover > .hovertools {
+    display: block;
+}
+
+
+/*
+ * Main content
+ */
+.main {
+  padding: 15px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+}
