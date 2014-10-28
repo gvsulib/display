@@ -110,7 +110,7 @@ function startTime() {
 
     if (h >= 12) {
         ampm = 'PM';
-        if (h > 13) {
+        if (h >= 13) {
             h = h - 12;
         }
 
