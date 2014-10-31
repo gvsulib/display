@@ -212,13 +212,13 @@ function getColor(traffic) {
     switch (traffic) {
         case '1':
         case '2':
-        case '5':
-            return 'green';
+	case '6':
+            return 'red';
         case '3':
             return 'yellow';
         case '4':
-        case '6':
-            return 'red';
+        case '5':
+            return 'green';
         default:
             return 'grey';
     }
