@@ -21,6 +21,10 @@ $( document ).ready(function() {
     setInterval(updateTime, 10 * seconds);
     $(document).on('idle.idleTimer',function(){selectFloor(floor)});
 
+    document.addEventListener("contextmenu", function(e){
+        e.preventDefault();
+    }, false);
+
 });
 
 function updateTime(){
