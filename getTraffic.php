@@ -89,7 +89,7 @@ function loadDatafromDb(){
 
 function getLastUpdatedTime(){
     global $con;
-    $query = "SELECT DATE_FORMAT(time, '%h:%m %p') FROM entries ORDER BY time DESC LIMIT 1;";
+    $query = "SELECT DATE_FORMAT(time, '%h:%m %p') FROM entries WHERE entryID = (select max(entryID) from entries);";
     $db_result = $con->query($query);
     $lastUpdated = $db_result->fetch_row();
 
