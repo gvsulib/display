@@ -5,7 +5,6 @@
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" type="text/css" href="http://gvsuliblabs.com/labs/opac/css/fonts.css" />
-    <script type="text/javascript" src="logging/log.php"></script>
 </head>
 
 <body>
@@ -231,6 +230,7 @@
 <script src="js/jquery-1.11.1.min.js" ></script>
 <script src="js/jquery.simpleWeather.min.js"></script>
 <script src="js/jquery-idletimer.js"></script>
+<script src="js/moment.js"></script>
 <script src="js/scripts.js"></script>
 
 </html>

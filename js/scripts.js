@@ -14,12 +14,22 @@ $( document ).ready(function() {
     getTraffic();
     getRoomAvailability();
     selectFloor(floor);
+    updateTime();
 
     setInterval(getTraffic, trafficDelay * minutes); // default 10 minutes
     setInterval(getRoomAvailability, roomsDelay * minutes); // default 3
-
+    setInterval(updateTime, 10 * seconds);
     $(document).on('idle.idleTimer',function(){selectFloor(floor)});
+
 });
+
+function updateTime(){
+    var now = moment();
+    $day = $("#day");
+    $time = $("#time");
+    $day.html(now.format("MMMM D"));
+    $time.html(now.format("h:mm A"));
+}
 
 $(".atrium-floor-button").click(function() {
     selectAtrium();
@@ -89,55 +99,6 @@ function resetButtons() {
 
     $( ".areas-container" ).children().hide();
 }
-
-function checkTime(i) {
-if (i < 10) {
-    i = "0" + i;
-}
-return i;
-}
-
-function startTime() {
-    var today = new Date();
-
-    var month = today.getMonth();
-    var day = today.getDate();
-
-    var h = today.getHours();
-    var m = today.getMinutes();
-    var s = today.getSeconds();
-    var ampm = 'AM';
-
-    if (h >= 12) {
-        ampm = 'PM';
-        if (h >= 13) {
-            h = h - 12;
-        }
-
-    }
-
-    // add a zero in front of numbers<10
-    m = checkTime(m);
-    s = checkTime(s);
-
-    document.getElementById('time').innerHTML = h + ":" + m + " " + ampm;
-    t = setTimeout(function () {
-        startTime()
-    }, 500);
-}
-startDay();
-
-
-function startDay() {
-    var today = new Date();
-    var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
-
-    document.getElementById('day').innerHTML = monthNames[today.getMonth()] + " " + today.getDate();
-    t = setTimeout(function () {
-        startTime()
-    }, 500);
-}
-startDay();
 
 
 getWeather(); //Get the initial weather.
