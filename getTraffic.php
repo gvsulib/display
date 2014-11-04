@@ -45,8 +45,6 @@ $fourth = array(
     "4th Floor: Reading Room" => getSpaceTrafficFromID(16)
 );
 
-$meta = array("updated" => getLastUpdatedTime());
-
 
 
 if (isset($_POST['floor'])) {
@@ -70,7 +68,7 @@ if (isset($_POST['floor'])) {
     }
 
 } else {
-    echo json_encode(array_merge($atrium, $first, $second, $third, $fourth, $meta));
+    echo json_encode(array_merge($atrium, $first, $second, $third, $fourth));
 }
 
 function loadDatafromDb(){
@@ -85,15 +83,6 @@ function loadDatafromDb(){
 
     }
     return $data;
-}
-
-function getLastUpdatedTime(){
-    global $con;
-    $query = "SELECT DATE_FORMAT(time, '%h:%m %p') FROM entries WHERE entryID = (select max(entryID) from entries);";
-    $db_result = $con->query($query);
-    $lastUpdated = $db_result->fetch_row();
-
-    return $lastUpdated[0];
 }
 
 function getSpaceTrafficFromID($id){

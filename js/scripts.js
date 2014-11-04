@@ -129,7 +129,7 @@ function getTraffic() {
     console.log('traffic getJSON ...');
     $.ajax({
         dataType: 'json',
-        url: 'getTraffic.php?cache' + new Date().getTime(),
+        url: 'getTraffic.php?cache=' + new Date().getTime(),
         method: "POST",
         success: parseData
     }).done(function () {
@@ -145,6 +145,14 @@ function getTraffic() {
         .always(function () {
             console.log('traffic getJSON request ended');
         });
+    $.ajax({
+        dataType: 'json',
+        url: 'lastUpdated.php?cache=' + new Date().getTime(),
+        method: "POST",
+        success: function(data){
+            $('#last-updated').html(data.updated);
+        }
+    });
 }
 
 
@@ -169,8 +177,6 @@ function parseData(data){
     $('#fourth_collaboration_space').removeClass().addClass(getColor(data["4th Floor: West Wing (Collaborative Space)"]));
     $('#fourth_reading_room').removeClass().addClass(getColor(data["4th Floor: Reading Room"]));
     $('#fourth_quiet_space').removeClass().addClass(getColor(data["4th Floor: East Wing (Quiet Space)"]));
-
-    $('#last-updated').html(data['updated']);
 }
 
 function getColor(traffic) {
