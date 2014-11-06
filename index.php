@@ -164,7 +164,14 @@
                 <div class="elevator">Elevator</div>
                 <div id="atrium_exhibition_room" class="grey">Exhibition Room</div>
                 <div id="atrium_seating_area" class="grey">Seating Area</div>
-                <div id="atrium_multipurpose_room" class="grey">Multipurpose<br>Room</div>
+                <div id="atrium_multipurpose_room" class="grey">
+                    <span>Multipurpose<br>Room</span>
+                </div>
+                <div id="mp-event">
+                Event:<br>
+                    <span id="mp-event-name"></span><br>
+                    <span id="mp-event-times"></span>
+                </div>
                 <div id="atrium_living_room" class="grey">Living<br>Room</div>
                 <div id="atrium_under_stairs" class="grey">Tables under Stairs</div>
             </div>

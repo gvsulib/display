@@ -378,6 +378,24 @@ i {
     width: 230px;
     height: 180px;
 }
+#atrium_multipurpose_room.event {
+    background-color: #F09B51;
+}
+#atrium_multipurpose_room.event span {
+    position: relative;
+    top: -50px;
+}
+#mp-event {
+    width: 200px;
+    height: 60px;
+    position: absolute;
+    top: 1410px;
+    left: 561px;
+    display: block;
+    text-align: center;
+    color: #FFF;
+}
+
 #atrium_living_room {
     top: -140px;
     left: 780px;

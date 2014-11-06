@@ -103,7 +103,10 @@ function getLastUpdatedTime(){
             $h -= 12;
         }
     }
-    return "$h:$m $ampm";
+    if ($h < 10){
+        $h = substr($h, 1);
+    }
+    return "$h:$m $ampm";   
 }
 
 function getSpaceTrafficFromID($id){

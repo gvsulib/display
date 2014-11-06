@@ -228,7 +228,8 @@ function getRoomAvailability() {
         r303:'7694',
         r305:'7696',
         r404:'7698',
-        r405:'7699'
+        r405:'7699',
+        r030:'7681'
     };
 
     for (var key in roomIds) {
@@ -252,7 +253,11 @@ function getRoomAvailability() {
         dataType: "json",
         success: function(data) {
             /* handle data here */
-            console.log(data);
+            if (roomId == '7681'){
+                updateMultiPurposeEventInfo(true,data);
+                return;
+            }
+            //console.log(data);
 
             $('#' + roomId).removeClass('grey').addClass("available");
 
@@ -268,12 +273,38 @@ function getRoomAvailability() {
 
         },
         error: function(xhr, status) {
+            if (roomId == '7681'){
+                updateMultiPurposeEventInfo(false);
+                return;
+            }
             /* handle error here */
             //console.log("ajax failed: " + status);
 
             $('#' + roomId).removeClass('grey').addClass("available");
         }
     });
+    
+    }
+
+
+}
+
+function updateMultiPurposeEventInfo(event,data){
+    var $mpr = jQuery("#atrium_multipurpose_room");
+    var $mpDetails = jQuery("#mp-event");
+    if (event && data){
+        var $mpName = jQuery("#mp-event-name"), $mpTimes = jQuery("#mp-event-times");
+        $mpr.addClass('event');
+        $mpDetails.show();
+        var inFormat = "HH:mm:ss";
+        var outFormat = "h:mm A";
+        var start = moment(data.TimeStart,inFormat);
+        var end = moment(data.TimeEnd,inFormat);
+        $mpName.html(data.GroupName);
+        $mpTimes.html(start.format(outFormat) + " - " + end.format(outFormat));
+    } else {
+        $mpr.removeClass('event');
+        $mpDetails.hide();
     }
 }
 
