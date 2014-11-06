@@ -281,6 +281,7 @@ function getRoomAvailability() {
             //console.log("ajax failed: " + status);
 
             $('#' + roomId).removeClass('grey').addClass("available");
+            $('#' + roomId).find('.reserved-by').html("");
         }
     });
     
