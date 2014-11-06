@@ -45,6 +45,8 @@ $fourth = array(
     "4th Floor: Reading Room" => getSpaceTrafficFromID(16)
 );
 
+$meta = array("updated" => getLastUpdatedTime());
+
 
 
 if (isset($_POST['floor'])) {
@@ -68,7 +70,7 @@ if (isset($_POST['floor'])) {
     }
 
 } else {
-    echo json_encode(array_merge($atrium, $first, $second, $third, $fourth));
+    echo json_encode(array_merge($atrium, $first, $second, $third, $fourth, $meta));
 }
 
 function loadDatafromDb(){
@@ -83,6 +85,25 @@ function loadDatafromDb(){
 
     }
     return $data;
+}
+
+function getLastUpdatedTime(){
+    global $con;
+    $query = "SELECT time FROM entries WHERE entryID = (select max(entryID) from entries);";
+    $db_result = $con->query($query);
+    $lastUpdated = $db_result->fetch_row();
+    $regex = "/\d+-\d+-\d+ (\d+):(\d+)/";
+    preg_match($regex,$lastUpdated[0],$times);
+    $h = $times[1];
+    $m = $times[2];
+    $ampm = "AM";
+    if ($h >= 12){
+        $ampm = "PM";
+        if ($h > 12){
+            $h -= 12;
+        }
+    }
+    return "$h:$m $ampm";
 }
 
 function getSpaceTrafficFromID($id){
