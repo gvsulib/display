@@ -314,7 +314,7 @@ function updateMultiPurposeEventInfo(event,data){
 var code = "4231";
 var codeSoFar = "";
 
-jQuery(".refresh").click(function(){
+jQuery("h2").click(function(){
     var num = jQuery(this).data("refresh");
     codeSoFar += num;
     if (!codeSoFar == code.substring(0,codeSoFar.length)){

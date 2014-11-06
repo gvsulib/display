@@ -25,23 +25,20 @@
 	</div>
 
 	<div class="notifications-container">
-        <div class="refresh" data-refresh="1"></div>
-		<h2>Notifications</h2>
+		<h2 data-refresh="1">Notifications</h2>
 		<!--<h3>GVSU is part of the Google Glass Explorer program. Stop by the Technology Showcase in the Atrium to try out the latest in wearable tech!</h3>-->
 
         <iframe width="100%" height="250" id="cpumap" src="http://www.gvsu.edu/events/slideshow-index.htm?slideshowId=48DC2DE5-F7C1-B484-FB7A1B7AAD7F9050"></iframe>
 	</div>
 
 	<div class="computer-availability-container">
-        <div class="refresh" data-refresh="2"></div>
-		<h2>Library Computer Availability</h2>
+		<h2 data-refresh="2">Library Computer Availability</h2>
 
 		<iframe width="100%" height="290" id="cpumap" style="padding-left: 20px; padding-right: 10px; padding-top: 10px;" src="http://gvsulib.com/labs/computer_availability/?x=true&amp;library=maryi&amp;notitle"></iframe>
 	</div>
 
 	<div class="room-availability-container">
-        <div class="refresh" data-refresh="3"></div>
-		<h2>Study Room Availability</h2>
+		<h2 data-refresh="3">Study Room Availability</h2>
 
         <ul class="traffic-legend" style="display: block;" id="room-traffic-legend">
             <li class="low"><div></div>Available</li>
@@ -145,8 +142,7 @@
 
 
 	<div class="traffic-map-container">
-        <div class="refresh" data-refresh="4"></div>
-		<h2>Library Traffic<small>Updated: <span id="last-updated"></span></small></h2>
+		<h2 data-refresh="4">Library Traffic<small>Updated: <span id="last-updated"></span></small></h2>
 
         <div class="spinner"></div>
 
