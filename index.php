@@ -28,7 +28,7 @@
 		<h2 data-refresh="1">Notifications</h2>
 		<!--<h3>GVSU is part of the Google Glass Explorer program. Stop by the Technology Showcase in the Atrium to try out the latest in wearable tech!</h3>-->
 
-        <iframe width="100%" height="250" id="cpumap" src="http://www.gvsu.edu/events/slideshow-index.htm?slideshowId=48DC2DE5-F7C1-B484-FB7A1B7AAD7F9050"></iframe>
+        <iframe width="100%" height="250" id="notifications" src="http://www.gvsu.edu/events/slideshow-index.htm?slideshowId=48DC2DE5-F7C1-B484-FB7A1B7AAD7F9050"></iframe>
 	</div>
 
 	<div class="computer-availability-container">

@@ -13,11 +13,13 @@ $( document ).ready(function() {
     resetButtons();
     getTraffic();
     getRoomAvailability();
+    updateComputerAvailability();
     selectFloor(floor);
     updateTime();
 
     setInterval(getTraffic, trafficDelay * minutes); // default 10 minutes
     setInterval(getRoomAvailability, roomsDelay * minutes); // default 3
+    setInterval(updateComputerAvailability, 2 * minutes);
     setInterval(updateTime, 10 * seconds);
     $(document).on('idle.idleTimer',function(){selectFloor(floor)});
 
@@ -26,6 +28,10 @@ $( document ).ready(function() {
     }, false);
 
 });
+function updateComputerAvailability(){
+    console.log('refreshing iframe');
+    jQuery('#cpumap').get(0).contentWindow.location = jQuery('#cpumap').attr('src');
+}
 
 function updateTime(){
     var now = moment();
