@@ -147,10 +147,11 @@
         <div class="spinner"></div>
 
 		<ul class="traffic-legend" id="area-traffic-legend">
-            <li><span class="star">&#9733;</span>Display</li>
+            <li class="display"><span class="star">&#9733;</span>Display</li>
 			<li class="low"><div></div>Low Traffic</li>
 			<li class="medium"><div></div>Medium Traffic</li>
 			<li class="high"><div></div>High Traffic</li>
+            <li class="event"><div></div>Event</li>
 		</ul>
 
         <div class="areas-container">

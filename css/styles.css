@@ -380,6 +380,7 @@ i {
 }
 #atrium_multipurpose_room.event {
     background-color: #F09B51;
+    color: #FFF;
 }
 #atrium_multipurpose_room.event span {
     position: relative;
@@ -564,6 +565,11 @@ i {
 	margin-right: 5px;
 }
 
+.traffic-legend .display{
+    position: absolute;
+    right: 364px;
+}
+
 .traffic-legend .low div {
 	background-color: #6c6;
 }
@@ -572,6 +578,10 @@ i {
 }
 .traffic-legend .high div {
 	background-color: #c00;
+}
+
+.traffic-legend .event div {
+    background-color: #F09B51;
 }
 
 .traffic-legend li{
