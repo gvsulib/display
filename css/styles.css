@@ -462,7 +462,7 @@ i {
 
 .second-floor .here {
     top: 290px;
-    left: 310px;
+    left: 600px;
 }
 
 .second-floor .elevator {
@@ -476,7 +476,7 @@ i {
 
 .third-floor .here {
     top: 290px;
-    left: 310px;
+    left: 600px;
 }
 
 .third-floor .elevator {
@@ -523,7 +523,7 @@ i {
 
 .fourth-floor .here {
     top: 290px;
-    left: 310px;
+    left: 600px;
 }
 
 #fourth_reading_room {

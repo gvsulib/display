@@ -216,6 +216,7 @@ function getRoomAvailability() {
     7696 / 305 - Conference Style
     7698 / 404 - Conference Style
     7699 / 405 - Conference Style
+    7681 / 030 - Multi-Purpose Room
     */
 
     var roomIds = {
@@ -297,6 +298,7 @@ function getRoomAvailability() {
 }
 
 function updateMultiPurposeEventInfo(event,data){
+    console.log(data);
     var $mpr = jQuery("#atrium_multipurpose_room");
     var $mpDetails = jQuery("#mp-event");
     if (event && data){
