@@ -294,6 +294,11 @@ i {
     color: #222;
 }
 
+.orange {
+    background-color: #ff9900;
+    color: #222;
+}
+
 .red, .reserved {
     background-color: #c00;
     color: #fff;
@@ -379,7 +384,7 @@ i {
     height: 180px;
 }
 #atrium_multipurpose_room.event {
-    background-color: #F09B51;
+    background-color: #5525bf;
     color: #FFF;
 }
 #atrium_multipurpose_room.event span {
@@ -581,7 +586,7 @@ i {
 }
 
 .traffic-legend .event div {
-    background-color: #F09B51;
+    background-color: #5525bf;
 }
 
 .traffic-legend li{

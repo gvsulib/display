@@ -182,9 +182,10 @@ function parseData(data){
 function getColor(traffic) {
     switch (traffic) {
         case '1':
-        case '2':
-	case '6':
+	    case '6':
             return 'red';
+        case '2':
+            return 'orange';
         case '3':
             return 'yellow';
         case '4':
