@@ -295,7 +295,7 @@ i {
 }
 
 .orange {
-    background-color: #ff9900;
+    background-color: #ff9400;
     color: #222;
 }
 
@@ -378,8 +378,8 @@ i {
     margin-right: -200px;
 }
 #atrium_multipurpose_room {
-    top: 40px;
-    left: 50px;
+    top: -240px;
+    left: 510px;
     width: 230px;
     height: 180px;
 }
@@ -395,22 +395,22 @@ i {
     width: 200px;
     height: 60px;
     position: absolute;
-    top: 1410px;
-    left: 561px;
+    top: 1430px;
+    left: 630px;
     display: block;
     text-align: center;
     color: #FFF;
 }
 
 #atrium_living_room {
-    top: -140px;
-    left: 780px;
+    top: -130px;
+    left: 550px;
     height: 420px;
     padding-top: 180px;
 }
 #atrium_under_stairs {
     top: -160px;
-    left: 170px;
+    left: -90px;
     height: 240px;
     padding-top: 110px;
 
@@ -432,8 +432,8 @@ i {
     padding-top: 150px;
 }
 #first_cafe_seating {
-    top: 60px;
-    left: -340px;
+    top: -240px;
+    left: 80px;
     width: 300px;
     height: 300px;
     padding-top: 150px;
@@ -453,7 +453,7 @@ i {
     2nd floor
 */
 #second_quiet_space {
-    top: -320px;
+    top: -300px;
     left: 305px;
     width: 400px;
 }
@@ -512,7 +512,7 @@ i {
     padding-top: 160px;
 }
 #third_quiet_space {
-    top: -280px;
+    top: -260px;
     left: 30px;
     width: 400px;
 }
@@ -538,14 +538,14 @@ i {
     padding-top: 120px;
 }
 #fourth_collaboration_space {
-    top: 184px;
-    left: 409px;
+    top: 175px;
+    left: 400px;
     height: 350px;
     padding-top: 160px;
     width: 270px;
 }
 #fourth_quiet_space {
-    top: -320px;
+    top: -300px;
     left: 305px;
     width: 400px;
 }
@@ -570,11 +570,6 @@ i {
 	margin-right: 5px;
 }
 
-.traffic-legend .display{
-    position: absolute;
-    right: 364px;
-}
-
 .traffic-legend .low div {
 	background-color: #6c6;
 }
@@ -582,6 +577,9 @@ i {
 	background-color: #f7ec1e;
 }
 .traffic-legend .high div {
+    background-color: #ff9400;
+}
+.traffic-legend .full div {
 	background-color: #c00;
 }
 

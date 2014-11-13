@@ -151,6 +151,7 @@
 			<li class="low"><div></div>Low Traffic</li>
 			<li class="medium"><div></div>Medium Traffic</li>
 			<li class="high"><div></div>High Traffic</li>
+            <li class="full"><div></div>Full</li>
             <li class="event"><div></div>Event</li>
 		</ul>
 
