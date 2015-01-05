@@ -1,5 +1,17 @@
 <?php
-
+function checkIP(){
+    $ip = explode(".",_SERVER['REMOTE_ADDR']);
+    if (!(
+        ($ip[0] == "148" && $ip[1] == "61") ||
+        ($ip[0] == "35" && $ip[1] == "40") ||
+        ($ip[0] == "207" && $ip[1] == "72" &&
+            ($ip[2] >= 160 && $ip[2] <= 191)
+        ))
+    ){
+        die();
+    }
+}
+checkIP();
 date_default_timezone_set('America/Detroit');
 
 if (isset($_POST['roomId'])) {

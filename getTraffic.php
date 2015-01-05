@@ -1,4 +1,17 @@
 <?php
+function checkIP(){
+    $ip = explode(".",_SERVER['REMOTE_ADDR']);
+    if (!(
+        ($ip[0] == "148" && $ip[1] == "61") ||
+        ($ip[0] == "35" && $ip[1] == "40") ||
+        ($ip[0] == "207" && $ip[1] == "72" &&
+            ($ip[2] >= 160 && $ip[2] <= 191)
+        ))
+    ){
+        die();
+    }
+}
+checkIP();
 include('connection.php');
 $data;
 error_reporting(E_ALL);
@@ -46,8 +59,6 @@ $fourth = array(
 );
 
 $meta = array("updated" => getLastUpdatedTime());
-
-
 
 if (isset($_POST['floor'])) {
 
