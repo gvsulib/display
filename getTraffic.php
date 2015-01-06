@@ -1,6 +1,13 @@
 <?php
+include('connection.php');
 function checkIP(){
-    $ip = explode(".",$_SERVER['REMOTE_ADDR']);
+    $db = getConnection();
+    $ip = $_SERVER['REMOTE_ADDR'];
+    $ua = $_SERVER['HTTP_USER_AGENT'];
+    $db->query("INSERT INTO `access_log`
+            (accessid, system, ip, useragent, timestamp) VALUES
+            (NULL, 'display', '$ip', '$ua', SYSDATE())");
+    $ip = explode(".",$ip);
     if (!(
         ($ip[0] == "::1") ||
         ($ip[0] == "148" && $ip[1] == "61") ||
@@ -14,7 +21,6 @@ function checkIP(){
     }
 }
 checkIP();
-include('connection.php');
 $data;
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
