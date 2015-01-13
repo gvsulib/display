@@ -16,11 +16,13 @@ $( document ).ready(function() {
     updateComputerAvailability();
     selectFloor(floor);
     updateTime();
+    getMessages();
 
     setInterval(getTraffic, trafficDelay * minutes); // default 10 minutes
     setInterval(getRoomAvailability, roomsDelay * minutes); // default 3
     setInterval(updateComputerAvailability, 2 * minutes);
     setInterval(updateTime, 10 * seconds);
+    setInterval(getMessages, 20 * seconds);
     $(document).on('idle.idleTimer',function(){selectFloor(floor)});
 
     document.addEventListener("contextmenu", function(e){
@@ -138,16 +140,16 @@ function getMessages(){
         success: function(message){
             var container = jQuery('#message');
             var iframe = jQuery('#notifications');
-            if (message){
+            if (message != null && message != 'null'){
                 message = JSON.parse(message);
-                container.show();
-                iframe.hide();
+                container.fadeIn();
+                iframe.fadeOut();
                 container.find('.message-heading').text(message.heading);
                 container.find('.message-post-time').text('Alert: ' + moment(message.entrydate).format("h:mm A"));
                 container.find('p').text(message.body);
             } else {
-                container.hide();
-                iframe.show();
+                container.fadeOut();
+                iframe.fadeIn();
             }
         }
     });

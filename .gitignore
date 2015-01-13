@@ -3,3 +3,4 @@ logging/cache
 logging/password.php
 .idea/*
 connection.php
+password.php

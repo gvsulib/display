@@ -68,9 +68,9 @@ $fourth = array(
 
 $meta = array("updated" => getLastUpdatedTime());
 
-if (isset($_POST['floor'])) {
+if (isset($_GET['floor'])) {
 
-    switch ($_POST['floor']) {
+    switch ($_GET['floor']) {
         case 'atrium':
             echo json_encode($atrium);
             break;
