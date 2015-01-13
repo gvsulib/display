@@ -53,7 +53,10 @@ if (isset($_GET['delete'])){
 	}
 }
 $sql = "SELECT * FROM `status_messages` WHERE entryDate < NOW() AND NOW() < expirationDate";
-$messages  = $con->query($sql)->fetch_assoc();
+$res = $con->query($sql);
+if ($res){
+	$messages = $res->fetch_assoc();
+}
 ?>
 <!DOCTYPE html>
 <html>
