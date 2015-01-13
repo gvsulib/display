@@ -130,13 +130,36 @@ function getWeather() {
     });
 }
 
+function getMessages(){
+    jQuery.ajax({
+        datatype: 'json',
+        url: 'getMessages.php?cache=' + new Date().getTime(),
+        method: 'GET',
+        success: function(message){
+            var container = jQuery('#message');
+            var iframe = jQuery('#notifications');
+            if (message){
+                message = JSON.parse(message);
+                container.show();
+                iframe.hide();
+                container.find('.message-heading').text(message.heading);
+                container.find('.message-post-time').text('Alert: ' + moment(message.entrydate).format("h:mm A"));
+                container.find('p').text(message.body);
+            } else {
+                container.hide();
+                iframe.show();
+            }
+        }
+    });
+}
+
 function getTraffic() {
 
     console.log('traffic getJSON ...');
     $.ajax({
         dataType: 'json',
         url: 'getTraffic.php?cache=' + new Date().getTime(),
-        method: "POST",
+        method: "GET",
         success: parseData
     }).done(function () {
         console.log('traffic getJSON request succeeded!');
@@ -252,7 +275,7 @@ function getRoomAvailability() {
     function getRoomData(roomId) {
         $('#' + roomId).removeClass().addClass('grey').addClass('room-container');
         $.ajax({
-        type: "POST",
+        type: "GET",
         url: "getRoomAvailability.php",
         data: {
             roomId : roomId,
