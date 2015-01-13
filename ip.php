@@ -1,6 +1,7 @@
 <?php
 function checkIP(){
     $ip = explode(".",$_SERVER['REMOTE_ADDR']);
+    var_dump($ip);
     if (!(($ip[0] == '::1') ||
         ($ip[0] == "148" && $ip[1] == "61") ||
         ($ip[0] == "35" && $ip[1] == "40") ||
