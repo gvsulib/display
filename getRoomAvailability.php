@@ -1,7 +1,7 @@
 <?php
 function checkIP(){
     $ip = explode(".",$_SERVER['REMOTE_ADDR']);
-    if (!(
+    if (!(($ip[0] == '::1') ||
         ($ip[0] == "148" && $ip[1] == "61") ||
         ($ip[0] == "35" && $ip[1] == "40") ||
         ($ip[0] == "207" && $ip[1] == "72" &&
@@ -14,12 +14,13 @@ function checkIP(){
 checkIP();
 date_default_timezone_set('America/Detroit');
 
-if (isset($_POST['roomId'])) {
+if (isset($_GET['roomId'])) {
+
 
     $today = new dateTime();
     $today = $today->format('Y-m-d');
 
-    $url = 'http://gvsu.edu/reserve/files/cfc/functions.cfc?method=bookings&roomId='.$_POST['roomId'].'&startDate='.$today.'&endDate='.$today.'';
+    $url =  'http://gvsu.edu/reserve/files/cfc/functions.cfc?method=bookings&roomId='.$_GET['roomId'].'&startDate='.$today.'&endDate='.$today.'';
     $xml = new SimpleXMLElement(file_get_contents($url));
     
     echo $xml;
