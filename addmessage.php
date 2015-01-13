@@ -32,7 +32,7 @@ die();
 }
 include 'connection.php';
 $con = getConnection();
-if ($_POST){
+if ($_POST['entryDate'] && $_POST['expirationDate'] && $_POST['expirationTime'] && $_POST['entryTime'] && $_POST['heading'] && $_POST['body']){
 	$sql = "INSERT INTO `status_messages` (entryDate, expirationDate, heading, body) VALUES (STR_TO_DATE('" . $_POST['entryDate'] . " " . $_POST['entryTime'] . "', '%m/%d/%Y %H:%i'), STR_TO_DATE('" . $_POST['expirationDate'] . " " . $_POST['expirationTime'] . "', '%m/%d/%Y %H:%i'),  '" . $_POST['heading'] . "', '" . $_POST['body'] . "')";
 	if ($con->query($sql)){
 		$m = "Message added successfully.";
@@ -96,7 +96,7 @@ if ($res){
 		</table>
 	<?php } else { ?>
 	<h2>No current message. Why not add a new one?</h2>
-<?php } ?>
+<?php }?>
 <h1>Add Status Message</h1>
 <?php if ($m){?>
 <h2 style="color: <?php echo $e ? 'red' : 'darkgreen'; ?>"><?php echo $m;?></h2>
