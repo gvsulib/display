@@ -2,6 +2,7 @@
 function checkIP(){
     $ip = explode(".",$_SERVER['REMOTE_ADDR']);
     if (!(($ip[0] == '::1') ||
+        ($ip[0] == "127" && $ip[1] == "0" && $ip[2] == "0" && $ip[3] == "1") ||
         ($ip[0] == "148" && $ip[1] == "61") ||
         ($ip[0] == "35" && $ip[1] == "40") ||
         ($ip[0] == "207" && $ip[1] == "72" &&
@@ -36,6 +37,8 @@ if (isset($_GET['roomId'])) {
         $hour_from_now = $now->add(new DateInterval('PT1H'));
         $hour_from_now = $hour_from_now->format('H:i:00');
 
+        $reservationID = $reservation->ReservationID;
+
         /*
         echo strtotime($hour_from_now);
         echo '<br>' . strtotime($timeStart);
@@ -62,7 +65,8 @@ if (isset($_GET['roomId'])) {
                     "TimeEnd" => $timeEnd,
                     "Now" => $now_format,
                     "EventName" => formatEventName((string)$reservation->EventName),
-                    "Status" => "reserved"
+                    "Status" => "reserved",
+                    "ReservationId" => $reservationID
                 );
 
                 echo json_encode($reservations);
@@ -77,7 +81,8 @@ if (isset($_GET['roomId'])) {
                     "TimeEnd" => $timeEnd,
                     "Now" => $now_format,
                     "EventName" => formatEventName((string)$reservation->EventName),
-                    "Status" => "reserved_soon"
+                    "Status" => "reserved_soon",
+                    "ReservationId" => $reservationID
                 );
 
                 echo json_encode($reservations);

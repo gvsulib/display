@@ -10,6 +10,7 @@ function checkIP(){
     $ip = explode(".",$ip);
     if (!(
         ($ip[0] == "::1") ||
+        ($ip[0] == "127" && $ip[1] == "0" && $ip[2] == "0" && $ip[3] == "1") ||
         ($ip[0] == "148" && $ip[1] == "61") ||
         ($ip[0] == "35" && $ip[1] == "40") ||
         ($ip[0] == "207" && $ip[1] == "72" &&
@@ -125,7 +126,7 @@ function getLastUpdatedTime(){
     if ($h < 10){
         $h = substr($h, 1);
     }
-    return "$h:$m $ampm";   
+    return "$h:$m";   
 }
 
 function getSpaceTrafficFromID($id){
