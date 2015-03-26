@@ -7,10 +7,10 @@ function checkIP(){
         ($ip[0] == "35" && $ip[1] == "40") ||
         ($ip[0] == "207" && $ip[1] == "72" &&
             ($ip[2] >= 160 && $ip[2] <= 191)
-        ))
-    ){
+            ))
+        ){
         die();
-    }
+}
 }
 checkIP();
 date_default_timezone_set('America/Detroit');
@@ -26,7 +26,13 @@ if (isset($_GET['roomId'])) {
     
     echo $xml;
 
-    foreach ($xml->Data as $reservation) {
+    $sortable = array();
+    foreach($xml->Data as $node) {
+        $sortable[] = $node;
+    }
+    usort($sortable,'compareTime');
+
+    foreach ($sortable as $reservation) {
 
         $timeStart = substr($reservation->TimeEventStart, strpos($reservation->TimeEventStart, "T") + 1);
         $timeEnd = substr($reservation->TimeEventEnd, strpos($reservation->TimeEventEnd, "T") + 1);
@@ -57,37 +63,37 @@ if (isset($_GET['roomId'])) {
         //if ($reservation->GroupName != "GVSU-API User") {
 
             //
-            if (strtotime($now_format) > strtotime($timeStart) && strtotime($now_format) < strtotime($timeEnd)) {
-                $reservations = array(
-                    "Room" => (string)$reservation->Room,
-                    "GroupName" => groupName((string)$reservation->GroupName, $timeEnd, $timeStart, $reservation),
-                    "TimeStart" => $timeStart,
-                    "TimeEnd" => $timeEnd,
-                    "Now" => $now_format,
-                    "EventName" => formatEventName((string)$reservation->EventName),
-                    "Status" => "reserved",
-                    "ReservationId" => $reservationID
+        if (strtotime($now_format) > strtotime($timeStart) && strtotime($now_format) < strtotime($timeEnd)) {
+            $reservations = array(
+                "Room" => (string)$reservation->Room,
+                "GroupName" => groupName((string)$reservation->GroupName, $timeEnd, $timeStart, $reservation),
+                "TimeStart" => $timeStart,
+                "TimeEnd" => $timeEnd,
+                "Now" => $now_format,
+                "EventName" => formatEventName((string)$reservation->EventName),
+                "Status" => "reserved",
+                "ReservationId" => $reservationID
                 );
 
-                echo json_encode($reservations);
-                break;
+            echo json_encode($reservations);
+            break;
 
-            } else if (strtotime($hour_from_now) > strtotime($timeStart) && strtotime($hour_from_now) < strtotime($timeEnd)) {
+        } else if (strtotime($hour_from_now) > strtotime($timeStart) && strtotime($hour_from_now) < strtotime($timeEnd)) {
 
-                $reservations = array(
-                    "Room" => (string)$reservation->Room,
-                    "GroupName" => groupName((string)$reservation->GroupName, $timeEnd, $timeStart, $reservation),
-                    "TimeStart" => $timeStart,
-                    "TimeEnd" => $timeEnd,
-                    "Now" => $now_format,
-                    "EventName" => formatEventName((string)$reservation->EventName),
-                    "Status" => "reserved_soon",
-                    "ReservationId" => $reservationID
+            $reservations = array(
+                "Room" => (string)$reservation->Room,
+                "GroupName" => groupName((string)$reservation->GroupName, $timeEnd, $timeStart, $reservation),
+                "TimeStart" => $timeStart,
+                "TimeEnd" => $timeEnd,
+                "Now" => $now_format,
+                "EventName" => formatEventName((string)$reservation->EventName),
+                "Status" => "reserved_soon",
+                "ReservationId" => $reservationID
                 );
 
-                echo json_encode($reservations);
-                break;
-            }
+            echo json_encode($reservations);
+            break;
+        }
 
         //}
 
@@ -110,9 +116,13 @@ function formatEventName($EventName) {
 	if (strpos($EventName, "-") !== FALSE) {
 		$start = strpos($EventName, "-") + 1;
 		return substr($EventName, $start);
-	
+       
 	} else {
-	return $EventName;
-	}
+       return $EventName;
+   }
 
+}
+
+function compareTime($a,$b){
+    return strnatcmp($a->TimeEventStart, $b->TimeEventStart);
 }
