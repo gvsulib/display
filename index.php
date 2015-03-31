@@ -44,7 +44,7 @@
         <ul class="traffic-legend" style="display: block;" id="room-traffic-legend">
             <li class="low"><div></div>Available</li>
             <li class="medium"><div></div>Reserved soon</li>
-            <li class="high"><div></div>Reserved</li>
+            <li class="full"><div></div>Reserved</li>
         </ul>
 
 		<ul class="room-availability-floors">
