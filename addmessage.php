@@ -1,7 +1,8 @@
 <?php
 session_start();
-if ($_SESSION['check'] != TRUE){ 
-	if ($_POST['password'] ){
+$m = null;
+if (!isset($_SESSION['check'])){ 
+	if (isset($_POST['password'])){
 		require 'password.php';
 		if ($password == sha1($_POST['password'])){
 			$_SESSION['check'] = TRUE;
@@ -13,8 +14,8 @@ if ($_SESSION['check'] != TRUE){
 		<title>Login</title>
 		<style>
 			html, body{
-			font-family: Arial, Helvetica;
-			text-align: center;
+				font-family: Arial, Helvetica;
+				text-align: center;
 			}
 		</style>
 	</head>
@@ -26,22 +27,25 @@ if ($_SESSION['check'] != TRUE){
 		</form>
 	</body>
 	</html>
-<?php
-die();
+	<?php
+	die();
 }
 }
 include 'connection.php';
 $con = getConnection();
-if ($_POST['entryDate'] && $_POST['expirationDate'] && $_POST['expirationTime'] && $_POST['entryTime'] && $_POST['heading'] && $_POST['body']){
-	$sql = "INSERT INTO `status_messages` (entryDate, expirationDate, heading, body) VALUES (STR_TO_DATE('" . $_POST['entryDate'] . " " . $_POST['entryTime'] . "', '%m/%d/%Y %H:%i'), STR_TO_DATE('" . $_POST['expirationDate'] . " " . $_POST['expirationTime'] . "', '%m/%d/%Y %H:%i'),  '" . $_POST['heading'] . "', '" . $_POST['body'] . "')";
-	if ($con->query($sql)){
-		$m = "Message added successfully.";
-		$e = FALSE;
-	} else {
-		$m = "Error adding message.";
-		$e = TRUE;
+if ($_POST){
+	if ($_POST['entryDate'] && $_POST['expirationDate'] && $_POST['expirationTime'] && $_POST['entryTime'] && $_POST['heading'] && $_POST['body']){
+		$sql = "INSERT INTO `status_messages` (entryDate, expirationDate, heading, body, display) VALUES (STR_TO_DATE('" . $_POST['entryDate'] . " " . $_POST['entryTime'] . "', '%m/%d/%Y %H:%i'), STR_TO_DATE('" . $_POST['expirationDate'] . " " . $_POST['expirationTime'] . "', '%m/%d/%Y %H:%i'),  '" . $_POST['heading'] . "', '" . $_POST['body'] . "', '" . $_POST['display'] . "')";
+		if ($con->query($sql)){
+			$m = "Message added successfully.";
+			$e = FALSE;
+		} else {
+			$m = "Error adding message.";
+			$e = TRUE;
+		}
 	}
 }
+
 if (isset($_GET['delete'])){
 	$sql = "DELETE FROM `status_messages` WHERE messageId = " . $_GET['delete'];
 	if ($con->query($sql)){
@@ -54,9 +58,6 @@ if (isset($_GET['delete'])){
 }
 $sql = "SELECT * FROM `status_messages` WHERE entryDate < NOW() AND NOW() < expirationDate";
 $res = $con->query($sql);
-if ($res){
-	$messages = $res->fetch_assoc();
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -72,68 +73,90 @@ if ($res){
 </head>
 <body>
 	<h1>Current Message</h1>
-	<?php if ($messages){ ?>
+	<?php if ($res->num_rows){ ?>
 
-		<table cellpadding="5">
-			<thead>
-				<tr>
-					<th>Post Date</th>
-					<th>Expiration Date</th>
-					<th>Heading</th>
-					<th>Body</th>
-					<th>Delete</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><?php echo $messages['entrydate']; ?></td>
-					<td><?php echo $messages['expirationdate']; ?></td>
-					<td><?php echo $messages['heading']; ?></td>
-					<td><?php echo $messages['body']; ?></td>
-					<td><a href="addMessage.php?delete=<?php echo $messages['messageid']; ?>">Delete</a></td>
-				</tr>
-			</tbody>
-		</table>
+	<table cellpadding="5">
+		<thead>
+			<tr>
+				<th>Post Date</th>
+				<th>Expiration Date</th>
+				<th>Heading</th>
+				<th>Body</th>
+				<th>Display</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php while ($message = $res->fetch_assoc()){ ?>
+			<tr>
+				<td><?php echo $message['entrydate']; ?></td>
+				<td><?php echo $message['expirationdate']; ?></td>
+				<td><?php echo $message['heading']; ?></td>
+				<td><?php echo $message['body']; ?></td>
+				<td>
+					<?php switch($message['display']){
+						case 0:
+							echo "Both";
+							break;
+						case 1:
+							echo "Event";
+							break;
+						case 2:
+							echo "Interactive";
+							break;
+						} ?>
+				</td>
+				<td><a href="addmessage.php?delete=<?php echo $message['messageid']; ?>">Delete</a></td>
+			</tr>
+			<?php } ?>
+		</tbody>
+	</table>
 	<?php } else { ?>
 	<h2>No current message. Why not add a new one?</h2>
-<?php }?>
-<h1>Add Status Message</h1>
-<?php if ($m){?>
-<h2 style="color: <?php echo $e ? 'red' : 'darkgreen'; ?>"><?php echo $m;?></h2>
-<?php } ?>
+	<?php }?>
+	<h1>Add Status Message</h1>
+	<?php if ($m){?>
+	<h2 style="color: <?php echo $e ? 'red' : 'darkgreen'; ?>"><?php echo $m;?></h2>
+	<?php } ?>
 
-<form method="post">
-	<label for="expirationDate">Entry Date/Time</label><br>
-	<input type="text" class="date" name="entryDate" id="entryDate" size="25">
-	<input type="text" class="time" name="entryTime" id="entryTime" size="10"><br>
-	<label for="expirationDate">Expiration Date/Time</label><br>
-	<input type="text" class="date" name="expirationDate" id="expirationDate" size="25">
-	<input class="time" type="text" name="expirationTime" id="expirationTime" size="10"><br>
-	<label for="heading">Heading</label><br>
-	<input type="text" size="50" maxlength="255"name="heading"><br>
-	<label for="body">Expiration Date/Time</label><br>
-	<textarea rows="4" cols="50"name="body"></textarea><br>
-	<input type="submit" value="Submit">
-</form>
-<script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/jquery.timepicker.js"></script>
-<script src="js/jquery.plugin.js"></script>
-<script src="js/jquery.datepick.js"></script>
-<script>
-jQuery(document).ready(function(){
-	jQuery('.time').timepicker({
-        timeFormat: 'H:i'
-    });
-	jQuery('.date').datepick({minDate: new Date()});
-	jQuery('#entryDate').datepick('setDate', new Date());
-	//round to nearest 5 minutes:
-	var coeff = 1000 * 60 * 5;
-	var rounded = new Date(
-		Math.round(
-			(new Date).getTime() / coeff) * coeff);
-	jQuery('#entryTime').val(rounded.getHours() + ':' + rounded.getMinutes()).trigger('change');
+	<form method="post">
+		<label for="expirationDate">Entry Date/Time</label><br>
+		<input type="text" class="date" name="entryDate" id="entryDate" size="25" required>
+		<input type="text" class="time" name="entryTime" id="entryTime" size="10" required><br>
+		<label for="expirationDate">Expiration Date/Time</label><br>
+		<input type="text" class="date" name="expirationDate" id="expirationDate" size="25" required>
+		<input class="time" type="text" name="expirationTime" id="expirationTime" size="10" required><br>
+		<label for="heading">Heading</label><br>
+		<input type="text" size="50" maxlength="255"name="heading" required><br>
+		<label for="body">Message</label><br>
+		<textarea rows="4" cols="50"name="body" required></textarea><br>
+		<label for="display">Where to display</label>
+		<select name="display" id="display">
+			<option value="0">Both</option>
+			<option value="1">Event</option>
+			<option value="2">Interactive</option>
+		</select><br>
+		<input type="submit" value="Submit">
+	</form>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.timepicker.js"></script>
+	<script src="js/jquery.plugin.js"></script>
+	<script src="js/jquery.datepick.js"></script>
+	<script>
+		jQuery(document).ready(function(){
+			jQuery('.time').timepicker({
+				timeFormat: 'H:i'
+			});
+			jQuery('.date').datepick({minDate: new Date()});
+			jQuery('#entryDate').datepick('setDate', new Date());
+			//round to nearest 5 minutes:
+			var coeff = 1000 * 60 * 5;
+			var rounded = new Date(
+				Math.round(
+					(new Date).getTime() / coeff) * coeff);
+			jQuery('#entryTime').val(rounded.getHours() + ':' + rounded.getMinutes()).trigger('change');
 });
 
-</script>
+	</script>
 </body>
 </html>
