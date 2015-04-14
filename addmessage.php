@@ -143,6 +143,10 @@ $res = $con->query($sql);
 	<script src="js/jquery.plugin.js"></script>
 	<script src="js/jquery.datepick.js"></script>
 	<script>
+
+		function padDigits(number, digits) {
+			return Array(Math.max(digits - String(number).length + 1, 0)).join(0) + number;
+		}
 		jQuery(document).ready(function(){
 			jQuery('.time').timepicker({
 				timeFormat: 'H:i'
@@ -154,7 +158,7 @@ $res = $con->query($sql);
 			var rounded = new Date(
 				Math.round(
 					(new Date).getTime() / coeff) * coeff);
-			jQuery('#entryTime').val(rounded.getHours() + ':' + rounded.getMinutes()).trigger('change');
+			jQuery('#entryTime').val(rounded.getHours() + ':' + padDigits(rounded.getMinutes(),2)).trigger('change');
 });
 
 	</script>
