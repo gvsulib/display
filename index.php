@@ -118,6 +118,10 @@
                         <span class="room-name">303 - Lounge Style</span>
                         <span class="reserved-by"></span>
                     </li>
+                    <li class="room-container grey" id="7695">
+                        <span class="room-name">304 - Conference Style</span>
+                        <span class="reserved-by"></span>
+                    </li>
                     <li class="room-container grey" id="7696">
                         <span class="room-name">305 - Conference Style</span>
                         <span class="reserved-by"></span>

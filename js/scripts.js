@@ -239,6 +239,7 @@ function getRoomAvailability() {
     7692 / 216 - Seminar Room
     7693 / 302 - Conference Style
     7694 / 303 - Lounge Style
+    7695 / 304 - Conference Style
     7696 / 305 - Conference Style
     7698 / 404 - Conference Style
     7699 / 405 - Conference Style
@@ -259,6 +260,7 @@ function getRoomAvailability() {
         r216:'7692',
         r302:'7693',
         r303:'7694',
+        r304:'7695',
         r305:'7696',
         r404:'7698',
         r405:'7699',
