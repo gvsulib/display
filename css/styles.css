@@ -47,7 +47,7 @@ h2 {
 .logo-container, .date-time-container, .weather-container {
 	display: inline-block;
 	width: 350px;
-	height: 200px;
+	height: 150px;
 	vertical-align: top;
 }
 
@@ -60,7 +60,7 @@ h2 {
 	margin: 0 auto;
 	display: block;
 	vertical-align: center;
-	margin-top: 60px;
+	margin-top: 40px;
 }
 
 .date-time-container {
@@ -75,7 +75,7 @@ h2 {
 .date-time-container h3 {
 	font-size: 60px;
 	margin-bottom: 0;
-	margin-top: 30px;
+	margin-top: 15px;
 }
 
 .date-time-container h4 {
@@ -161,7 +161,7 @@ i {
 	font-family: 'AlternateGothic';
 	font-size: 100px;
 	text-align: center;
-	margin-top: 30px;
+	margin-top: 10px;
 }
 .weather-container span {
 	color: #fff;
@@ -179,7 +179,7 @@ i {
 /** NOTIFICATIONS **/
 
 .notifications-container {
-	height: 300px;
+	height: 240px;
 	background-color: #fff;
     background-repeat: no-repeat;
     background-position: bottom;
@@ -279,7 +279,7 @@ i {
 }
 
 .grey {
-    background-color: #eee;
+    background-color: #B9EE0D; /* #eee */
     color: #222;
 }
 
@@ -608,8 +608,8 @@ i {
 }
 
 .floors{
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin-top: 20px;
+    margin-bottom: 15px;
     margin-left: 40px;
     display: inline-block;
 }
@@ -712,4 +712,18 @@ i {
 #message p {
     padding-left: 30px;
     font-size: 25px;
+}
+
+.feedback {
+    background-color: white;
+}
+.feedback ul {
+    margin-top: 10px;
+}
+.feedback ul li {
+    display: inline;
+    margin: 0 8px;
+}
+.emojione {
+    font-size: 70px;
 }

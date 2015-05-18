@@ -17,6 +17,7 @@ $( document ).ready(function() {
     selectFloor(floor);
     updateTime();
     getMessages();
+    displayEmoji();
 
     setInterval(getTraffic, trafficDelay * minutes); // default 10 minutes
     setInterval(getRoomAvailability, roomsDelay * minutes); // default 3
@@ -30,6 +31,18 @@ $( document ).ready(function() {
     }, false);
 
 });
+
+function displayEmoji(){
+    emojione.imageType = 'svg';
+    emojione.sprites = true;
+    emojione.imagePathSVGSprites = 'img/emojione.sprites.svg'
+
+
+    jQuery('.feedback ul li').each(function(){
+        jQuery(this).html(emojione.toImage(jQuery(this).data('emoji')));
+    });
+}
+
 function updateComputerAvailability(){
     console.log('refreshing iframe');
     jQuery('#cpumap').get(0).contentWindow.location = jQuery('#cpumap').attr('src');

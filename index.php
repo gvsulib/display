@@ -3,8 +3,9 @@
 
 <head>
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" type="text/css" href="http://gvsuliblabs.com/labs/opac/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="css/emojione.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 
 <body>
@@ -29,13 +30,13 @@
 		<!--<h3>GVSU is part of the Google Glass Explorer program. Stop by the Technology Showcase in the Atrium to try out the latest in wearable tech!</h3>-->
         <div id="message"><h4 class="message-post-time"></h4>
         <h4 class="message-heading"></h4><p></p></div>
-        <iframe width="100%" height="250" id="notifications" src="http://www.gvsu.edu/events/slideshow-index.htm?slideshowId=48DC2DE5-F7C1-B484-FB7A1B7AAD7F9050"></iframe>
+        <iframe scrolling="no" width="100%" height="190" id="notifications" src="http://www.gvsu.edu/events/slideshow-index.htm?slideshowId=48DC2DE5-F7C1-B484-FB7A1B7AAD7F9050"></iframe>
 	</div>
 
 	<div class="computer-availability-container">
 		<h2 data-refresh="2">Library Computer Availability</h2>
 
-		<iframe width="100%" height="290" id="cpumap" style="padding-left: 20px; padding-right: 10px; padding-top: 10px;" src="http://gvsulib.com/labs/computer_availability/?x=true&amp;library=maryi&amp;notitle"></iframe>
+		<iframe width="100%" height="250" id="cpumap" style="padding-left: 20px; padding-right: 10px; padding-top: 10px;" src="http://localhost/computer_availability/?x=true&amp;library=maryi&amp;notitle"></iframe>
 	</div>
 
 	<div class="room-availability-container">
@@ -226,6 +227,17 @@
         </ul>
 
     </div>
+    <div class="feedback">
+    <h2>How are you feeling in the library today?</h2>
+    <ul>
+        <li data-emoji=":rage:" data-level="0"></li>
+        <li data-emoji=":angry:" data-level="1"></li>
+        <li data-emoji=":unamused:" data-level="2"></li>
+        <li data-emoji=":neutral_face:" data-level="3"></li>
+        <li data-emoji=":smile:" data-level="5"></li>
+        <li data-emoji=":smiley:" data-level="6"></li>
+        <li data-emoji=":heart_eyes:" data-level="7"></li>
+    </div>
 
 </div>
 
@@ -241,6 +253,7 @@
 <script src="js/jquery.simpleWeather.min.js"></script>
 <script src="js/jquery-idletimer.js"></script>
 <script src="js/moment.js"></script>
+<script src="js/emojione.min.js"></script>
 <script src="js/scripts.js"></script>
 
 </html>
