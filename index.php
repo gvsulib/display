@@ -247,7 +247,7 @@
         </div>
         <div class="modal modal2">
             <p>
-                We value your feedback and invite you to send us a text at (616) 810-0219 with any of your concerns.
+                We value your feedback and invite you to send us a text at (616) 818-0219 with any of your concerns.
             </p>
             <p>
                 You can also contact us at library@gvsu.edu or by talking to a staff member at the Service Desk.
