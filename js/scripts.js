@@ -1,3 +1,6 @@
+var xPosition = 0;
+var yPosition = 0;
+var lastClicked;
 $.ajaxSetup({ cache: false });
 $( document ).ready(function() {
     var seconds = 1000;
@@ -17,6 +20,7 @@ $( document ).ready(function() {
     selectFloor(floor);
     updateTime();
     getMessages();
+    displayEmoji();
 
     setInterval(getTraffic, trafficDelay * minutes); // default 10 minutes
     setInterval(getRoomAvailability, roomsDelay * minutes); // default 3
@@ -29,7 +33,80 @@ $( document ).ready(function() {
         e.preventDefault();
     }, false);
 
+    //hide modals if you click outside of them
+    jQuery(document).click(function(event) { 
+        if(!jQuery(event.target).closest('.feedback').length) {
+            jQuery('.modal').hide();
+        }
+    });
 });
+
+
+function sendFeedback(feedbackId){
+    console.log('sending feedback with id: ' + feedbackId);
+    console.log('and emotion id: ' + lastClicked);
+    jQuery.ajax({
+        url: 'feedback/send.php',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            feedbackId : feedbackId,
+            emotionId : lastClicked
+        },
+        success: function(data){
+            if (data['success'] == true){
+                success();
+            }
+        }
+    });
+}
+
+function success(){
+    jQuery('.modal').hide();
+    jQuery('.modal3').show();
+    setTimeout(function(){
+        jQuery('.modal').hide();
+    }, 5000);
+}
+
+function emojiClicked(emoji, e){
+    var level = emoji.data('level');
+    var bottom = jQuery('.modal1 ul').children().length / 3 * 50;
+    lastClicked = level;
+    if (level < 4){
+        jQuery('.modal1').css('bottom',bottom);
+        jQuery('.modal1').show();
+    } else {
+        jQuery('.feedback .modal').hide();
+        sendFeedback(null);
+    }
+}
+
+function displayEmoji(){
+    emojione.imageType = 'svg';
+    emojione.sprites = true;
+    emojione.imagePathSVGSprites = 'img/emojione.sprites.svg'
+
+
+    jQuery('.feedback ul.emojis li').each(function(){
+        var emoji = jQuery(this);
+        emoji.html(emojione.toImage(emoji.data('emoji')));
+        emoji.click(function(e){
+            emojiClicked(emoji,e);
+        });
+    });
+    jQuery('.feedback .modal1 ul li').click(function(){
+        var feedbackId = jQuery(this).data('id');
+        if (feedbackId != null && feedbackId >= 0){
+            sendFeedback(feedbackId);
+        }
+    })
+    jQuery('.feedback .modal1 .other').click(function(){
+        jQuery('.modal1').hide();
+        jQuery('.modal2').show();
+    });
+}
+
 function updateComputerAvailability(){
     console.log('refreshing iframe');
     jQuery('#cpumap').get(0).contentWindow.location = jQuery('#cpumap').attr('src');
@@ -62,20 +139,20 @@ $(".fourth-floor-button").click(function() {
 function selectFloor(floor){
     switch (floor) {
         case 0:
-            selectAtrium();
-            break;
+        selectAtrium();
+        break;
         case 1:
-            selectFirstFloor();
-            break;
+        selectFirstFloor();
+        break;
         case 2:
-            selectSecondFloor();
-            break;
+        selectSecondFloor();
+        break;
         case 3:
-            selectThirdFloor();
-            break;
+        selectThirdFloor();
+        break;
         case 4:
-            selectFourthFloor();
-            break;
+        selectFourthFloor();
+        break;
     }
 }
 
@@ -169,13 +246,13 @@ function getTraffic() {
         $('.areas-container').fadeIn();
         $('.traffic-legend').fadeIn();
     })
-        .fail(function (jqXHR, textStatus, errorThrown) {
-            console.log('traffic getJSON request failed ' + textStatus);
-            console.log('traffic getJSON begin another attempt...');
-        })
-        .always(function () {
-            console.log('traffic getJSON request ended');
-        });
+    .fail(function (jqXHR, textStatus, errorThrown) {
+        console.log('traffic getJSON request failed ' + textStatus);
+        console.log('traffic getJSON begin another attempt...');
+    })
+    .always(function () {
+        console.log('traffic getJSON request ended');
+    });
 }
 
 
@@ -207,17 +284,17 @@ function parseData(data){
 function getColor(traffic) {
     switch (traffic) {
         case '4':
-	    case '-1':
-            return 'red';
+        case '-1':
+        return 'red';
         case '3':
-            return 'orange';
+        return 'orange';
         case '2':
-            return 'yellow';
+        return 'yellow';
         case '1':
         case '0':
-            return 'green';
+        return 'green';
         default:
-            return 'grey';
+        return 'grey';
     }
 }
 
@@ -279,19 +356,19 @@ function getRoomAvailability() {
     function getRoomData(roomId) {
         $('#' + roomId).removeClass().addClass('grey').addClass('room-container');
         $.ajax({
-        type: "GET",
-        url: "getRoomAvailability.php",
-        data: {
-            roomId : roomId,
-            cacheKey: new Date().getTime()
-        },
-        dataType: "json",
-        success: function(data) {
-            /* handle data here */
-            if (roomId == '7681'){
-                updateMultiPurposeEventInfo(true,data);
-                return;
-            }
+            type: "GET",
+            url: "getRoomAvailability.php",
+            data: {
+                roomId : roomId,
+                cacheKey: new Date().getTime()
+            },
+            dataType: "json",
+            success: function(data) {
+                /* handle data here */
+                if (roomId == '7681'){
+                    updateMultiPurposeEventInfo(true,data);
+                    return;
+                }
             //console.log(data);
 
             $('#' + roomId).removeClass('grey').addClass("available");
@@ -319,8 +396,8 @@ function getRoomAvailability() {
             $('#' + roomId).find('.reserved-by').html("");
         }
     });
-    
-    }
+
+}
 
 
 }
