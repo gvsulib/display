@@ -61,12 +61,16 @@ function sendFeedback(feedbackId){
     });
 }
 
+function hideModals(s){
+    setTimeout(function(){
+        jQuery('.modal').hide();
+    }, s * seconds);
+}
+
 function success(){
     jQuery('.modal').hide();
     jQuery('.modal3').show();
-    setTimeout(function(){
-        jQuery('.modal').hide();
-    }, 5000);
+    hideModals(5);
 }
 
 function emojiClicked(emoji, e){
@@ -104,6 +108,7 @@ function displayEmoji(){
     jQuery('.feedback .modal1 .other').click(function(){
         jQuery('.modal1').hide();
         jQuery('.modal2').show();
+        hideModals(7);
     });
 }
 
