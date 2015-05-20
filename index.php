@@ -229,14 +229,14 @@
 
     </div>
     <div class="feedback">
-        <h2>How are you feeling in the library today?</h2>
+        <h2>How was your library expierience today? Touch below to let us know!</h2>
         <ul class="emojis">
             <li data-emoji=":rage:" data-level="1"></li>
-            <li data-emoji=":angry:" data-level="2"></li>
+            <!-- <li data-emoji=":angry:" data-level="2"></li> -->
             <li data-emoji=":unamused:" data-level="3"></li>
             <li data-emoji=":neutral_face:" data-level="4"></li>
             <li data-emoji=":smile:" data-level="5"></li>
-            <li data-emoji=":smiley:" data-level="6"></li>
+            <!-- <li data-emoji=":smiley:" data-level="6"></li> -->
             <li data-emoji=":heart_eyes:" data-level="7"></li>
         </ul>
         <div class="modal modal1" >

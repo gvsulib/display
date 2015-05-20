@@ -722,7 +722,7 @@ i {
 }
 .feedback ul.emojis li {
     display: inline;
-    margin: 0 8px;
+    margin: 0 39px;
 }
 .feedback .modal {
     position: fixed;

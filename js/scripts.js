@@ -64,7 +64,7 @@ function sendFeedback(feedbackId){
 function hideModals(s){
     setTimeout(function(){
         jQuery('.modal').hide();
-    }, s * seconds);
+    }, s * 1000);
 }
 
 function success(){
