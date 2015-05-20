@@ -1,3 +1,4 @@
+<?php include 'connection.php';?>
 <!DOCTYPE html>
 <html>
 
@@ -228,17 +229,36 @@
 
     </div>
     <div class="feedback">
-    <h2>How are you feeling in the library today?</h2>
-    <ul>
-        <li data-emoji=":rage:" data-level="0"></li>
-        <li data-emoji=":angry:" data-level="1"></li>
-        <li data-emoji=":unamused:" data-level="2"></li>
-        <li data-emoji=":neutral_face:" data-level="3"></li>
-        <li data-emoji=":smile:" data-level="5"></li>
-        <li data-emoji=":smiley:" data-level="6"></li>
-        <li data-emoji=":heart_eyes:" data-level="7"></li>
+        <h2>How are you feeling in the library today?</h2>
+        <ul class="emojis">
+            <li data-emoji=":rage:" data-level="1"></li>
+            <li data-emoji=":angry:" data-level="2"></li>
+            <li data-emoji=":unamused:" data-level="3"></li>
+            <li data-emoji=":neutral_face:" data-level="4"></li>
+            <li data-emoji=":smile:" data-level="5"></li>
+            <li data-emoji=":smiley:" data-level="6"></li>
+            <li data-emoji=":heart_eyes:" data-level="7"></li>
+        </ul>
+        <div class="modal modal1" >
+            <ul class="options">
+                <?php include 'feedback/options.php';?>
+                <li class="other"><span>Other</span></li>
+            </ul>
+        </div>
+        <div class="modal modal2">
+            <p>
+                We value your feedback and invite you to send us a text at (616) 810-0219 with any of your concerns.
+            </p>
+            <p>
+                You can also contact us at library@gvsu.edu or by talking to a staff member at the Service Desk.
+            </p>
+        </div>
+        <div class="modal modal3">
+            <p>
+                Thank you for your feedback!
+            </p>
+        </div>
     </div>
-
 </div>
 
 </body>
@@ -246,8 +266,6 @@
     var floor = <?php echo isset($_GET['floor']) ? $_GET['floor'] : 1;?>;
     var roomsDelay = <?php echo isset($_GET['roomsDelay']) ? $_GET['roomsDelay'] : 3;?>;
     var trafficDelay = <?php echo isset($_GET['trafficDelay']) ? $_GET['trafficDelay'] : 10;?>;
-
-
 </script>
 <script src="js/jquery-1.11.1.min.js" ></script>
 <script src="js/jquery.simpleWeather.min.js"></script>

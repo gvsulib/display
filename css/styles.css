@@ -334,7 +334,7 @@ i {
     color: #0000ff;
     width: 0px;
     height: 0px;
-    z-index: 999;
+    z-index: 3;
 }
 
 /* AREAS */
@@ -720,10 +720,51 @@ i {
 .feedback ul {
     margin-top: 10px;
 }
-.feedback ul li {
+.feedback ul.emojis li {
     display: inline;
     margin: 0 8px;
 }
+.feedback .modal {
+    position: fixed;
+    bottom: 0px;
+    width: auto;
+    text-align: center;
+    margin: 0 auto;
+    display: none;
+    cursor: pointer;
+    z-index: 4;
+}
+.feedback .modal2, .feedback .modal3{
+    font-size: 40px;
+    background: white;
+    border: 2px solid #646464;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+}
+.feedback .modal2 p {
+    margin: 10px;
+}
+.feedback .modal3 {
+    height: 170px;
+    padding-top: 60px;
+}
+.feedback .modal1 ul{
+    text-align: center;
+    margin: 0 auto;
+}
+.feedback .modal1 ul li {
+    background-color: white;
+    display: inline-block;
+    width: 30%;
+    font-size: 20px;
+    border: 2px solid #646464;
+    border-radius: 10px;
+    text-align: center;
+    padding: 5px;
+    min-height: 60px;
+}
+
 .emojione {
     font-size: 70px;
 }
