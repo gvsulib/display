@@ -764,6 +764,9 @@ i {
     padding: 5px;
     min-height: 60px;
 }
+.feedback .modal ul li.other {
+    font-size: 44px;
+}
 
 .emojione {
     font-size: 70px;

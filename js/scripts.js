@@ -71,7 +71,7 @@ function success(){
 
 function emojiClicked(emoji, e){
     var level = emoji.data('level');
-    var bottom = jQuery('.modal1 ul').children().length / 3 * 50;
+    var bottom = jQuery('.modal1 ul').children().length / 3 * 50 - 100;
     lastClicked = level;
     if (level < 4){
         jQuery('.modal1').css('bottom',bottom);
