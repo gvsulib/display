@@ -37,7 +37,7 @@
 	<div class="computer-availability-container">
 		<h2 data-refresh="2">Library Computer Availability</h2>
 
-		<iframe width="100%" height="250" id="cpumap" style="padding-left: 20px; padding-right: 10px; padding-top: 10px;" src="http://localhost/computer_availability/?x=true&amp;library=maryi&amp;notitle"></iframe>
+		<iframe width="100%" height="250" id="cpumap" style="padding-left: 20px; padding-right: 10px; padding-top: 10px;" src="http://gvsulib.com/labs/computer_availability/?x=true&amp;library=maryi&amp;notitle"></iframe>
 	</div>
 
 	<div class="room-availability-container">
@@ -232,12 +232,10 @@
         <h2>How was your library expierience today? Touch below to let us know!</h2>
         <ul class="emojis">
             <li data-emoji=":rage:" data-level="1"></li>
-            <!-- <li data-emoji=":angry:" data-level="2"></li> -->
-            <li data-emoji=":unamused:" data-level="3"></li>
-            <li data-emoji=":neutral_face:" data-level="4"></li>
-            <li data-emoji=":smile:" data-level="5"></li>
-            <!-- <li data-emoji=":smiley:" data-level="6"></li> -->
-            <li data-emoji=":heart_eyes:" data-level="7"></li>
+            <li data-emoji=":unamused:" data-level="2"></li>
+            <li data-emoji=":neutral_face:" data-level="3"></li>
+            <li data-emoji=":smile:" data-level="4"></li>
+            <li data-emoji=":heart_eyes:" data-level="5"></li>
         </ul>
         <div class="modal modal1" >
             <ul class="options">

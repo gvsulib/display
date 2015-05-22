@@ -39,6 +39,9 @@ $( document ).ready(function() {
             jQuery('.modal').hide();
         }
     });
+    jQuery('.logo-container').click(function(){
+        window.location.reload(true);
+    })
 });
 
 
