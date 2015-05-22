@@ -748,6 +748,7 @@ i {
 .feedback .modal3 {
     height: 170px;
     padding-top: 60px;
+    left: 0;
 }
 .feedback .modal1 ul{
     text-align: center;
