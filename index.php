@@ -229,7 +229,7 @@
 
     </div>
     <div class="feedback">
-        <h2>How was your library expierience today? Touch below to let us know!</h2>
+        <h2>How was your library experience today? Touch below to let us know!</h2>
         <ul class="emojis">
             <li data-emoji=":rage:" data-level="1"></li>
             <li data-emoji=":unamused:" data-level="2"></li>
