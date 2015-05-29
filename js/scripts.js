@@ -45,7 +45,7 @@ $( document ).ready(function() {
 });
 
 
-function sendFeedback(feedbackId){
+function sendFeedback(feedbackId,showContactInfo){
     console.log('sending feedback with id: ' + feedbackId);
     console.log('and emotion id: ' + lastClicked);
     jQuery.ajax({
@@ -58,7 +58,7 @@ function sendFeedback(feedbackId){
         },
         success: function(data){
             if (data['success'] == true){
-                success();
+                success(showContactInfo);
             }
         }
     });
@@ -70,10 +70,16 @@ function hideModals(s){
     }, s * 1000);
 }
 
-function success(){
+function success(showContactInfo){
     jQuery('.modal').hide();
-    jQuery('.modal3').show();
-    hideModals(5);
+    jQuery('.close').show();
+    if (showContactInfo){
+        jQuery('.modal2').show();
+        hideModals(7);
+    } else {
+        jQuery('.modal3').show();
+        hideModals(5);  
+    }
 }
 
 function emojiClicked(emoji, e){
@@ -85,7 +91,7 @@ function emojiClicked(emoji, e){
         jQuery('.modal1').show();
     } else {
         jQuery('.feedback .modal').hide();
-        sendFeedback(null);
+        sendFeedback(null,false);
     }
 }
 
@@ -105,13 +111,13 @@ function displayEmoji(){
     jQuery('.feedback .modal1 ul li').click(function(){
         var feedbackId = jQuery(this).data('id');
         if (feedbackId != null && feedbackId >= 0){
-            sendFeedback(feedbackId);
+            sendFeedback(feedbackId,false);
         }
     })
     jQuery('.feedback .modal1 .other').click(function(){
-        jQuery('.modal1').hide();
-        jQuery('.modal2').show();
-        hideModals(7);
+        
+        sendFeedback(-1,true);
+        
     });
 }
 

@@ -257,6 +257,7 @@
             </p>
         </div>
     </div>
+    <div class="modal close">Close</div>
 </div>
 
 </body>
