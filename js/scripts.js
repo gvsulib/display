@@ -75,7 +75,7 @@ function success(showContactInfo){
     jQuery('.close').show();
     if (showContactInfo){
         jQuery('.modal2').show();
-        hideModals(7);
+        hideModals(16);
     } else {
         jQuery('.modal3').show();
         hideModals(5);  
@@ -87,8 +87,9 @@ function emojiClicked(emoji, e){
     var bottom = jQuery('.modal1 ul').children().length / 3 * 50 - 100;
     lastClicked = level;
     if (level < 4){
-        jQuery('.modal1').css('bottom',bottom);
-        jQuery('.modal1').show();
+        //jQuery('.modal2').css('bottom',bottom);
+       // jQuery('.modal2').show();
+        sendFeedback(null, true);
     } else {
         jQuery('.feedback .modal').hide();
         sendFeedback(null,false);
