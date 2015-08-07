@@ -45,15 +45,15 @@ $( document ).ready(function() {
 });
 
 
-function sendFeedback(feedbackId,showContactInfo){
-    console.log('sending feedback with id: ' + feedbackId);
+function sendFeedback(showContactInfo){
+    
     console.log('and emotion id: ' + lastClicked);
     jQuery.ajax({
         url: 'feedback/send.php',
         type: 'POST',
         dataType: 'json',
         data: {
-            feedbackId : feedbackId,
+            
             emotionId : lastClicked
         },
         success: function(data){
@@ -84,15 +84,18 @@ function success(showContactInfo){
 
 function emojiClicked(emoji, e){
     var level = emoji.data('level');
-    var bottom = jQuery('.modal1 ul').children().length / 3 * 50 - 100;
+    
     lastClicked = level;
     if (level < 4){
-        //jQuery('.modal2').css('bottom',bottom);
-       // jQuery('.modal2').show();
-        sendFeedback(null, true);
+        
+        
+       	jQuery('.modal1').show();
+       	 jQuery('.close').show();
+       	hideModals(16);
+       
     } else {
         jQuery('.feedback .modal').hide();
-        sendFeedback(null,false);
+        sendFeedback(false);
     }
 }
 
@@ -109,17 +112,13 @@ function displayEmoji(){
             emojiClicked(emoji,e);
         });
     });
-    jQuery('.feedback .modal1 ul li').click(function(){
-        var feedbackId = jQuery(this).data('id');
-        if (feedbackId != null && feedbackId >= 0){
-            sendFeedback(feedbackId,false);
-        }
+    jQuery('.feedback .modal1 span').click(function(){
+        	jQuery('.modal1').hide();
+        	 jQuery('.close').hide();
+            sendFeedback(true);
+            
     })
-    jQuery('.feedback .modal1 .other').click(function(){
-        
-        sendFeedback(-1,true);
-        
-    });
+
 }
 
 function updateComputerAvailability(){

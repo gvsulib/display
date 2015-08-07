@@ -238,10 +238,10 @@
             <li data-emoji=":heart_eyes:" data-level="5"></li>
         </ul>
         <div class="modal modal1" >
-            <ul class="options">
-                <?php include 'feedback/options.php';?>
-                <li class="other"><span>Other</span></li>
-            </ul>
+           
+           <P>We are sorry you are sad!  Is there anything we can do to help?</P>
+           <P><span>Yes, I have a complaint or need help!</span><P>
+           
         </div>
         <div class="modal modal2">
             <p>
