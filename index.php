@@ -231,11 +231,12 @@
     <div class="feedback">
         <h2>How was your library experience today? Touch below to let us know!</h2>
         <ul class="emojis">
-            <li data-emoji=":rage:" data-level="1"></li>
-            <li data-emoji=":unamused:" data-level="2"></li>
-            <li data-emoji=":neutral_face:" data-level="3"></li>
-            <li data-emoji=":smile:" data-level="4"></li>
-            <li data-emoji=":heart_eyes:" data-level="5"></li>
+        	<li data-emoji=":heart_eyes:" data-level="5"></li>
+        	<li data-emoji=":smile:" data-level="4"></li>
+        	<li data-emoji=":neutral_face:" data-level="3"></li>
+        	<li data-emoji=":unamused:" data-level="2"></li>
+        	<li data-emoji=":rage:" data-level="1"></li>
+            
         </ul>
         <div class="modal modal1" >
            
