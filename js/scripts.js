@@ -58,11 +58,14 @@ function sendFeedback(showContactInfo){
             emotionId : lastClicked
         },
         success: function(data){
-                console.log('Data recorded to database');
+                console.log(data);
             if (data['success'] == true){
                 console.log('AJAX call returned success');
                 success(showContactInfo);
             }
+        },
+        error: function(data) {
+            console.log(data);
         }
     });
 }
@@ -95,7 +98,7 @@ function emojiClicked(emoji, e){
         
         
        	jQuery('.modal1').show();
-       	 jQuery('.close').show();
+       	jQuery('.close').show();
        	hideModals(16);
        
     } else {
@@ -119,7 +122,7 @@ function displayEmoji(){
     });
     jQuery('.feedback .modal1 span').click(function(){
         	jQuery('.modal1').hide();
-        	 jQuery('.close').hide();
+        	jQuery('.close').hide();
             sendFeedback(true);
             
     })
