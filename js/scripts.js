@@ -58,6 +58,7 @@ function sendFeedback(showContactInfo){
             emotionId : lastClicked
         },
         success: function(data){
+                console.log('Data recorded to database');
             if (data['success'] == true){
                 console.log('AJAX call returned success');
                 success(showContactInfo);
