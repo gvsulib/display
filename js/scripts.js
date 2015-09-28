@@ -45,6 +45,7 @@ $( document ).ready(function() {
 });
 
 
+// Send emojii feedback to PHP script
 function sendFeedback(showContactInfo){
     
     console.log('and emotion id: ' + lastClicked);
@@ -58,6 +59,7 @@ function sendFeedback(showContactInfo){
         },
         success: function(data){
             if (data['success'] == true){
+                console.log('AJAX call returned success');
                 success(showContactInfo);
             }
         }
@@ -71,6 +73,8 @@ function hideModals(s){
 }
 
 function success(showContactInfo){
+    console.log('Running Success function');
+    console.log(showContactInfo);
     jQuery('.modal').hide();
     jQuery('.close').show();
     if (showContactInfo){
