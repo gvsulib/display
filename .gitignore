@@ -4,3 +4,4 @@ logging/password.php
 .idea/*
 connection.php
 password.php
+authentication.php

@@ -7,7 +7,7 @@ function checkIP(){
         ($ip[0] == "35" && $ip[1] == "40") ||
         ($ip[0] == "207" && $ip[1] == "72" &&
             ($ip[2] >= 160 && $ip[2] <= 191)
-            ))
+            )
         ){
         die();
 }
@@ -15,14 +15,37 @@ function checkIP(){
 checkIP();
 date_default_timezone_set('America/Detroit');
 
+
+
+
 if (isset($_GET['roomId'])) {
 
 
     $today = new dateTime();
     $today = $today->format('Y-m-d');
 
-    $url =  'http://gvsu.edu/reserve/files/cfc/functions.cfc?method=bookings&roomId='.$_GET['roomId'].'&startDate='.$today.'&endDate='.$today.'';
-    $xml = new SimpleXMLElement(file_get_contents($url));
+	//neet to use HTTP authentication to get at API calls now
+	//get the credentials from an external file
+	require('authentication.php');
+
+    	$url =  'http://gvsu.edu/reserve/files/cfc/functions.cfc?method=bookings&roomId='.$_GET['roomId'].'&startDate='.$today.'&endDate='.$today.'';
+ 	$ch = curl_init();
+
+	//curl seems to be the only option on our server in which to negociate HTTP authentication in PHP
+
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_USERPWD, "$username:$password");
+	$result = curl_exec($ch);
+	
+	//parse result as XML.  there's a problem here where if there are no bookings, 
+	//the API returns non-valid XML, in which case the next statement fails.
+	//I'm not fixing this because it results in an open room on the display,
+	//which is the desired behavior.
+	$xml = new SimpleXMLElement($result);
+	curl_close($ch);
+
     
     echo $xml;
 
