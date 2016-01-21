@@ -1,4 +1,8 @@
 <?php
+
+
+require('http.php');
+
 function checkIP(){
     $ip = explode(".",$_SERVER['REMOTE_ADDR']);
     if (!(($ip[0] == '::1') ||
@@ -8,14 +12,14 @@ function checkIP(){
         ($ip[0] == "207" && $ip[1] == "72" &&
             ($ip[2] >= 160 && $ip[2] <= 191)
             )
-        ){
-        die();
-}
-}
+        ))
+        {die();}
+	}
+
+
 checkIP();
+
 date_default_timezone_set('America/Detroit');
-
-
 
 
 if (isset($_GET['roomId'])) {
@@ -24,30 +28,59 @@ if (isset($_GET['roomId'])) {
     $today = new dateTime();
     $today = $today->format('Y-m-d');
 
-	//neet to use HTTP authentication to get at API calls now
+	//need to use HTTP authentication to get at API calls now
 	//get the credentials from an external file
+	
 	require('authentication.php');
 
-    	$url =  'http://gvsu.edu/reserve/files/cfc/functions.cfc?method=bookings&roomId='.$_GET['roomId'].'&startDate='.$today.'&endDate='.$today.'';
- 	$ch = curl_init();
-
+    	$url = 'http://www.gvsu.edu/reserve/files/cfc/functions.cfc?method=bookings&roomId='.$_GET['roomId'].'&startDate='.$today.'&endDate='.$today.'';
+ 	
+	$ch = curl_init();
 	//curl seems to be the only option on our server in which to negociate HTTP authentication in PHP
-
 	curl_setopt($ch, CURLOPT_URL, $url);
+	
+	curl_setopt($ch, CURLOPT_FAILONERROR, TRUE);
 	curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_USERPWD, "$username:$password");
 	$result = curl_exec($ch);
 	
-	//parse result as XML.  there's a problem here where if there are no bookings, 
-	//the API returns non-valid XML, in which case the next statement fails.
-	//I'm not fixing this because it results in an open room on the display,
-	//which is the desired behavior.
-	$xml = new SimpleXMLElement($result);
-	curl_close($ch);
+	//check the CURL request and make sure there's content.  If not, write curl errors to a file for debugging.
 
-    
-    echo $xml;
+	if ($result) {
+		
+ 		//parse result as XML.  there's a problem here where if there are no bookings,
+                //the API returns non-valid XML, in which case the next statement fails.
+                //I'm not fixing this because it results in an open room on the display,
+                //which is the desired behavior.
+
+                try {
+                        $xml = new SimpleXMLElement($result);
+                        echo $xml;
+                } catch (Exception $e) {
+                        $errlog = fopen("php_error_log.log", "a");
+                        $string = "XML error: " . $e->getMessage() . ":" . $result . $url . "\n";
+                        fwrite($errlog, $string);
+                        fclose($errlog);
+                        
+                }
+
+
+	} else {
+		$errlog = fopen("php_error_log.log", "w");
+
+                $string = "Curl Error: " . curl_error($ch) . ":" . $url . "\n";
+                //echo error message if the CURL request fails
+                fwrite($errlog, $string);
+                fclose($errlog);
+                
+		}
+
+		
+	
+
+
+	curl_close($ch);
 
     $sortable = array();
     foreach($xml->Data as $node) {

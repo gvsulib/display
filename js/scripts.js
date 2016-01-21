@@ -384,14 +384,16 @@ function getRoomAvailability() {
                 roomId : roomId,
                 cacheKey: new Date().getTime()
             },
-            dataType: "json",
-            success: function(data) {
-                /* handle data here */
+            dataType: "json", 
+            success: function(data,status) {
+                console.log('data: ' . data);
+		/* handle data here */
                 if (roomId == '7681'){
                     updateMultiPurposeEventInfo(true,data);
                     return;
                 }
-            //console.log(data);
+	 
+          
 
             $('#' + roomId).removeClass('grey').addClass("available");
 
@@ -406,13 +408,14 @@ function getRoomAvailability() {
             }
 
         },
-        error: function(xhr, status) {
+        error: function(xhr, status, httpStatus) {
             if (roomId == '7681'){
                 updateMultiPurposeEventInfo(false);
                 return;
             }
             /* handle error here */
-            //console.log("ajax failed: " + status);
+            console.log("ajax failed: " + status);
+		console.log(httpStatus);
 
             $('#' + roomId).removeClass('grey').addClass("available");
             $('#' + roomId).find('.reserved-by').html("");
