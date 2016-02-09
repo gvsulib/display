@@ -259,7 +259,7 @@ function getMessages(){
 
 function getTraffic() {
 
-    console.log('traffic getJSON ...');
+    console.log('Getting Traffic Data');
     $.ajax({
         dataType: 'json',
         url: 'getTraffic.php?cache=' + new Date().getTime(),
@@ -284,7 +284,18 @@ function getTraffic() {
 function parseData(data){
     $('#atrium_exhibition_room').removeClass().addClass(getColor(data["Atrium: Exhibition Room"]));
     $('#atrium_living_room').removeClass().addClass(getColor(data["Atrium: Living Room"]));
-    $('#atrium_multipurpose_room').removeClass().addClass(getColor(data["Atrium: Multi-Purpose Room"]));
+    
+    //the multipurpose room is a bit tricky-if there's an event, we don't want to overwright the color
+    //until the event is over.
+    $('#atrium_multipurpose_room').addClass(function(index, className) {
+    	if (className != "event") {
+    		this.removeClass();
+    		return getColor(data["Atrium: Multi-Purpose Room"])	
+    	} else {
+    		return "event";
+    	}
+    
+    });
     $('#atrium_seating_area').removeClass().addClass(getColor(data["Atrium: Seating Outside 001 and 002"]));
     $('#atrium_under_stairs').removeClass().addClass(getColor(data["Atrium: Tables under Stairs"]));
 
@@ -369,7 +380,10 @@ function updateRoomAvailability(data, status) {
         r405:'7699',
         r030:'7681'
     };
-	
+    
+    //check to see if the multipurpose room has an event in it as we loop through.  
+    //If it doesn't, make sure the event class and identifying information is hidden.
+	var multipurpose_event = false;
 	
 	for (var key in roomIds) {
 		$('#' + roomIds[key]).removeClass('grey').addClass("available");
@@ -396,9 +410,7 @@ function updateRoomAvailability(data, status) {
   		
   		//if the multipurpose room is reserved, grab some additional data and pass it to a 
   		//function that will update the traffic display
-  		if (code == "7681") {
-  			updateMultiPurposeEventInfo(true, bookings[i]);
-  		}
+  		
   			
   		//otherwise update the room display	
   		if (status == "reserved") {
@@ -410,7 +422,23 @@ function updateRoomAvailability(data, status) {
 
             $('#' + code + ' .reserved-by').text(groupname);
         }
+        //if the multipurpose room is reserved, grab some additional data and pass it to a 
+  		//function that will update the traffic display
+        
+        if (code == "7681") {
+  			updateMultiPurposeEventInfo(true, bookings[i]);
+  			multipurpose_event = 1;
+  		}
+        
   	}
+  	
+  	//if there's no event data for the multipurpose room, make sure the event data and color is removed.
+  	if (!multipurpose_event) {
+  		updateMultiPurposeEventInfo(false);
+  	}
+  	
+  	
+  	//now show the room display.
   	$('.room-availability-floors').fadeIn();
     $('#room-traffic-legend').fadeIn();
   	
@@ -451,81 +479,22 @@ function getRoomAvailability() {
     });
                 
 }		
-                
- //this is old code.  I'm keeping it a round for a bit in case I need it  
-	/*
-    for (var key in roomIds) {
-        if (roomIds.hasOwnProperty(key)) {
-            getRoomData(roomIds[key]);
-        }
-    }
 
-    $('.room-availability-floors').fadeIn();
-    $('#room-traffic-legend').fadeIn();
-
-    function getRoomData(roomId) {
-        $('#' + roomId).removeClass().addClass('grey').addClass('room-container');
-        $.ajax({
-            type: "GET",
-            url: "getRoomAvailability.php",
-            data: {
-                roomId : roomId,
-                cacheKey: new Date().getTime()
-            },
-            dataType: "json", 
-            success: function(data,status) {
-                console.log('data: ' . data);
-		
-                if (roomId == '7681'){
-                    updateMultiPurposeEventInfo(true,data);
-                    return;
-                }
-	 
-          
-
-            $('#' + roomId).removeClass('grey').addClass("available");
-
-            if (data["Status"] == "reserved") {
-                $('#' + roomId).removeClass('available').addClass(data["Status"]);
-
-                $('#' + roomId + ' .reserved-by').text(data["EventName"]);
-            } else if (data["Status"] == "reserved_soon") {
-                $('#' + roomId).removeClass('available').addClass(data["Status"]);
-
-                $('#' + roomId + ' .reserved-by').text(data["EventName"]);
-            }
-
-        },
-        error: function(xhr, status, httpStatus) {
-            if (roomId == '7681'){
-                updateMultiPurposeEventInfo(false);
-                return;
-            }
-            
-            console.log("ajax failed: " + status);
-		console.log(httpStatus);
-
-            $('#' + roomId).removeClass('grey').addClass("available");
-            $('#' + roomId).find('.reserved-by').html("");
-        }
-    });
-
-}
-
-
-}
-*/
+//this function changes the multipurpose room purple if there's an event in there, or removes the purple
+//if the event is over.                
 function updateMultiPurposeEventInfo(event,data){
     console.log("Updating Multipurpose room display...");
-    
+    var $mpr = jQuery("#atrium_multipurpose_room");
+    var $mpDetails = jQuery("#mp-event");
     var xml = data;
     
     var TimeStart = xml.getElementsByTagName("timestart")[0].innerHTML;
     var TimeEnd = xml.getElementsByTagName("timeend")[0].innerHTML;
     var GroupName = xml.getElementsByTagName("groupname")[0].innerHTML;
-    var EventName = xml.getElementsByTagName("eventname")[0].innerHTM;
-    var DisplayName = "Event";
+    var EventName = xml.getElementsByTagName("eventname")[0].innerHTML;
     
+    //Get a name for the event.
+    var DisplayName = "";
     if (GroupName) {
     	DisplayName = GroupName;
     } else if (EventName) {
@@ -533,27 +502,29 @@ function updateMultiPurposeEventInfo(event,data){
     
     }
     
-    
-    var $mpr = jQuery("#atrium_multipurpose_room");
-    var $mpDetails = jQuery("#mp-event");
-    
-    
     if (event && data){
-    	console.log("made it into the conditional");
-    	console.log(DisplayName + TimeStart + TimeEnd);
+    	
         var $mpName = jQuery("#mp-event-name"), $mpTimes = jQuery("#mp-event-times");
-       
-        $mpDetails.show();
         var inFormat = "HH:mm:ss";
         var outFormat = "h:mm A";
         var start = moment(TimeStart,inFormat);
         var end = moment(TimeEnd,inFormat);
+        console.log(DisplayName);
         $mpName.html(DisplayName);
         $mpTimes.html(start.format(outFormat) + " - " + end.format(outFormat));
-        $mpr.addClass('event');
+        $mpr.addClass(function(index, className) {
+        	if (className != "event") {
+        		$mpr.removeClass(className);
+        		return "event";
+        	}
+        
+        });
+        $mpDetails.show();
+        console.log("Multipurpose Event data posted to display");
     } else {
         $mpr.removeClass('event');
         $mpDetails.hide();
+        console.log("Event data removed from multipurpose room");
     }
 }
 

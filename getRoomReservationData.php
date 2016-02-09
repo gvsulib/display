@@ -52,12 +52,19 @@ $roomIDs = array(
     '7681' => '030', 
 );
 
+//begin constructing the XML file we will use to store the room data.
+//displays will access the data from that file.
+//we start by overwriting the file, if one is already there.
 $XML_File = fopen("RoomReservationData.xml", "w");
 $string = "<bookings>";
 
+//now open it to append.
 fwrite($XML_File, $string);
 fclose($XML_File);
  $XML_File = fopen("RoomReservationData.xml", "a");
+
+//the API requires that we reqyest data on each room as a separate URL.  So prepare to cycle throught he list of rooms, 
+//requesting data for each one, and storing it in the XML file as it's retrieved.
 
 foreach ($roomIDs as $EMSID => $roomNumber) {
 	$today = new dateTime();
@@ -67,9 +74,12 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 	//get the credentials from an external file
 	
 	require('authentication.php');
+	
+	//construct the request URL
     $url = 'http://www.gvsu.edu/reserve/files/cfc/functions.cfc?method=bookings&roomId='. $EMSID.'&startDate='.$today.'&endDate='.$today.'';
  	
 	$ch = curl_init();
+	
 	//curl seems to be the only option on our server in which to negociate HTTP authentication in PHP
 	//which is a requirement of the API
 	curl_setopt($ch, CURLOPT_URL, $url);
@@ -106,7 +116,7 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
         }
 	} else {
 		//if the curl request returns no data, log the error url and time and send an email
-		//then close and delete the previous XML file so that the display does not show old data
+		//then close and delete the XML file so that the display does not show old data
 		//then terminate the program
 		$now = date('H:i:00');
 		$errlog = fopen("php_error_log.log", "a");
@@ -126,7 +136,7 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 	curl_close($ch);
     $sortable = array();
     
-    //get each data block
+    //get each booking from the results.  Each booking is enclosed in <data> tags
     
     foreach($xml->Data as $node) {
         $sortable[] = $node;
@@ -135,7 +145,8 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
     //sort them by time
     usort($sortable,'compareTime');
    
-   	//extract the information from each one we will need to construct the xml document  the display will need
+   	// loop through the bookings, extracting the information from each one we will need to construct the xml document  
+   
    
     foreach ($sortable as $reservation) {
         
@@ -157,7 +168,9 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
      	//only the current reservation gets logged to the file.  We don't want to display a reservation an hour from now if there's
      	//someone in there now!
      	
-     	//also, I log a lot more information to the XML file than we need, but that's to make troubleshooting easier if there's a problem.
+     	//also, I log a lot more information to the XML file than we need, but that's to make troubleshooting easier 
+     	//if there's a problem.  also, we neeed more data for the multipurpose room display, which has to show event name and times
+     	//of the event if it's reserved.
         if (strtotime($now) > strtotime($timeStart) && strtotime($now) < strtotime($timeEnd)) {
         	
 			$string = "<room>";
@@ -233,6 +246,8 @@ function formatEventName($EventName) {
        return $EventName;
    }
 }
+//compares time values for sorting bookings
+
 function compareTime($a,$b){
     return strnatcmp($a->TimeEventStart, $b->TimeEventStart);
 }
