@@ -1,10 +1,13 @@
 var xPosition = 0;
 var yPosition = 0;
 var lastClicked;
-$.ajaxSetup({ cache: false });
+
+$.ajaxSetup({ cache: false }); 
+
 $( document ).ready(function() {
     var seconds = 1000;
     var minutes = seconds * 60;
+    
 
     $(document).idleTimer(30 * seconds);
     $('.areas-container').hide();
@@ -320,10 +323,11 @@ function getColor(traffic) {
     }
 }
 
-
-function getRoomAvailability() {
-    console.log('getting room availability data... ');
-
+//code that actually updates the room reservation display.  
+//gets it's input from the AJAX call below.
+function updateRoomAvailability(data, status) {
+	//start by turning all rooms green.  That means any rooms without explicit 
+	//reservation data will show as open.
     /*
     7678 / 003 - Media Prep Room
     7679 / 004 - Media Prep Room
@@ -365,7 +369,91 @@ function getRoomAvailability() {
         r405:'7699',
         r030:'7681'
     };
+	
+	
+	for (var key in roomIds) {
+		$('#' + roomIds[key]).removeClass('grey').addClass("available");
+        $('#' + roomIds[key]).find('.reserved-by').html("");
+	
+	}
+	//now get the reservation data, and overwrite any rooms with reservation information.
+	//the "if" clause should give priority to rooms that are reserved now, only showing 
+	//rooms about to be occupied if they have no current reservations.
+  	var bookings = data.getElementsByTagName("room");
+  		
+  	var code = "";
+	var groupname = "";
+	var status = "";	
+  		
+  	for (var i = 0; i < bookings.length; i++) { 
+  			  
+  		code = bookings[i].getElementsByTagName("roomcode")[0].innerHTML;
+  		groupname = bookings[i].getElementsByTagName("groupname")[0].innerHTML;
+  		status = bookings[i].getElementsByTagName("status")[0].innerHTML;
+  		//console.log(code);
+  		//console.log(status);
+  		//console.log(groupname);
+  		
+  		//if the multipurpose room is reserved, grab some additional data and pass it to a 
+  		//function that will update the traffic display
+  		if (code == "7681") {
+  			updateMultiPurposeEventInfo(true, bookings[i]);
+  		}
+  			
+  		//otherwise update the room display	
+  		if (status == "reserved") {
+            $('#' + code).removeClass('available').addClass(status);
 
+            $('#' + code + ' .reserved-by').text(groupname);
+        } else if (status == "reserved_soon") {
+            $('#' + code).removeClass('available').addClass(status);
+
+            $('#' + code + ' .reserved-by').text(groupname);
+        }
+  	}
+  	$('.room-availability-floors').fadeIn();
+    $('#room-traffic-legend').fadeIn();
+  	
+}
+
+//if the request for room data fails, show greyed out rooms with no data
+//This is called by the error section of the ajax request
+function roomBookingsErrorDisplay() {
+	
+	$('.room-availability-floors').fadeIn();
+    $('#room-traffic-legend').fadeIn();
+
+}
+ 
+//get the XML file with the room bookings data from the server.
+//pass it to the display function if successful.  If not, display an 
+//error message.
+function getRoomAvailability() {
+    
+
+	console.log("attempting to get room data...");
+  	$.ajax({
+    type: "GET",
+    cache: false,
+    url: "RoomReservationData.xml",
+    dataType: "xml", 
+    success: function(data,status) {
+    	console.log("room data retrieved: " + status);
+    	updateRoomAvailability(data, status);	
+    
+    },
+    error: function(object, status, erthrwn) {
+    	console.log("error: " + status);
+    	console.log("Error thrown: " + erthrwn);
+    	roomBookingsErrorDisplay();
+    	
+    	}, 
+    });
+                
+}		
+                
+ //this is old code.  I'm keeping it a round for a bit in case I need it  
+	/*
     for (var key in roomIds) {
         if (roomIds.hasOwnProperty(key)) {
             getRoomData(roomIds[key]);
@@ -387,7 +475,7 @@ function getRoomAvailability() {
             dataType: "json", 
             success: function(data,status) {
                 console.log('data: ' . data);
-		/* handle data here */
+		
                 if (roomId == '7681'){
                     updateMultiPurposeEventInfo(true,data);
                     return;
@@ -413,7 +501,7 @@ function getRoomAvailability() {
                 updateMultiPurposeEventInfo(false);
                 return;
             }
-            /* handle error here */
+            
             console.log("ajax failed: " + status);
 		console.log(httpStatus);
 
@@ -426,21 +514,43 @@ function getRoomAvailability() {
 
 
 }
-
+*/
 function updateMultiPurposeEventInfo(event,data){
-    console.log(data);
+    console.log("Updating Multipurpose room display...");
+    
+    var xml = data;
+    
+    var TimeStart = xml.getElementsByTagName("timestart")[0].innerHTML;
+    var TimeEnd = xml.getElementsByTagName("timeend")[0].innerHTML;
+    var GroupName = xml.getElementsByTagName("groupname")[0].innerHTML;
+    var EventName = xml.getElementsByTagName("eventname")[0].innerHTM;
+    var DisplayName = "Event";
+    
+    if (GroupName) {
+    	DisplayName = GroupName;
+    } else if (EventName) {
+    	DisplayName = EventName;
+    
+    }
+    
+    
     var $mpr = jQuery("#atrium_multipurpose_room");
     var $mpDetails = jQuery("#mp-event");
+    
+    
     if (event && data){
+    	console.log("made it into the conditional");
+    	console.log(DisplayName + TimeStart + TimeEnd);
         var $mpName = jQuery("#mp-event-name"), $mpTimes = jQuery("#mp-event-times");
-        $mpr.addClass('event');
+       
         $mpDetails.show();
         var inFormat = "HH:mm:ss";
         var outFormat = "h:mm A";
-        var start = moment(data.TimeStart,inFormat);
-        var end = moment(data.TimeEnd,inFormat);
-        $mpName.html(data.GroupName);
+        var start = moment(TimeStart,inFormat);
+        var end = moment(TimeEnd,inFormat);
+        $mpName.html(DisplayName);
         $mpTimes.html(start.format(outFormat) + " - " + end.format(outFormat));
+        $mpr.addClass('event');
     } else {
         $mpr.removeClass('event');
         $mpDetails.hide();

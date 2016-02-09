@@ -6,3 +6,4 @@ connection.php
 password.php
 authentication.php
 php_error_log.log
+RoomReservationData.xml
