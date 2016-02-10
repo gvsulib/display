@@ -289,7 +289,7 @@ function parseData(data){
     //until the event is over.
     $('#atrium_multipurpose_room').addClass(function(index, className) {
     	if (className != "event") {
-    		this.removeClass();
+    		
     		return getColor(data["Atrium: Multi-Purpose Room"])	
     	} else {
     		return "event";
@@ -337,6 +337,7 @@ function getColor(traffic) {
 //code that actually updates the room reservation display.  
 //gets it's input from the AJAX call below.
 function updateRoomAvailability(data, status) {
+	//console.log(data);
 	//start by turning all rooms green.  That means any rooms without explicit 
 	//reservation data will show as open.
     /*
@@ -394,7 +395,7 @@ function updateRoomAvailability(data, status) {
 	//the "if" clause should give priority to rooms that are reserved now, only showing 
 	//rooms about to be occupied if they have no current reservations.
   	var bookings = data.getElementsByTagName("room");
-  		
+  	//console.log(bookings);	
   	var code = "";
 	var groupname = "";
 	var status = "";	
@@ -426,6 +427,8 @@ function updateRoomAvailability(data, status) {
   		//function that will update the traffic display
         
         if (code == "7681") {
+        	console.log("bookings object");
+        	console.log(bookings[i]);
   			updateMultiPurposeEventInfo(true, bookings[i]);
   			multipurpose_event = 1;
   		}
@@ -483,26 +486,29 @@ function getRoomAvailability() {
 //this function changes the multipurpose room purple if there's an event in there, or removes the purple
 //if the event is over.                
 function updateMultiPurposeEventInfo(event,data){
+	
     console.log("Updating Multipurpose room display...");
     var $mpr = jQuery("#atrium_multipurpose_room");
     var $mpDetails = jQuery("#mp-event");
-    var xml = data;
-    
-    var TimeStart = xml.getElementsByTagName("timestart")[0].innerHTML;
-    var TimeEnd = xml.getElementsByTagName("timeend")[0].innerHTML;
-    var GroupName = xml.getElementsByTagName("groupname")[0].innerHTML;
-    var EventName = xml.getElementsByTagName("eventname")[0].innerHTML;
-    
-    //Get a name for the event.
-    var DisplayName = "";
-    if (GroupName) {
-    	DisplayName = GroupName;
-    } else if (EventName) {
-    	DisplayName = EventName;
-    
-    }
     
     if (event && data){
+    	var xml = data;
+    
+    	var TimeStart = xml.getElementsByTagName("timestart")[0].innerHTML;
+    	var TimeEnd = xml.getElementsByTagName("timeend")[0].innerHTML;
+    	var GroupName = xml.getElementsByTagName("groupname")[0].innerHTML;
+    	var EventName = xml.getElementsByTagName("eventname")[0].innerHTML;
+    
+    	//Get a name for the event.
+    	var DisplayName = "";
+    	if (GroupName) {
+    		DisplayName = GroupName;
+    	} else if (EventName) {
+    		DisplayName = EventName;
+    
+    	}
+    
+    
     	
         var $mpName = jQuery("#mp-event-name"), $mpTimes = jQuery("#mp-event-times");
         var inFormat = "HH:mm:ss";
