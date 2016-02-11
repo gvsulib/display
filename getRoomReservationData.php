@@ -52,16 +52,7 @@ $roomIDs = array(
     '7681' => '030', 
 );
 
-//begin constructing the XML file we will use to store the room data.
-//displays will access the data from that file.
-//we start by overwriting the file, if one is already there.
-$XML_File = fopen("RoomReservationData.xml", "w");
-$string = "<bookings>";
-
-//now open it to append.
-fwrite($XML_File, $string);
-fclose($XML_File);
- $XML_File = fopen("RoomReservationData.xml", "a");
+$outPut = new SimpleXMLElement("<bookings></bookings>");
 
 //the API requires that we reqyest data on each room as a separate URL.  So prepare to cycle throught he list of rooms, 
 //requesting data for each one, and storing it in the XML file as it's retrieved.
@@ -105,11 +96,6 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
             $string = "XML error: " . $e->getMessage() . ":" . $result . $url . "\n";
             fwrite($errlog, $string);
             fclose($errlog);
-            
-			$string = "</bookings>";
-			
-			fwrite($XML_File, $string);
-			fclose($XML_File);
 			curl_close($ch);
 			exit;
                         
@@ -124,7 +110,6 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
         fwrite($errlog, $string);
         fclose($errlog);
         mail("felkerk@gvsu.edu", "Room bookings error", $now . ": " .  $string);
-        fclose($XML_File);
         unlink('RoomReservationData.xml');
         curl_close($ch);
         exit;
@@ -135,6 +120,8 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 	//let's start parsing it!
 	curl_close($ch);
     $sortable = array();
+    
+    
     
     //get each booking from the results.  Each booking is enclosed in <data> tags
     
@@ -172,41 +159,55 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
      	//if there's a problem.  also, we neeed more data for the multipurpose room display, which has to show event name and times
      	//of the event if it's reserved.
         if (strtotime($now) > strtotime($timeStart) && strtotime($now) < strtotime($timeEnd)) {
+        	//simpleXML is anything but simple to work with if you're constructing an XML object.
+        	//in order to get it to escape characters properly and creete the correct document structure,
+        	//this is the bizarre syntax I have to use.  Took me hours to work this out, and the documentation is NOT HELPFUL.
+        	$room = $outPut->addChild('room');
         	
-			$string = "<room>";
-            
-            $string .= '<roomcode>' . $reservation->RoomID . '</roomcode>';
-            $string .= '<roomnumber>' . $reservation->RoomCode . '</roomnumber>';
-            $string .= '<roomname>' . (string)$reservation->Room . '</roomname>';
-            $string .= '<groupname>' . groupName((string)$reservation->GroupName, $timeEnd, $timeStart, $reservation) . '</groupname>';
-            $string .=  '<timestart>' . $timeStart . '</timestart>';
-            $string .= '<timeend>' . $timeEnd . '</timeend>';
-            $string .=  '<now>' . $now . '</now>';
-            $string .=  '<eventname>' . formatEventName((string)$reservation->EventName) . '</eventname>';
-            $string .= '<status>reserved</status>';
-        	$string .= '<reservationid>' . $reservationID . '</reservationid>';
-            $string .= '</room>';    
-                
-            fwrite($XML_File, $string);
+			$room->roomcode = $reservation->RoomID;
 			
+			$room->roomnumber = $reservation->RoomCode;
+			
+			$room->roomname = (string)$reservation->Room;
+            
+            $room->groupname = groupName((string)$reservation->GroupName, $timeEnd, $timeStart, $reservation);
+            
+            $room->timestart = $timeStart;
+			
+			$room->timeend = $timeEnd;
+			
+			$room->now = $now;
+			
+			$room->eventname = formatEventName((string)$reservation->EventName);
+			
+			$room->status = "reserved";
+			
+			$room->reservationid = $reservationID;
+        
             break;
         } else if (strtotime($hour_from_now) > strtotime($timeStart) && strtotime($hour_from_now) < strtotime($timeEnd)) {
-        
+             	
+         	$room = $outPut->addChild('room');
+        	
+			$room->roomcode = $reservation->RoomID;
+			
+			$room->roomnumber = $reservation->RoomCode;
+			
+			$room->roomname = (string)$reservation->Room;
             
-			$string = "<room>";
-            $string .= '<roomcode>' . $reservation->RoomID . '</roomcode>';
-            $string .= '<roomnumber>' . $reservation->RoomCode . '</roomnumber>';
-            $string .= '<roomname>' . (string)$reservation->Room . '</roomname>';
-            $string .= '<groupname>' . groupName((string)$reservation->GroupName, $timeEnd, $timeStart, $reservation) . '</groupname>';
-            $string .=  '<timestart>' . $timeStart . '</timestart>';
-            $string .= '<timeend>' . $timeEnd . '</timeend>';
-            $string .=  '<now>' . $now . '</now>';
-            $string .=  '<eventname>' . formatEventName((string)$reservation->EventName) . '</eventname>';
-            $string .= '<status>reserved_soon</status>';
-        	$string .= '<reservationid>' . $reservationID . '</reservationid>';
-            $string .= '</room>';    
-            $XML_File = fopen("RoomReservationData.xml", "a");
-            fwrite($XML_File, $string);
+            $room->groupname = groupName((string)$reservation->GroupName, $timeEnd, $timeStart, $reservation);
+            
+            $room->timestart = $timeStart;
+			
+			$room->timeend = $timeEnd;
+			
+			$room->now = $now;
+			
+			$room->eventname = formatEventName((string)$reservation->EventName);
+			
+			$room->status = "reserved_soon";
+			
+			$room->reservationid = $reservationID;
 			
             break;
             
@@ -215,11 +216,14 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
     }
 }
 
-
-$string = '</bookings>';
-
-fwrite($XML_File, $string);
+//begin constructing the XML file we will use to store the room data.
+//displays will access the data from that file.
+//we start by overwriting the file, if one is already there.
+$XML_File = fopen("RoomReservationData.xml", "w");
+fwrite($XML_File, $outPut->asXML());
 fclose($XML_File);
+
+
 
 //this function extracts the groupname and does not show groupnames for bookings made by admins
 
