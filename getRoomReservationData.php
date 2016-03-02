@@ -52,7 +52,17 @@ $roomIDs = array(
     '7681' => '030', 
 );
 
-$outPut = new SimpleXMLElement("<bookings></bookings>");
+//we are potentially interested in two types of booking: those goign on now,
+//and those happening an hour from now.  We need two dates to use to identify those bookings.
+        
+$now = date('H:i:00');
+        
+$timestamp = time() + (60 * 60);
+		
+$hour_from_now = date('H:i:00',$timestamp);
+		
+
+$outPut = new SimpleXMLElement("<bookings><timestamp>" . $now . "</timestamp></bookings>");
 
 //the API requires that we reqyest data on each room as a separate URL.  So prepare to cycle throught he list of rooms, 
 //requesting data for each one, and storing it in the XML file as it's retrieved.
@@ -119,6 +129,8 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 	//did we make it this far?  Yay, we have valid XML bookings data!
 	//let's start parsing it!
 	curl_close($ch);
+
+
     $sortable = array();
     
     
@@ -140,17 +152,7 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
         $timeStart = substr($reservation->TimeEventStart, strpos($reservation->TimeEventStart, "T") + 1);
         $timeEnd = substr($reservation->TimeEventEnd, strpos($reservation->TimeEventEnd, "T") + 1);
         
-        //we are potentially interested in two types of booking: those goign on now,
-        //and those happening an hour from now.  We need two dates to use to identify those bookings.
-        
-        $now = date('H:i:00');
-        
-		$timestamp = time() + (60 * 60);
-		
-		$hour_from_now = date('H:i:00',$timestamp);
-		
         $reservationID = $reservation->ReservationID;
-        
      	//the structure here should ensure that when there is both a current and upcoming reservation,
      	//only the current reservation gets logged to the file.  We don't want to display a reservation an hour from now if there's
      	//someone in there now!
@@ -222,7 +224,7 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 $XML_File = fopen("RoomReservationData.xml", "w");
 fwrite($XML_File, $outPut->asXML());
 fclose($XML_File);
-
+echo $outPut; //echo contents of file for debugging purposes.
 
 
 //this function extracts the groupname and does not show groupnames for bookings made by admins
