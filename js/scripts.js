@@ -337,9 +337,7 @@ function getColor(traffic) {
 //code that actually updates the room reservation display.  
 //gets it's input from the AJAX call below.
 function updateRoomAvailability(data, status) {
-	//console.log(data);
-	//start by turning all rooms green.  That means any rooms without explicit 
-	//reservation data will show as open.
+	
     /*
     7678 / 003 - Media Prep Room
     7679 / 004 - Media Prep Room
@@ -386,8 +384,10 @@ function updateRoomAvailability(data, status) {
     //If it doesn't, make sure the event class and identifying information is hidden.
 	var multipurpose_event = false;
 	
+	
+	//by default, all rooms show available.  We will change the colors as we loop through the bookings XML.
 	for (var key in roomIds) {
-		$('#' + roomIds[key]).removeClass('grey').addClass("available");
+		$('#' + roomIds[key]).removeClass('grey').removeClass('reserved').removeClass('reserved_soon').addClass("available");
         $('#' + roomIds[key]).find('.reserved-by').html("");
 	
 	}
@@ -404,16 +404,8 @@ function updateRoomAvailability(data, status) {
   			  
   		code = bookings[i].getElementsByTagName("roomcode")[0].innerHTML;
   		groupname = bookings[i].getElementsByTagName("groupname")[0].innerHTML;
-  		status = bookings[i].getElementsByTagName("status")[0].innerHTML;
-  		//console.log(code);
-  		//console.log(status);
-  		//console.log(groupname);
-  		
-  		//if the multipurpose room is reserved, grab some additional data and pass it to a 
-  		//function that will update the traffic display
-  		
-  			
-  		//otherwise update the room display	
+  		status = bookings[i].getElementsByTagName("status")[0].innerHTML;		
+  	
   		if (status == "reserved") {
             $('#' + code).removeClass('available').addClass(status);
 

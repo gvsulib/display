@@ -224,7 +224,8 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 $XML_File = fopen("RoomReservationData.xml", "w");
 fwrite($XML_File, $outPut->asXML());
 fclose($XML_File);
-echo $outPut; //echo contents of file for debugging purposes.
+mail("felkerk@gvsu.edu", "room update", $outPut->asXML());
+echo $outPut->asXML(); //echo contents of file for debugging purposes.
 
 
 //this function extracts the groupname and does not show groupnames for bookings made by admins
