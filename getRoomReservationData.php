@@ -57,12 +57,14 @@ $roomIDs = array(
         
 $now = date('H:i:00');
         
+$nowdisplay = date('h:s a');     
+        
 $timestamp = time() + (60 * 60);
 		
 $hour_from_now = date('H:i:00',$timestamp);
 		
 
-$outPut = new SimpleXMLElement("<bookings><timestamp>" . $now . "</timestamp></bookings>");
+$outPut = new SimpleXMLElement("<bookings><timestamp>" . $nowdisplay . "</timestamp></bookings>");
 
 //the API requires that we reqyest data on each room as a separate URL.  So prepare to cycle throught he list of rooms, 
 //requesting data for each one, and storing it in the XML file as it's retrieved.

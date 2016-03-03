@@ -285,7 +285,7 @@ function parseData(data){
     $('#atrium_exhibition_room').removeClass().addClass(getColor(data["Atrium: Exhibition Room"]));
     $('#atrium_living_room').removeClass().addClass(getColor(data["Atrium: Living Room"]));
     
-    //the multipurpose room is a bit tricky-if there's an event, we don't want to overwright the color
+    //the multipurpose room is a bit tricky-if there's an event, we don't want to overwrite the color
     //until the event is over.
     $('#atrium_multipurpose_room').addClass(function(index, className) {
     	if (className != "event") {
@@ -431,6 +431,11 @@ function updateRoomAvailability(data, status) {
   	if (!multipurpose_event) {
   		updateMultiPurposeEventInfo(false);
   	}
+  	//update the "last updated" section of the display with the timestamp from the XML file
+  	
+  	var timestring = data.getElementsByTagName("timestamp")[0].innerHTML
+  	$('#last-updated-rooms').text(timestring);
+  	
   	
   	
   	//now show the room display.
@@ -442,7 +447,6 @@ function updateRoomAvailability(data, status) {
 //if the request for room data fails, show greyed out rooms with no data
 //This is called by the error section of the ajax request
 function roomBookingsErrorDisplay() {
-	
 	$('.room-availability-floors').fadeIn();
     $('#room-traffic-legend').fadeIn();
 
