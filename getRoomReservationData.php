@@ -1,9 +1,6 @@
-#!/usr/bin/env php
-
 <?php
 
-
-
+header('Content-Type: text/xml');
 
 date_default_timezone_set('America/Detroit');
 
@@ -66,12 +63,12 @@ $hour_from_now = date('H:i:00',$timestamp);
 
 $outPut = new SimpleXMLElement("<bookings><timestamp>" . $nowdisplay . "</timestamp></bookings>");
 
-//the API requires that we reqyest data on each room as a separate URL.  So prepare to cycle throught he list of rooms, 
+//the API requires that we request data on each room as a separate URL.  So prepare to cycle through the list of rooms, 
 //requesting data for each one, and storing it in the XML file as it's retrieved.
 
 foreach ($roomIDs as $EMSID => $roomNumber) {
 	$today = new dateTime();
-    $today = $today->format('Y-m-d');
+    	$today = $today->format('Y-m-d');
 	
 	//need to use HTTP authentication to get at API calls now
 	//get the credentials from an external file
@@ -79,7 +76,7 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 	require('authentication.php');
 	
 	//construct the request URL
-    $url = 'http://www.gvsu.edu/reserve/files/cfc/functions.cfc?method=bookings&roomId='. $EMSID.'&startDate='.$today.'&endDate='.$today.'';
+    	$url = 'http://www.gvsu.edu/reserve/files/cfc/functions.cfc?method=bookings&roomId='. $EMSID.'&startDate='.$today.'&endDate='.$today.'';
  	
 	$ch = curl_init();
 	
@@ -96,77 +93,71 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 	//check the CURL request and make sure there's content.  If not, write curl errors to a file for debugging.
 	if ($result) {
 		
- 		//parse result as XML.  there's a problem here where if there are no bookings,
-        //the API returns non-valid XML, in which case the next statement fails.
-	    //if that happens, I'm catching the error and logging it, then writing an empty 
-	    //xml document and terminating the program.
+ 		//parse result as XML. If the API is returning non-parseable XML, log that in the error log.
         try {
         	$xml = new SimpleXMLElement($result);
             
-        } catch (Exception $e) {
-            $errlog = fopen("php_error_log.log", "a");
-            $string = "XML error: " . $e->getMessage() . ":" . $result . $url . "\n";
-            fwrite($errlog, $string);
-            fclose($errlog);
-			curl_close($ch);
-			exit;
+        	} catch (Exception $e) {
+       			$errlog = fopen("php_error_log.log", "a");
+            		$string = "XML error: " . $e->getMessage() . ":" . $result . $url . "\n";
+            		fwrite($errlog, $string);
+            		fclose($errlog);
+	    		curl_close($ch);
+	    		$xml = new SimpleXMLElement("<?xml version='1.0' standalone='yes'?><Bookings/>");
                         
-        }
+        	}
 	} else {
-		//if the curl request returns no data, log the error url and time and send an email
-		//then close and delete the XML file so that the display does not show old data
-		//then terminate the program
-		$now = date('H:i:00');
+		//if the curl request returns no data, log the error url and time
+		//for right now, I'm returning an empty bookings list for rooms that return errors.
+		$now = date('H:i:00 F-d-Y');
 		$errlog = fopen("php_error_log.log", "a");
-        $string = "Curl Error: " . curl_error($ch) . ":" . $url . ": " . $now . "\n" ;
-        fwrite($errlog, $string);
-        fclose($errlog);
-        mail("felkerk@gvsu.edu", "Room bookings error", $now . ": " .  $string);
-        unlink('RoomReservationData.xml');
-        curl_close($ch);
-        exit;
+        	$string = "Curl Error: " . curl_error($ch) . ":" . $url . ": " . $now . "\n" ;
+        	fwrite($errlog, $string);
+        	fclose($errlog);
+        	$xml = new SimpleXMLElement("<?xml version='1.0' standalone='yes'?><Bookings/>");
                 
 		}
-		
+	
 	//did we make it this far?  Yay, we have valid XML bookings data!
 	//let's start parsing it!
 	curl_close($ch);
 
 
-    $sortable = array();
+    	$sortable = array();
     
+    	//get each booking from the results.  Each booking is enclosed in <data> tags
     
+    	//skip to the next room if the booking is empty
+    	if (@count($xml->children()) == 0) {continue;}
+
+    	foreach($xml->Data as $node) {
+        	$sortable[] = $node;
+    	}
     
-    //get each booking from the results.  Each booking is enclosed in <data> tags
-    
-    foreach($xml->Data as $node) {
-        $sortable[] = $node;
-    }
-    
-    //sort them by time
-    usort($sortable,'compareTime');
+    	//sort them by time
+    	usort($sortable,'compareTime');
    
    	// loop through the bookings, extracting the information from each one we will need to construct the xml document  
    
    
-    foreach ($sortable as $reservation) {
+    	foreach ($sortable as $reservation) {
         
-        $timeStart = substr($reservation->TimeEventStart, strpos($reservation->TimeEventStart, "T") + 1);
-        $timeEnd = substr($reservation->TimeEventEnd, strpos($reservation->TimeEventEnd, "T") + 1);
+        	$timeStart = substr($reservation->TimeEventStart, strpos($reservation->TimeEventStart, "T") + 1);
+        	$timeEnd = substr($reservation->TimeEventEnd, strpos($reservation->TimeEventEnd, "T") + 1);
         
-        $reservationID = $reservation->ReservationID;
-     	//the structure here should ensure that when there is both a current and upcoming reservation,
-     	//only the current reservation gets logged to the file.  We don't want to display a reservation an hour from now if there's
-     	//someone in there now!
+        	$reservationID = $reservation->ReservationID;
+     		//the structure here should ensure that when there is both a current and upcoming reservation,
+     		//only the current reservation gets logged to the file.  We don't want to display a reservation an hour from now if there's
+     		//someone in there now!
      	
-     	//also, I log a lot more information to the XML file than we need, but that's to make troubleshooting easier 
-     	//if there's a problem.  also, we neeed more data for the multipurpose room display, which has to show event name and times
-     	//of the event if it's reserved.
-        if (strtotime($now) > strtotime($timeStart) && strtotime($now) < strtotime($timeEnd)) {
-        	//simpleXML is anything but simple to work with if you're constructing an XML object.
-        	//in order to get it to escape characters properly and creete the correct document structure,
-        	//this is the bizarre syntax I have to use.  Took me hours to work this out, and the documentation is NOT HELPFUL.
-        	$room = $outPut->addChild('room');
+     		//also, I log a lot more information to the XML file than we need, but that's to make troubleshooting easier 
+     		//if there's a problem.  also, we neeed more data for the multipurpose room display, which has to show event name and times
+     		//of the event if it's reserved.
+        	if (strtotime($now) > strtotime($timeStart) && strtotime($now) < strtotime($timeEnd)) {
+        		//simpleXML is anything but simple to work with if you're constructing an XML object.
+        		//in order to get it to escape characters properly and creete the correct document structure,
+        		//this is the bizarre syntax I have to use.  Took me hours to work this out, and the documentation is NOT HELPFUL.
+        		$room = $outPut->addChild('room');
         	
 			$room->roomcode = $reservation->RoomID;
 			
@@ -174,9 +165,9 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 			
 			$room->roomname = (string)$reservation->Room;
             
-            $room->groupname = groupName((string)$reservation->GroupName, $timeEnd, $timeStart, $reservation);
+            		$room->groupname = groupName((string)$reservation->GroupName, $timeEnd, $timeStart, $reservation);
             
-            $room->timestart = $timeStart;
+	            	$room->timestart = $timeStart;
 			
 			$room->timeend = $timeEnd;
 			
@@ -188,10 +179,10 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 			
 			$room->reservationid = $reservationID;
         
-            break;
-        } else if (strtotime($hour_from_now) > strtotime($timeStart) && strtotime($hour_from_now) < strtotime($timeEnd)) {
+            		break;
+        	} else if (strtotime($hour_from_now) > strtotime($timeStart) && strtotime($hour_from_now) < strtotime($timeEnd)) {
              	
-         	$room = $outPut->addChild('room');
+         		$room = $outPut->addChild('room');
         	
 			$room->roomcode = $reservation->RoomID;
 			
@@ -199,9 +190,9 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 			
 			$room->roomname = (string)$reservation->Room;
             
-            $room->groupname = groupName((string)$reservation->GroupName, $timeEnd, $timeStart, $reservation);
+            		$room->groupname = groupName((string)$reservation->GroupName, $timeEnd, $timeStart, $reservation);
             
-            $room->timestart = $timeStart;
+            		$room->timestart = $timeStart;
 			
 			$room->timeend = $timeEnd;
 			
@@ -213,11 +204,11 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 			
 			$room->reservationid = $reservationID;
 			
-            break;
+            		break;
             
-        }
+        	}
         
-    }
+    	}
 }
 
 //begin constructing the XML file we will use to store the room data.
@@ -226,7 +217,6 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 $XML_File = fopen("RoomReservationData.xml", "w");
 fwrite($XML_File, $outPut->asXML());
 fclose($XML_File);
-mail("felkerk@gvsu.edu", "room update", $outPut->asXML());
 echo $outPut->asXML(); //echo contents of file for debugging purposes.
 
 
