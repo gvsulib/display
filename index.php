@@ -4,7 +4,7 @@
 
 <head>
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" href="//gvsuliblabs.com/labs/opac/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.gvsuliblabs.com/labs/opac/css/fonts.css" />
     <link rel="stylesheet" type="text/css" href="css/emojione.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
@@ -37,7 +37,7 @@
 	<div class="computer-availability-container">
 		<h2 data-refresh="2">Library Computer Availability</h2>
 
-		<iframe width="100%" height="250" id="cpumap" style="padding-left: 20px; padding-right: 10px; padding-top: 10px;" src="http://gvsulibdisplay.com/computer_availability/?x=true&amp;library=maryi&amp;notitle"></iframe>
+		<iframe width="100%" height="250" id="cpumap" style="padding-left: 20px; padding-right: 10px; padding-top: 10px;" src="https://prod.library.gvsu.edu/computer_availability/?x=true&amp;library=maryi&amp;notitle"></iframe>
 	</div>
 
 	<div class="room-availability-container">
