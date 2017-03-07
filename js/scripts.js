@@ -19,7 +19,6 @@ $( document ).ready(function() {
     resetButtons();
     getTraffic();
     getRoomAvailability();
-    updateComputerAvailability();
     selectFloor(floor);
     updateTime();
     getMessages();
