@@ -52,13 +52,13 @@ $roomIDs = array(
 //we are potentially interested in two types of booking: those goign on now,
 //and those happening an hour from now.  We need two dates to use to identify those bookings.
         
-$now = date('H:i:00');
+$now = date('h:i:00');
         
 $nowdisplay = date('h:s a');     
         
 $timestamp = time() + (60 * 60);
 		
-$hour_from_now = date('H:i:00',$timestamp);
+$hour_from_now = date('h:i:00',$timestamp);
 		
 
 $outPut = new SimpleXMLElement("<bookings><timestamp>" . $nowdisplay . "</timestamp></bookings>");
