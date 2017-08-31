@@ -32,12 +32,10 @@
         <div id="message"><h4 class="message-post-time"></h4>
         <h4 class="message-heading"></h4><p></p></div>
         <iframe scrolling="no" width="100%" height="190" id="notifications" src="https://www.gvsu.edu/events/slideshow-index.htm?slideshowId=48DC2DE5-F7C1-B484-FB7A1B7AAD7F9050"></iframe>
--   </div>
--
--   <div class="computer-availability-container">
--       <h2 data-refresh="2">Library Computer Availability</h2>
--
--       <iframe width="100%" height="250" id="cpumap" style="padding-left: 20px; padding-right: 10px; padding-top: 10px;" src="https://prod.library.gvsu.edu/computer_availability/?x=true&amp;library=maryi&amp;notitle"></iframe>
+  </div>
+  <div class="computer-availability-container">
+       <h2 data-refresh="2">Library Computer Availability</h2>
+      <iframe width="100%" height="250" id="cpumap" style="padding-left: 20px; padding-right: 10px; padding-top: 10px;" src="https://prod.library.gvsu.edu/computer_availability/?x=true&amp;library=maryi&amp;notitle"></iframe>
 	</div>
 
 	<div class="room-availability-container">
