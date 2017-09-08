@@ -238,8 +238,8 @@
         </ul>
         <div class="modal modal1" >
            
-           <P>We are sorry you are sad!  Is there anything we can do to help?</P>
-           <P><span>Yes, I have a complaint or need help!</span><P>
+           <p>We are sorry you are sad! Is there anything we can do to help?</p>
+           <p><span>Yes, I have a complaint or need help!</span><p>
            
         </div>
         <div class="modal modal2">

@@ -1,4 +1,4 @@
-/** PAGE **/
+    /** PAGE **/
 
 *, *:before, *:after {
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
@@ -735,13 +735,37 @@ i {
     z-index: 4;
 }
 .feedback .modal2, .feedback .modal1, .feedback .modal3, .close{
-    font-size: 40px;
-    background: white;
-    border: 2px solid #646464;
-    border-radius: 10px;
-    padding: 10px;
+    font-size: 28px;
+    background: #f6f6f6;
+    border: 1px solid #ccc;
+    padding: 20px;
     width: 100%;
-    bottom: 55px;
+    bottom: 65px;
+}
+.modal1 p span {
+    color: #fff;
+    background-color: #0275d8;
+    border-color: #0275d8;
+    display: inline-block;
+font-weight: 400;
+line-height: 1.25;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+border: 1px solid transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+margin: .7em auto;
+border-radius: .25rem;
+-webkit-transition: all .2s ease-in-out;
+-o-transition: all .2s ease-in-out;
+transition: all .2s ease-in-out;
 }
 .close {
     bottom: 0;
