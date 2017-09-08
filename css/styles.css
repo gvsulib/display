@@ -761,11 +761,13 @@ border: 1px solid transparent;
     border-right-color: transparent;
     border-bottom-color: transparent;
     border-left-color: transparent;
+padding: .5rem 1rem;
 margin: .7em auto;
 border-radius: .25rem;
 -webkit-transition: all .2s ease-in-out;
 -o-transition: all .2s ease-in-out;
 transition: all .2s ease-in-out;
+}
 }
 .close {
     bottom: 0;
