@@ -336,9 +336,12 @@ function getColor(traffic) {
 
 //code that actually updates the room reservation display.  
 //gets it's input from the AJAX call below.
+
+
+/*
 function updateRoomAvailability(data, status) {
 	
-    /*
+    
     7678 / 003 - Media Prep Room
     7679 / 004 - Media Prep Room
     7680 / 005 - Media Prep Room
@@ -357,7 +360,7 @@ function updateRoomAvailability(data, status) {
     7698 / 404 - Conference Style
     7699 / 405 - Conference Style
     7681 / 030 - Multi-Purpose Room
-    */
+    
 
     var roomIds = {
         r003:"7678",
@@ -529,7 +532,7 @@ function updateMultiPurposeEventInfo(event,data){
         console.log("Event data removed from multipurpose room");
     }
 }
-
+*/
 
 
 var code = "4231";
