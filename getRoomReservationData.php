@@ -96,8 +96,8 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 		$rawXMLLogname = "logging/rawXML" . $now . ".xml";
 		$finalXMLContent = "logging/outputXML" . $now . ".xml";
 		$rawXMLLog = fopen($rawXMLLogname, "a");
-		$fwrite($rawXMLLog, $result);
-		$fclose($rawXMLLog);
+		fwrite($rawXMLLog, $result);
+		fclose($rawXMLLog);
  		//parse result as XML. If the API is returning non-parseable XML, log that in the error log.
         try {
         	$xml = new SimpleXMLElement($result);
