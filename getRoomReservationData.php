@@ -219,8 +219,8 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 //log the final output
 
 $finalXMLLog= fopen($finalXMLContent, "a");
-$fwrite($finalXMLLog, $outPut->asXML());
-$fclose($finalXMLLog);
+fwrite($finalXMLLog, $outPut->asXML());
+fclose($finalXMLLog);
 //begin constructing the XML file we will use to store the room data.
 //displays will access the data from that file.
 //we start by overwriting the file, if one is already there.
