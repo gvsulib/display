@@ -40,7 +40,7 @@
 
 	<div class="room-availability-container">
     
-		<!--<h2 data-refresh="3">Study Room Availability<small> Last Updated: <span id="last-updated-rooms"></span></small></h2>
+		<h2 data-refresh="3">Study Room Availability<small> Last Updated: <span id="last-updated-rooms"></span></small></h2>
 
         <ul class="traffic-legend" style="display: block;" id="room-traffic-legend">
             <li class="low"><div></div>Available</li>
@@ -143,7 +143,7 @@
                 </ul>
             </li>
         </ul>
--->
+
 	</div>
 
 

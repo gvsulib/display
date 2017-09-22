@@ -92,7 +92,11 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 	
 	//check the CURL request and make sure there's content.  If not, write curl errors to a file for debugging.
 	if ($result) {
-		
+		$rawXMLLogname = "logging/rawXML" . $today . ".xml";
+		$finalXMLContent = "logging/outputXML" . $today . ".xml";
+		$rawXMLLog = fopen($rawXMLLogname, "a");
+		$fwrite($rawXMLLog, $result);
+		$fclose($rawXMLLog);
  		//parse result as XML. If the API is returning non-parseable XML, log that in the error log.
         try {
         	$xml = new SimpleXMLElement($result);
@@ -211,6 +215,11 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
     	}
 }
 
+//log the final output
+
+$finalXMLLog= fopen($finalXMLContent, "a");
+$fwrite($finalXMLLog, $outPut->asXML());
+$fclose(finalXMLLog);
 //begin constructing the XML file we will use to store the room data.
 //displays will access the data from that file.
 //we start by overwriting the file, if one is already there.
