@@ -92,8 +92,9 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 	
 	//check the CURL request and make sure there's content.  If not, write curl errors to a file for debugging.
 	if ($result) {
-		$rawXMLLogname = "logging/rawXML" . $today . ".xml";
-		$finalXMLContent = "logging/outputXML" . $today . ".xml";
+		$now = date('H:i:00 F-d-Y');
+		$rawXMLLogname = "logging/rawXML" . $now . ".xml";
+		$finalXMLContent = "logging/outputXML" . $now . ".xml";
 		$rawXMLLog = fopen($rawXMLLogname, "a");
 		$fwrite($rawXMLLog, $result);
 		$fclose($rawXMLLog);
@@ -219,7 +220,7 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 
 $finalXMLLog= fopen($finalXMLContent, "a");
 $fwrite($finalXMLLog, $outPut->asXML());
-$fclose(finalXMLLog);
+$fclose($finalXMLLog);
 //begin constructing the XML file we will use to store the room data.
 //displays will access the data from that file.
 //we start by overwriting the file, if one is already there.
