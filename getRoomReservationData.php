@@ -52,15 +52,12 @@ $roomIDs = array(
 //we are potentially interested in two types of booking: those goign on now,
 //and those happening an hour from now.  We need two dates to use to identify those bookings.
         
-$now = date('h:i:00');
+$now = time();
         
 $nowdisplay = date('h:s a');     
         
-$timestamp = time() + (60 * 60);
-		
-$hour_from_now = date('h:i:00',$timestamp);
-		
-
+$hour_from_now = time() + (60 * 60);
+	
 $outPut = new SimpleXMLElement("<bookings><timestamp>" . $nowdisplay . "</timestamp></bookings>");
 
 //the API requires that we request data on each room as a separate URL.  So prepare to cycle through the list of rooms, 
@@ -68,7 +65,7 @@ $outPut = new SimpleXMLElement("<bookings><timestamp>" . $nowdisplay . "</timest
 
 foreach ($roomIDs as $EMSID => $roomNumber) {
 	$today = new dateTime();
-    	$today = $today->format('Y-m-d');
+    $today = $today->format('Y-m-d');
 	
 	//need to use HTTP authentication to get at API calls now
 	//get the credentials from an external file
@@ -76,7 +73,7 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 	require('authentication.php');
 	
 	//construct the request URL
-    	$url = 'http://www.gvsu.edu/reserve/files/cfc/functions.cfc?method=bookings&roomId='. $EMSID.'&startDate='.$today.'&endDate='.$today.'';
+    $url = 'http://www.gvsu.edu/reserve/files/cfc/functions.cfc?method=bookings&roomId='. $EMSID.'&startDate='.$today.'&endDate='.$today.'';
  	
 	$ch = curl_init();
 	
@@ -93,8 +90,8 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 	//check the CURL request and make sure there's content.  If not, write curl errors to a file for debugging.
 	if ($result) {
 		$now = date('H:i:00 F-d-Y');
-		$rawXMLLogname = "logging/rawXML" . $now . ".xml";
-		$finalXMLContent = "logging/outputXML" . $now . ".xml";
+		$rawXMLLogname = "logs/rawXML" . $now . ".xml";
+		$finalXMLContent = "logs/outputXML" . $now . ".xml";
 		$rawXMLLog = fopen($rawXMLLogname, "a");
 		fwrite($rawXMLLog, $result);
 		fclose($rawXMLLog);
@@ -146,10 +143,17 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
    
    
     	foreach ($sortable as $reservation) {
-        
+			/*
         	$timeStart = substr($reservation->TimeEventStart, strpos($reservation->TimeEventStart, "T") + 1);
         	$timeEnd = substr($reservation->TimeEventEnd, strpos($reservation->TimeEventEnd, "T") + 1);
-        
+			*/
+
+			$timeStart = $reservation->TimeEventStart;
+			$timeEnd = $reservation->TimeEventEnd;
+
+			echo strtotime($timeStart);
+			echo strtotime($timeEnd);
+
         	$reservationID = $reservation->ReservationID;
      		//the structure here should ensure that when there is both a current and upcoming reservation,
      		//only the current reservation gets logged to the file.  We don't want to display a reservation an hour from now if there's
@@ -158,7 +162,7 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
      		//also, I log a lot more information to the XML file than we need, but that's to make troubleshooting easier 
      		//if there's a problem.  also, we neeed more data for the multipurpose room display, which has to show event name and times
      		//of the event if it's reserved.
-        	if (strtotime($now) > strtotime($timeStart) && strtotime($now) < strtotime($timeEnd)) {
+        	if ($now > strtotime($timeStart) && $now < strtotime($timeEnd)) {
         		//simpleXML is anything but simple to work with if you're constructing an XML object.
         		//in order to get it to escape characters properly and creete the correct document structure,
         		//this is the bizarre syntax I have to use.  Took me hours to work this out, and the documentation is NOT HELPFUL.
@@ -176,7 +180,7 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 			
 			$room->timeend = $timeEnd;
 			
-			$room->now = $now;
+			$room->now = $nowdisplay;
 			
 			$room->eventname = formatEventName((string)$reservation->EventName);
 			
@@ -185,7 +189,7 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 			$room->reservationid = $reservationID;
         
             		break;
-        	} else if (strtotime($hour_from_now) > strtotime($timeStart) && strtotime($hour_from_now) < strtotime($timeEnd)) {
+        	} else if ($hour_from_now > strtotime($timeStart) && $hour_from_now < strtotime($timeEnd)) {
              	
          		$room = $outPut->addChild('room');
         	
@@ -201,7 +205,7 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 			
 			$room->timeend = $timeEnd;
 			
-			$room->now = $now;
+			$room->now = $nowdisplay;
 			
 			$room->eventname = formatEventName((string)$reservation->EventName);
 			
