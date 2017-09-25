@@ -151,8 +151,8 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 			$timeStart = $reservation->TimeEventStart;
 			$timeEnd = $reservation->TimeEventEnd;
 
-			echo strtotime($timeStart);
-			echo strtotime($timeEnd);
+			//echo strtotime($timeStart);
+			//echo strtotime($timeEnd);
 
         	$reservationID = $reservation->ReservationID;
      		//the structure here should ensure that when there is both a current and upcoming reservation,
