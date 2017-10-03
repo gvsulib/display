@@ -49,15 +49,8 @@ $roomIDs = array(
     '7681' => '030', 
 );
 
-//we are potentially interested in two types of booking: those goign on now,
-//and those happening an hour from now.  We need two dates to use to identify those bookings.
-        
-$now = time();
-        
+
 $nowdisplay = date('h:s a');     
-        
-$hour_from_now = time() + (60 * 60);
-	
 $outPut = new SimpleXMLElement("<bookings><timestamp>" . $nowdisplay . "</timestamp></bookings>");
 
 //the API requires that we request data on each room as a separate URL.  So prepare to cycle through the list of rooms, 
@@ -113,60 +106,71 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 		//for right now, I'm returning an empty bookings list for rooms that return errors.
 		$now = date('H:i:00 F-d-Y');
 		$errlog = fopen("php_error_log.log", "a");
-        	$string = "Curl Error: " . curl_error($ch) . ":" . $url . ": " . $now . "\n" ;
-        	fwrite($errlog, $string);
-        	fclose($errlog);
-        	$xml = new SimpleXMLElement("<?xml version='1.0' standalone='yes'?><Bookings/>");
+        $string = "Curl Error: " . curl_error($ch) . ":" . $url . ": " . $now . "\n" ;
+        fwrite($errlog, $string);
+        fclose($errlog);
+        $xml = new SimpleXMLElement("<?xml version='1.0' standalone='yes'?><Bookings/>");
                 
-		}
+	}
 	
 	//did we make it this far?  Yay, we have valid XML bookings data!
 	//let's start parsing it!
 	curl_close($ch);
 
 
-    	$sortable = array();
-    
-    	//get each booking from the results.  Each booking is enclosed in <data> tags
-    
-    	//skip to the next room if the booking is empty
-    	if (@count($xml->children()) == 0) {continue;}
+    $sortable = array();
+	
+	//we are potentially interested in two types of booking: those goign on now,
+	//and those happening an hour from now.  We need two dates to use to identify those bookings.
 
-    	foreach($xml->Data as $node) {
-        	$sortable[] = $node;
-    	}
+
+	//get the top of the current hour as a unix timestamp.  Reservations can run for up to three hours at a time.
+	//they always start at the top of the hour and last until the 59th minute of the last hour.    
+	$now = time(date('H:00:00 F-d-Y'));
+	//the script runs at one minute after the hour.  Reservations last till the 59th minute of the hour.  
+	//That means the current reservation interval is 58 minutes long
+	$hour_from_now = $now + (60 * 60);
+
+    //get each booking from the results.  Each booking is enclosed in <data> tags
     
-    	//sort them by time
-    	usort($sortable,'compareTime');
+    //skip to the next room if the booking is empty
+    if (@count($xml->children()) == 0) {continue;}
+
+    foreach($xml->Data as $node) {
+        $sortable[] = $node;
+    }
+    
+    //sort them by time
+    usort($sortable,'compareTime');
    
    	// loop through the bookings, extracting the information from each one we will need to construct the xml document  
    
    
-    	foreach ($sortable as $reservation) {
-			/*
-        	$timeStart = substr($reservation->TimeEventStart, strpos($reservation->TimeEventStart, "T") + 1);
-        	$timeEnd = substr($reservation->TimeEventEnd, strpos($reservation->TimeEventEnd, "T") + 1);
-			*/
+    foreach ($sortable as $reservation) {
+		/*
+        $timeStart = substr($reservation->TimeEventStart, strpos($reservation->TimeEventStart, "T") + 1);
+        $timeEnd = substr($reservation->TimeEventEnd, strpos($reservation->TimeEventEnd, "T") + 1);
+		*/
 
-			$timeStart = $reservation->TimeEventStart;
-			$timeEnd = $reservation->TimeEventEnd;
+		$timeStart = $reservation->TimeEventStart;
+		$timeEnd = $reservation->TimeEventEnd;
 
-			//echo strtotime($timeStart);
-			//echo strtotime($timeEnd);
+		//echo strtotime($timeStart);
+		//echo strtotime($timeEnd);
 
-        	$reservationID = $reservation->ReservationID;
-     		//the structure here should ensure that when there is both a current and upcoming reservation,
-     		//only the current reservation gets logged to the file.  We don't want to display a reservation an hour from now if there's
-     		//someone in there now!
+        $reservationID = $reservation->ReservationID;
+     	//the structure here should ensure that when there is both a current and upcoming reservation,
+     	//only the current reservation gets logged to the file.  We don't want to display a reservation an hour from now if there's
+     	//someone in there now!
      	
-     		//also, I log a lot more information to the XML file than we need, but that's to make troubleshooting easier 
-     		//if there's a problem.  also, we neeed more data for the multipurpose room display, which has to show event name and times
-     		//of the event if it's reserved.
-        	if ($now > strtotime($timeStart) && $now < strtotime($timeEnd)) {
-        		//simpleXML is anything but simple to work with if you're constructing an XML object.
-        		//in order to get it to escape characters properly and creete the correct document structure,
-        		//this is the bizarre syntax I have to use.  Took me hours to work this out, and the documentation is NOT HELPFUL.
-        		$room = $outPut->addChild('room');
+     	//also, I log a lot more information to the XML file than we need, but that's to make troubleshooting easier 
+     	//if there's a problem.  also, we neeed more data for the multipurpose room display, which has to show event name and times
+     	//of the event if it's reserved.
+        if ($now >= strtotime($timeStart) && $now < strtotime($timeEnd)) {
+        	//simpleXML is anything but simple to work with if you're constructing an XML object.
+        	//in order to get it to escape characters properly and creete the correct document structure,
+        	//this is the bizarre syntax I have to use.  Took me hours to work this out, and the documentation is NOT HELPFUL.
+        	$room = $outPut->addChild('room');
         	
 			$room->roomcode = $reservation->RoomID;
 			
@@ -174,9 +178,9 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 			
 			$room->roomname = (string)$reservation->Room;
             
-            		$room->groupname = groupName((string)$reservation->GroupName, $timeEnd, $timeStart, $reservation);
+            $room->groupname = groupName((string)$reservation->GroupName, $timeEnd, $timeStart, $reservation);
             
-	            	$room->timestart = $timeStart;
+	        $room->timestart = $timeStart;
 			
 			$room->timeend = $timeEnd;
 			
@@ -188,10 +192,11 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 			
 			$room->reservationid = $reservationID;
         
-            		break;
-        	} else if ($hour_from_now > strtotime($timeStart) && $hour_from_now < strtotime($timeEnd)) {
+			break;
+				
+        } else if ($hour_from_now == strtotime($timeStart)) {
              	
-         		$room = $outPut->addChild('room');
+         	$room = $outPut->addChild('room');
         	
 			$room->roomcode = $reservation->RoomID;
 			
@@ -199,9 +204,9 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 			
 			$room->roomname = (string)$reservation->Room;
             
-            		$room->groupname = groupName((string)$reservation->GroupName, $timeEnd, $timeStart, $reservation);
+            $room->groupname = groupName((string)$reservation->GroupName, $timeEnd, $timeStart, $reservation);
             
-            		$room->timestart = $timeStart;
+            $room->timestart = $timeStart;
 			
 			$room->timeend = $timeEnd;
 			
@@ -213,11 +218,11 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 			
 			$room->reservationid = $reservationID;
 			
-            		break;
+            break;
             
-        	}
+        }
         
-    	}
+    }
 }
 
 //log the final output
