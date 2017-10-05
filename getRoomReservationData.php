@@ -124,11 +124,9 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 	//and those happening an hour from now.  We need two dates to use to identify those bookings.
 
 
-	//get the top of the current hour as a unix timestamp.  Reservations can run for up to three hours at a time.
-	//they always start at the top of the hour and last until the 59th minute of the last hour.    
-	$now = time(date('H:00:00 F-d-Y'));
-	//the script runs at one minute after the hour.  Reservations last till the 59th minute of the hour.  
-	//That means the current reservation interval is 58 minutes long
+	//get the top of the current hour as a unix timestamp.  
+	$now = strtotime(date('H:00:00 F-d-Y'));
+	
 	$hour_from_now = $now + (60 * 60);
 
     //get each booking from the results.  Each booking is enclosed in <data> tags
@@ -191,7 +189,7 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 			$room->status = "reserved";
 			
 			$room->reservationid = $reservationID;
-        
+			//stop checking reservations for ther current room if we find one happening now
 			break;
 				
         } else if ($hour_from_now == strtotime($timeStart)) {
@@ -217,7 +215,7 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 			$room->status = "reserved_soon";
 			
 			$room->reservationid = $reservationID;
-			
+			//stop checking reservations from the current room if we find a future one
             break;
             
         }
