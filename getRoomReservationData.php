@@ -124,8 +124,10 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 	//and those happening an hour from now.  We need two dates to use to identify those bookings.
 
 
-	//get the top of the current hour as a unix timestamp.  
-	$now = strtotime(date('H:00:00 F-d-Y'));
+	//get the top of the current hour as a unix timestamp.  I've found through trial and error that 
+	//strtotime translates differently formatted strings for the same time into wildly different timestamps, so the formatting of the string
+	//here has to match the formatting of the times in the xml files I want to examine
+	$now = strtotime(date('Y-m-d\TH:00:00'));
 	
 	$hour_from_now = $now + (60 * 60);
 
