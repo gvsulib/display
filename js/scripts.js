@@ -2,10 +2,15 @@ var xPosition = 0;
 var yPosition = 0;
 var lastClicked;
 
+
+//set the delay, in minutes, to check for new data for the traffic and room displays
+var roomsDelay = 15;
+var trafficDelay = 15;
+
 $.ajaxSetup({ cache: false }); 
 
 $( document ).ready(function() {
-    var seconds = 1;
+    var seconds = 10000;
     var minutes = seconds * 60;
     
 
@@ -25,11 +30,11 @@ $( document ).ready(function() {
     getMessages();
     displayEmoji();
 
-    setInterval(getTraffic, trafficDelay * minutes); // default 10 minutes
-    setInterval(getRoomAvailability, roomsDelay * minutes); // default 3
-    setInterval(updateComputerAvailability, 2 * minutes);
+    setInterval(getTraffic, trafficDelay * minutes); // default 15 minutes
+    setInterval(getRoomAvailability, roomsDelay * minutes); // default 15 minutes
+    setInterval(updateComputerAvailability, 10 * minutes);
     setInterval(updateTime, 10 * seconds);
-    setInterval(getMessages, 20 * seconds);
+    setInterval(getMessages, 5 * minutes);
     $(document).on('idle.idleTimer',function(){selectFloor(floor)});
 
     document.addEventListener("contextmenu", function(e){
