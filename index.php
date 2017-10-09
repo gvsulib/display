@@ -263,8 +263,7 @@
 </body>
 <script>
     var floor = <?php echo isset($_GET['floor']) ? $_GET['floor'] : 1;?>;
-    var roomsDelay = <?php echo isset($_GET['roomsDelay']) ? $_GET['roomsDelay'] : 10;?>;
-    var trafficDelay = <?php echo isset($_GET['trafficDelay']) ? $_GET['trafficDelay'] : 10;?>;
+   
 </script>
 <script src="js/jquery-1.11.1.min.js" ></script>
 <script src="js/jquery.simpleWeather.min.js"></script>

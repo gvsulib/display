@@ -1,4 +1,6 @@
 <?php
+date_default_timezone_set('America/Detroit');
+
 include('connection.php');
 function checkIP(){
     $db = getConnection();
@@ -21,7 +23,7 @@ function checkIP(){
         die();
     }
 }
-checkIP();
+//checkIP();
 $data;
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -112,7 +114,8 @@ function getLastUpdatedTime(){
     $query = "SELECT DATE_FORMAT(time,'%h:%i %p') FROM entries WHERE entryID = (select max(entryID) from entries);";
     $db_result = $con->query($query);
     $lastUpdated = $db_result->fetch_row();
-    return $lastUpdated[1];
+    
+    return $lastUpdated[0];
      
 }
 
