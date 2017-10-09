@@ -109,24 +109,11 @@ function loadDatafromDb(){
 
 function getLastUpdatedTime(){
     global $con;
-    $query = "SELECT time FROM entries WHERE entryID = (select max(entryID) from entries);";
+    $query = "SELECT DATE_FORMAT(time,'%h:%i %p') FROM entries WHERE entryID = (select max(entryID) from entries);";
     $db_result = $con->query($query);
     $lastUpdated = $db_result->fetch_row();
-    $regex = "/\d+-\d+-\d+ (\d+):(\d+)/";
-    preg_match($regex,$lastUpdated[0],$times);
-    $h = $times[1];
-    $m = $times[2];
-    $ampm = "AM";
-    if ($h >= 12){
-        $ampm = "PM";
-        if ($h > 12){
-            $h -= 12;
-        }
-    }
-    if ($h < 10){
-        $h = substr($h, 1);
-    }
-    return "$h:$m";   
+    return $lastUpdated[1];
+     
 }
 
 function getSpaceTrafficFromID($id){
