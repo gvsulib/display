@@ -5,7 +5,7 @@ var lastClicked;
 $.ajaxSetup({ cache: false }); 
 
 $( document ).ready(function() {
-    var seconds = 1000;
+    var seconds = 1;
     var minutes = seconds * 60;
     
 
@@ -18,7 +18,7 @@ $( document ).ready(function() {
 
     resetButtons();
     getTraffic();
-    /*getRoomAvailability();*/
+    getRoomAvailability();
     updateComputerAvailability();
     selectFloor(floor);
     updateTime();
@@ -26,7 +26,7 @@ $( document ).ready(function() {
     displayEmoji();
 
     setInterval(getTraffic, trafficDelay * minutes); // default 10 minutes
-    /*setInterval(getRoomAvailability, roomsDelay * minutes); // default 3*/
+    setInterval(getRoomAvailability, roomsDelay * minutes); // default 3
     setInterval(updateComputerAvailability, 2 * minutes);
     setInterval(updateTime, 10 * seconds);
     setInterval(getMessages, 20 * seconds);
@@ -420,14 +420,14 @@ function updateRoomAvailability(data, status) {
         }
         //if the multipurpose room is reserved, grab some additional data and pass it to a 
   		//function that will update the traffic display
-        /*  multipurpose room status display not working
+        
         if (code == "7681") {
         	console.log("bookings object");
         	console.log(bookings[i]);
   			updateMultiPurposeEventInfo(true, bookings[i]);
   			multipurpose_event = 1;
   		}
-        */
+        
   	}
   	
   	//if there's no event data for the multipurpose room, make sure the event data and color is removed.

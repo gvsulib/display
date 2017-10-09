@@ -83,8 +83,8 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 	//check the CURL request and make sure there's content.  If not, write curl errors to a file for debugging.
 	if ($result) {
 		$now = date('H:i:00 F-d-Y');
-		$rawXMLLogname = "logs/rawXML" . $now . ".xml";
-		$finalXMLContent = "logs/outputXML" . $now . ".xml";
+		//$rawXMLLogname = "logs/rawXML" . $now . ".xml";
+		//$finalXMLContent = "logs/outputXML" . $now . ".xml";
 
 		//logging raw xml for debugging
 		/*$rawXMLLog = fopen($rawXMLLogname, "a");
