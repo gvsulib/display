@@ -85,9 +85,11 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 		$now = date('H:i:00 F-d-Y');
 		$rawXMLLogname = "logs/rawXML" . $now . ".xml";
 		$finalXMLContent = "logs/outputXML" . $now . ".xml";
-		$rawXMLLog = fopen($rawXMLLogname, "a");
+
+		//logging raw xml for debugging
+		/*$rawXMLLog = fopen($rawXMLLogname, "a");
 		fwrite($rawXMLLog, $result);
-		fclose($rawXMLLog);
+		fclose($rawXMLLog);*/
  		//parse result as XML. If the API is returning non-parseable XML, log that in the error log.
         try {
         	$xml = new SimpleXMLElement($result);
@@ -226,17 +228,17 @@ foreach ($roomIDs as $EMSID => $roomNumber) {
 }
 
 //log the final output
-
+/*
 $finalXMLLog= fopen($finalXMLContent, "a");
 fwrite($finalXMLLog, $outPut->asXML());
-fclose($finalXMLLog);
+fclose($finalXMLLog);*/
 //begin constructing the XML file we will use to store the room data.
 //displays will access the data from that file.
 //we start by overwriting the file, if one is already there.
 $XML_File = fopen("RoomReservationData.xml", "w");
 fwrite($XML_File, $outPut->asXML());
 fclose($XML_File);
-echo $outPut->asXML(); //echo contents of file for debugging purposes.
+//echo $outPut->asXML(); //echo contents of file for debugging purposes.
 
 
 //this function extracts the groupname and does not show groupnames for bookings made by admins
