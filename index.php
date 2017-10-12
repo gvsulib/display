@@ -6,7 +6,10 @@
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="https://prod.library.gvsu.edu/labs/opac/css/fonts.css" />
     <link rel="stylesheet" type="text/css" href="css/emojione.min.css" />
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    
+    <META HTTP-EQUIV="refresh" CONTENT="18000">
+
 </head>
 
 <body>
@@ -26,18 +29,57 @@
 		<h3 id="weather">--<span>&deg;F</span></h3>
 	</div>
 
-	<div class="notifications-container">
-		<h2 data-refresh="1">Notifications</h2>
-		
-        <div id="message"><h4 class="message-post-time"></h4>
-        <h4 class="message-heading"></h4><p></p></div>
-        <iframe scrolling="no" width="100%" height="190" id="notifications" src="https://www.gvsu.edu/events/slideshow-index.htm?slideshowId=48DC2DE5-F7C1-B484-FB7A1B7AAD7F9050"></iframe>
+	<div class="hours-container">
+		<h2 data-refresh="1">Today's Hours</h2>
+        <?php
+
+        $hours =array(1 => "Mary%20Idema%20Pew", 
+                        6 => "Argo%20Tea",
+                        2 => "Steelcase", 
+                        3 => "Frey", 
+                        4 => "Seidman%20House", 
+                        5 => "Curriculum%20Materials%20Library"
+        );
+
+        //get JSON for all hours and format them for display
+        $hoursOutput = array();
+        foreach ($hours as $order => $string) {
+            $handle = fopen("http://localhost:8888/hours_api/index.php?order=$order&string=$string", "r");
+            $output = fread($handle, 800);
+            $hoursFormat = json_decode($output, true);
+            $string = urldecode($string);
+
+            //for mary I and argo tea, format the string differently and wrap a different div around them
+            if ($order == 1 || $order == 6) {
+                $divopen = '<div class="hours-display-primary">';
+                $hoursFormat[$string] = "Open Until " . substr($hoursFormat[$string], (strpos($hoursFormat[$string], '-') + 2) , (strlen($hoursFormat[$string]) - 1) );
+
+            } else {
+                $divopen = '<div class="hours-display-secondary">';
+            }
+
+            $hoursOutput[] = $divopen . $string . " : " .  $hoursFormat[$string] . '</div>';
+            fclose($handle);
+
+        }
+        //reorder them so that argo tea and MIP are first
+       
+        
+        foreach ($hoursOutput as $html) {
+            echo $html;
+        }
+
+        ?>
+        <div id="hours"><h4 class="message-post-time"></h4>
+        </div>
+        
   </div>
+  <!--
   <div class="computer-availability-container">
        <h2 data-refresh="2">Library Computer Availability</h2>
       <iframe width="100%" height="250" id="cpumap" style="padding-left: 20px; padding-right: 10px; padding-top: 10px;" src="https://prod.library.gvsu.edu/computer_availability/?x=true&amp;library=maryi&amp;notitle"></iframe>
 	</div>
-
+-->
 	<div class="room-availability-container">
     
 		<h2 data-refresh="3">Study Room Availability<small> Last Updated: <span id="last-updated-rooms"></span></small></h2>

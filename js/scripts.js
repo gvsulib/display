@@ -24,7 +24,7 @@ $( document ).ready(function() {
     resetButtons();
     getTraffic();
     getRoomAvailability();
-    updateComputerAvailability();
+    //updateComputerAvailability();
     selectFloor(floor);
     updateTime();
     getMessages();
@@ -32,7 +32,7 @@ $( document ).ready(function() {
 
     setInterval(getTraffic, trafficDelay * minutes); // default 15 minutes
     setInterval(getRoomAvailability, roomsDelay * minutes); // default 15 minutes
-    setInterval(updateComputerAvailability, 10 * minutes);
+    //setInterval(updateComputerAvailability, 10 * minutes);
     setInterval(updateTime, 10 * seconds);
     setInterval(getMessages, 5 * minutes);
     $(document).on('idle.idleTimer',function(){selectFloor(floor)});
