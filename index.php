@@ -44,7 +44,7 @@
         //get JSON for all hours and format them for display
         $hoursOutput = array();
         foreach ($hours as $order => $string) {
-            $handle = fopen("http://localhost:8888/hours_api/index.php?order=$order&string=$string", "r");
+            $handle = fopen("http://prod.library.gvsu.edu/hours_api/index.php?order=$order&string=$string", "r");
             $output = fread($handle, 800);
             $hoursFormat = json_decode($output, true);
             $string = urldecode($string);
