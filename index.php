@@ -1,4 +1,34 @@
-<?php include 'connection.php';?>
+<?php 
+//database connection for traffic heatmap
+include 'connection.php';
+
+//authenitcatiuon data for the room reservation API
+include 'authentication.php';
+include 'getRoomReservationData.php';
+
+date_default_timezone_set('America/Detroit');
+
+//check the cached XML room data.  If it's unopenable, unreadable, or older than an hour, try to get new data
+if (!checkRoomReservationData()) {
+    getNewRoomData($username, $password); 
+    
+}
+
+//get room reservation data XML object set up for use later
+$XML_File = fopen("RoomReservationData.xml", "r");
+$rawXML = fread($XML_File, filesize("RoomReservationData.xml"));
+$roomXML = new SimpleXMLElement($rawXML);
+
+//make a simple array of room codes and reserved statuses for display
+
+$reservedRooms = array();
+
+foreach ($roomXML->room as $booking) {
+    $reservedRooms[(string) $booking->roomcode] = array("groupname" => (string) $booking->groupname, "reserved" => (string) $booking->status);
+
+}
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -31,7 +61,9 @@
 
 	<div class="hours-container">
 		<h2 data-refresh="1">Today's Hours</h2>
+        
         <?php
+        //code that gets hours from the hours API
 
         $hours =array(1 => "Mary%20Idema%20Pew", 
                         6 => "Argo%20Tea",
@@ -62,8 +94,6 @@
             fclose($handle);
 
         }
-        //reorder them so that argo tea and MIP are first
-       
         
         foreach ($hoursOutput as $html) {
             echo $html;
@@ -82,109 +112,63 @@
 -->
 	<div class="room-availability-container">
     
-		<h2 data-refresh="3">Study Room Availability<small> Last Updated: <span id="last-updated-rooms"></span></small></h2>
+		<h2 data-refresh="3">Study Room Availability<small> Last Updated: <span id="last-updated-rooms"><?php echo (string) $roomXML->timedisplay; ?></span></small></h2>
 
        <ul class="traffic-legend" style="display: block;" id="room-traffic-legend">
             <li class="low"><div></div>Available</li>
             <li class="medium"><div></div>Reserved soon</li>
             <li class="full"><div></div>Reserved</li>
         </ul>
+        <ul class="room-availability-floors">
+        <?php
 
-		<ul class="room-availability-floors">
-            <li class="floor-container">
-                <h4 class="floor-title">Atrium</h4>
-                <ul>
-                    <li class="room-container grey" id="7678">
-                        <span class="room-name">003 - Media Prep</span>
-                        <span class="reserved-by"></span>
-                    </li>
-                    <li class="room-container grey" id="7679">
-                        <span class="room-name">004 - Media Prep</span>
-                        <span class="reserved-by"></span>
-                    </li>
-                    <li class="room-container grey" id="7680">
-                        <span class="room-name">005 - Media Prep</span>
-                        <span class="reserved-by"></span>
-                    </li>
-                </ul>
-            </li>
-            <li class="floor-container">
-                <h4 class="floor-title">1st Floor</h4>
-                <ul>
-                    <li class="room-container grey" id="7686">
-                        <span class="room-name">133 - Media Prep</span>
-                        <span class="reserved-by"></span>
-                    </li>
-                    <li class="room-container grey" id="7687">
-                        <span class="room-name">134 - Presentation Practice</span>
-                        <span class="reserved-by"></span>
-                    </li>
-                    <li class="room-container grey" id="7688">
-                        <span class="room-name">135 - Presentation Practice</span>
-                        <span class="reserved-by"></span>
-                    </li>
-                </ul>
-            </li>
-            <li class="floor-container">
-                <h4 class="floor-title">2nd Floor</h4>
-                <ul>
-                    <li class="room-container grey" id="7689">
-                        <span class="room-name">202 - Conference Style</span>
-                        <span class="reserved-by"></span>
-                    </li>
-                    <li class="room-container grey" id="7690">
-                        <span class="room-name">203 - Conference Style</span>
-                        <span class="reserved-by"></span>
-                    </li>
-                    <li class="room-container grey" id="7801">
-                        <span class="room-name">204 - Lounge Style</span>
-                        <span class="reserved-by"></span>
-                    </li>
-                    <li class="room-container grey" id="7691">
-                        <span class="room-name">205 - Conference Style</span>
-                        <span class="reserved-by"></span>
-                    </li>
-                    <li class="room-container grey" id="7692">
-                        <span class="room-name">216 - Seminar Room</span>
-                        <span class="reserved-by"></span>
-                    </li>
-                </ul>
-            </li>
-            <li class="floor-container">
-                <h4 class="floor-title">3rd Floor</h4>
-                <ul>
-                    <li class="room-container grey" id="7693">
-                        <span class="room-name">302 - Conference Style</span>
-                        <span class="reserved-by"></span>
-                    </li>
-                    <li class="room-container grey" id="7694">
-                        <span class="room-name">303 - Lounge Style</span>
-                        <span class="reserved-by"></span>
-                    </li>
-                    <li class="room-container grey" id="7695">
-                        <span class="room-name">304 - Conference Style</span>
-                        <span class="reserved-by"></span>
-                    </li>
-                    <li class="room-container grey" id="7696">
-                        <span class="room-name">305 - Conference Style</span>
-                        <span class="reserved-by"></span>
-                    </li>
-                </ul>
-            </li>
-            <li class="floor-container">
-                <h4 class="floor-title">4th Floor</h4>
-                <ul>
-                    <li class="room-container grey" id="7698">
-                        <span class="room-name">404 - Conference Style</span>
-                        <span class="reserved-by"></span>
-                    </li>
-                    <li class="room-container grey" id="7699">
-                        <span class="room-name">405 - Conference Style</span>
-                        <span class="reserved-by"></span>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+        //set up an array of floors and associated rooms to sue to build the display
+
+        $studyRooms = array(
+            "atrium" => array("7678" => "003 - Media Prep", "7679" => "004 - Media Prep", "7680" => "005 - Media Prep"),
+            "1st Floor" => array("7686"=> "133 - Media Prep", "7687" => "134 - Presentation Practice", "7688" => "135 - Presentation Practice"),
+            "2nd Floor" => array("7689" => "202 - Conference Style", "7690" => "203 - Conference Style", "7801" => "204 - Lounge Style", "7691" => "205 - Conference Style", "7692" => "216 - Seminar Room"),
+            "3rd Floor" => array("7693" => "302 - Conference Style", "7694" => "303 - Lounge Style", "7695" => "304 - Conference Style", "7696" => "305 - Conference Style"),
+            "4th Floor" => array("7698" => "404 - Conference Style", "7699" => "405 - Conference Style")
+    
+        );
+
+        //start iterating through the array and setting up the room display
+
+        foreach ($studyRooms as $floor => $rooms) {
+            echo '<li class="floor-container">';
+            echo '<h4 class="floor-title">' . $floor . '</h4>';
+            echo '<ul>';
+            foreach ($rooms as $roomID => $roomName) {
+
+                
+
+                if (isset($reservedRooms[$roomID])) {
+
+                    $groupName = $reservedRooms[$roomID]["groupname"];
+                    if ($reservedRooms[$roomID]["reserved"] == "reserved") {
+                        $reservedDisplay = " reserved";
+                    } else {
+                        $reservedDisplay = " reserved_soon";
+                    }
+
+                } else {
+                    $groupName = "";
+                    $reservedDisplay = "available";
+                }
+
+                echo '<li class="room-container' . $reservedDisplay . '" id="' . $roomID . '">';
+                echo '<span class="room-name">'. $roomName . '</span>';
+                echo '<span class="reserved-by">' . $groupName . '</span></li>';    
+            }
+
+           echo '</ul></li>'; 
+
+
+        }
+
+        ?>
+		
 
 	</div>
 
@@ -312,6 +296,6 @@
 <script src="js/jquery-idletimer.js"></script>
 <script src="js/moment.js"></script>
 <script src="js/emojione.min.js"></script>
-<script src="js/scripts.js"></script>
+<!--<script src="js/scripts.js"></script>-->
 
 </html>

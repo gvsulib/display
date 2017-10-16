@@ -23,7 +23,7 @@ $( document ).ready(function() {
 
     resetButtons();
     getTraffic();
-    getRoomAvailability();
+    //getRoomAvailability();
     //updateComputerAvailability();
     selectFloor(floor);
     updateTime();
@@ -31,7 +31,7 @@ $( document ).ready(function() {
     displayEmoji();
 
     setInterval(getTraffic, trafficDelay * minutes); // default 15 minutes
-    setInterval(getRoomAvailability, roomsDelay * minutes); // default 15 minutes
+    //setInterval(getRoomAvailability, roomsDelay * minutes); // default 15 minutes
     //setInterval(updateComputerAvailability, 10 * minutes);
     setInterval(updateTime, 10 * seconds);
     setInterval(getMessages, 5 * minutes);
