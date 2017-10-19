@@ -5,28 +5,101 @@ include 'connection.php';
 //authenitcatiuon data for the room reservation API
 include 'authentication.php';
 include 'getRoomReservationData.php';
-
+include 'getTraffic.php';
 date_default_timezone_set('America/Detroit');
 
+
+
 //check the cached XML room data.  If it's unopenable, unreadable, or older than an hour, try to get new data
+
 if (!checkRoomReservationData()) {
-    getNewRoomData($username, $password); 
+    getNewRoomData($username, $password);  
     
 }
 
+//unfortunately, the page tries to load broken data before the process of writing the new file is finished, 
+//so we still have to check for errors
+
 //get room reservation data XML object set up for use later
 $XML_File = fopen("RoomReservationData.xml", "r");
-$rawXML = fread($XML_File, filesize("RoomReservationData.xml"));
-$roomXML = new SimpleXMLElement($rawXML);
+if ($XML_File != false ) {
+    $rawXML = fread($XML_File, filesize("RoomReservationData.xml"));
+    try {$roomXML = new SimpleXMLElement($rawXML);} catch (Exception $e) {
+        $roomXML = false;
+    }
+} else {
+    $roomXML = false;
+}
+if ($roomXML != false) {
+    $reservedRooms = array();
 
-//make a simple array of room codes and reserved statuses for display
+    foreach ($roomXML->room as $booking) {
+        //make a simple array of room codes and reserved statuses for display
+        //include start and end times, primarily so I'll have them for the multipurpose room display
 
-$reservedRooms = array();
+        $reservedRooms[(string) $booking->roomcode] = array(
+            "groupname" => (string) $booking->groupname, 
+            "reserved" => (string) $booking->status,
+            "start" => (string) $booking->timestart,
+            "end" => (string) $booking->timeend,
+        );
+    } 
+}
 
-foreach ($roomXML->room as $booking) {
-    $reservedRooms[(string) $booking->roomcode] = array("groupname" => (string) $booking->groupname, "reserved" => (string) $booking->status);
+//has the user selected an emoji?  log it!
+
+if (isset($_GET["emoji"])) {
+    $emoji = $_GET["emoji"];
+    if (postFeedback($emoji, $con)) {
+        $feedbackMessage = "Feedback logged!";
+    } else {
+        $feedbackMessage = "ERROR: Feedback not logged!";
+    }
 
 }
+
+
+
+//figure out what floor the user wants to see
+if (isset($_GET['floor'])) {
+    
+    $floorDisplay = (int) $_GET['floor'];
+} else {
+    $floorDisplay = 1;
+}
+//get traffic data from database
+
+$traffic = getTrafficData($con);
+
+//map traffic levels to the colors for display
+
+foreach ($traffic as $roomID => $level) {
+    switch ($level) {
+        case '4':
+        $traffic[$roomID] = "red";
+        break;
+        case '-1':
+        $traffic[$roomID] = "red";
+        break;
+        case '3':
+        $traffic[$roomID] = "orange";
+        break;
+        case '2':
+        $traffic[$roomID] = "yellow";
+        break;
+        case '1':
+        $traffic[$roomID] = "green";
+        break;
+        case '0':
+        $traffic[$roomID] = "green";
+        break;
+        
+    }
+}
+
+//get last update time of traffic from database
+
+$trafficUpdate = getLastUpdatedTraffic($con);
 
 ?>
 <!DOCTYPE html>
@@ -46,13 +119,24 @@ foreach ($roomXML->room as $booking) {
 
 <div class="page-container">
 
+
+<div class="messageContainer" ID="messageContainer"> 
+    <h2 class="message-heading" ID="heading"></h2>
+    <div class="message-text">
+    <span ID="time"></span></br>
+    <span ID="body"></span>
+    </div>
+</div>
+
+
+
 	<div class="logo-container">
 		<img src="img/gvsu_logo.png">
 	</div>
 
-	<div class="date-time-container">
-		<h3 id="day">Month 00</h3>
-		<h4 id="time">00:00 AM/PM</h4>
+	<div class="date-time-container" ID="date-time-container">
+		<h3 id="day"></h3>
+		<h4 id="time"></h4>
 	</div>
 
 	<div class="weather-container">
@@ -112,7 +196,7 @@ foreach ($roomXML->room as $booking) {
 -->
 	<div class="room-availability-container">
     
-		<h2 data-refresh="3">Study Room Availability<small> Last Updated: <span id="last-updated-rooms"><?php echo (string) $roomXML->timedisplay; ?></span></small></h2>
+		<h2 data-refresh="3">Study Room Availability <span id="last-updated">Last Updated: <?php if ($roomXML != false) {echo (string) $roomXML->timedisplay;} ?></span></h2>
 
        <ul class="traffic-legend" style="display: block;" id="room-traffic-legend">
             <li class="low"><div></div>Available</li>
@@ -122,51 +206,53 @@ foreach ($roomXML->room as $booking) {
         <ul class="room-availability-floors">
         <?php
 
-        //set up an array of floors and associated rooms to sue to build the display
+        //set up an array of floors and associated rooms to use to build the display
+        if ($roomXML != false) {
+            $studyRooms = array(
+                "atrium" => array("7678" => "003 - Media Prep", "7679" => "004 - Media Prep", "7680" => "005 - Media Prep"),
+                "1st Floor" => array("7686"=> "133 - Media Prep", "7687" => "134 - Presentation Practice", "7688" => "135 - Presentation Practice"),
+                "2nd Floor" => array("7689" => "202 - Conference Style", "7690" => "203 - Conference Style", "7801" => "204 - Lounge Style", "7691" => "205 - Conference Style", "7692" => "216 - Seminar Room"),
+                "3rd Floor" => array("7693" => "302 - Conference Style", "7694" => "303 - Lounge Style", "7695" => "304 - Conference Style", "7696" => "305 - Conference Style"),
+                "4th Floor" => array("7698" => "404 - Conference Style", "7699" => "405 - Conference Style")
+        
+            );
 
-        $studyRooms = array(
-            "atrium" => array("7678" => "003 - Media Prep", "7679" => "004 - Media Prep", "7680" => "005 - Media Prep"),
-            "1st Floor" => array("7686"=> "133 - Media Prep", "7687" => "134 - Presentation Practice", "7688" => "135 - Presentation Practice"),
-            "2nd Floor" => array("7689" => "202 - Conference Style", "7690" => "203 - Conference Style", "7801" => "204 - Lounge Style", "7691" => "205 - Conference Style", "7692" => "216 - Seminar Room"),
-            "3rd Floor" => array("7693" => "302 - Conference Style", "7694" => "303 - Lounge Style", "7695" => "304 - Conference Style", "7696" => "305 - Conference Style"),
-            "4th Floor" => array("7698" => "404 - Conference Style", "7699" => "405 - Conference Style")
-    
-        );
+            //start iterating through the array and setting up the room display
 
-        //start iterating through the array and setting up the room display
+            foreach ($studyRooms as $floor => $rooms) {
+                echo '<li class="floor-container">';
+                echo '<h4 class="floor-title">' . $floor . '</h4>';
+                echo '<ul>';
+                foreach ($rooms as $roomID => $roomName) {
 
-        foreach ($studyRooms as $floor => $rooms) {
-            echo '<li class="floor-container">';
-            echo '<h4 class="floor-title">' . $floor . '</h4>';
-            echo '<ul>';
-            foreach ($rooms as $roomID => $roomName) {
+                    
+                    //is the room in our array of reserved rooms?  If so, set it's status and display the groupname
+                    if (isset($reservedRooms[$roomID])) {
 
-                
-
-                if (isset($reservedRooms[$roomID])) {
-
-                    $groupName = $reservedRooms[$roomID]["groupname"];
-                    if ($reservedRooms[$roomID]["reserved"] == "reserved") {
-                        $reservedDisplay = " reserved";
+                        $groupName = $reservedRooms[$roomID]["groupname"];
+                        if ($reservedRooms[$roomID]["reserved"] == "reserved") {
+                            $reservedDisplay = " reserved";
+                        } else {
+                            $reservedDisplay = " reserved_soon";
+                        }
+                    //otherwise, mark it as availabile
                     } else {
-                        $reservedDisplay = " reserved_soon";
+                        $groupName = "";
+                        $reservedDisplay = " available";
                     }
 
-                } else {
-                    $groupName = "";
-                    $reservedDisplay = "available";
+                    echo '<li class="room-container' . $reservedDisplay . '" id="' . $roomID . '">';
+                    echo '<span class="room-name">'. $roomName . '</span>';
+                    echo '<span class="reserved-by">' . $groupName . '</span></li>';    
                 }
 
-                echo '<li class="room-container' . $reservedDisplay . '" id="' . $roomID . '">';
-                echo '<span class="room-name">'. $roomName . '</span>';
-                echo '<span class="reserved-by">' . $groupName . '</span></li>';    
+            echo '</ul></li>'; 
+
+
             }
-
-           echo '</ul></li>'; 
-
-
+        }   else {
+            echo "Error: Cannot get room reservation data.";
         }
-
         ?>
 		
 
@@ -174,9 +260,9 @@ foreach ($roomXML->room as $booking) {
 
 
 	<div class="traffic-map-container">
-		<h2 data-refresh="4">Library Traffic<small>Updated: <span id="last-updated"></span></small></h2>
+		<h2 data-refresh="4">Library Traffic Last Updated: <span id="last-updated"><?php echo $trafficUpdate; ?></span></h2>
 
-        <div class="spinner"></div>
+       
 
 		<ul class="traffic-legend" id="area-traffic-legend">
             <li class="display"><span class="star">&#9733;</span>Display</li>
@@ -188,114 +274,115 @@ foreach ($roomXML->room as $booking) {
 		</ul>
 
         <div class="areas-container">
+        <?php
+           
+        //show the traffic map for the selected floor.  if no floor is specfied, the default is 1
+        switch ($floorDisplay) {
+            case 0:
+            include 'php/atrium.php';
+            break;
+            case 1:
+            include 'php/first.php';
+            break;
+            case 2:
+            include 'php/second.php';
+            break;
+            case 3:
+            include 'php/third.php';
+            break;
+            case 4:
+            include 'php/fourth.php';
+            break;
 
-            <div class="areas atrium-floor">
-                <div class="here"><span class="star">&#9733;</span></div>
-                <div class="elevator">Elevator</div>
-                <div id="atrium_exhibition_room" class="grey">Exhibition Room</div>
-                <div id="atrium_seating_area" class="grey">Seating Area</div>
-                <div id="atrium_multipurpose_room" class="grey">
-                    <span>Multipurpose<br>Room</span>
-                </div>
-                <div id="mp-event">
-                Event:<br>
-                    <span id="mp-event-name"></span><br>
-                    <span id="mp-event-times"></span>
-                </div>
-                <div id="atrium_living_room" class="grey">Living<br>Room</div>
-                <div id="atrium_under_stairs" class="grey">Tables under Stairs</div>
-            </div>
 
-            <div class="areas first-floor">
-                <div class="here here-1"><span class="star">&#9733;</span></div>
-                <div class="here here-2"><span class="star">&#9733;</span></div>
-                <div class="elevator">Elevator</div>
-                <div id="first_knowledge_market" class="grey">Knowledge Market</div>
-                <div id="first_cafe_seating" class="grey">Cafe Seating</div>
-            </div>
+        }
+            
 
-            <div class="areas second-floor">
-                <div class="here"><span class="star">&#9733;</span></div>
-                <div class="elevator">Elevator</div>
-                <div id="second_collaboration_space" class="grey">Collaborative<br>Space</div>
-                <div id="second_quiet_space" class="grey">Quiet Space</div>
-            </div>
-
-            <div class="areas third-floor">
-                <div class="here"><span class="star">&#9733;</span></div>
-                <div class="elevator">Elevator</div>
-                <div id="third_innovation_zone" class="grey">Innovation<br>Zone</div>
-                <div id="third_reading_room" class="grey">Reading Room</div>
-                <div id="third_collaboration_space" class="grey">Collaborative<br>Space</div>
-                <div id="third_quiet_space" class="grey">Quiet Space</div>
-            </div>
-
-            <div class="areas fourth-floor">
-                <div class="here"><span class="star">&#9733;</span></div>
-                <div class="elevator">Elevator</div>
-                <div id="fourth_reading_room" class="grey">Reading Room</div>
-                <div id="fourth_collaboration_space" class="grey">Collaborative<br>Space</div>
-                <div id="fourth_quiet_space" class="grey">Quiet Space</div>
-            </div>
-
+         ?>   
         </div>
 
 	</div>
-
+<!--button sto select floors-->
     <div class="floor-toggle">
-
+        
         <ul class="floors">
-            <li class="atrium-floor-button first 0">Atrium</li>
-            <li class="first-floor-button 1">1st Floor</li>
-            <li class="second-floor-button 2">2nd Floor</li>
-            <li class="third-floor-button selected 3">3rd Floor</li>
-            <li class="fourth-floor-button last 4">4th Floor</li>
+        <a href="index.php?floor=0"><li class="atrium-floor-button <?php if ($floorDisplay == 0) {echo "selected";}?>">Atrium</li></a>
+            <a href="index.php?floor=1"><li class="first-floor-button <?php if ($floorDisplay == 1) {echo "selected";}?>">1st Floor</li></a>
+            <a href="index.php?floor=2"><li class="second-floor-button <?php if ($floorDisplay == 2) {echo "selected";}?>">2nd Floor</li></a>
+            <a href="index.php?floor=3"><li class="third-floor-button <?php if ($floorDisplay == 3) {echo "selected";}?>">3rd Floor</li></a>
+            <a href="index.php?floor=4"><li class="fourth-floor-button <?php if ($floorDisplay == 4) {echo "selected";}?>">4th Floor</li></a>
         </ul>
-
+        
     </div>
+
+    <!--emojis-->
     <div class="feedback">
         <h2>How was your library experience today? Touch below to let us know!</h2>
-        <ul class="emojis">
-        	<li data-emoji=":heart_eyes:" data-level="5"></li>
-        	<li data-emoji=":smile:" data-level="4"></li>
-        	<li data-emoji=":neutral_face:" data-level="3"></li>
-        	<li data-emoji=":unamused:" data-level="2"></li>
-        	<li data-emoji=":rage:" data-level="1"></li>
+        <div class="emoji-container">
+        <a class="emojilink" href="index.php?floor=<?php echo $floorDisplay; ?>&emoji=5"><img class="emoji" src="emojis/1f60d.png"></a> 
+        <a class="emojilink" href="index.php?floor=<?php echo $floorDisplay; ?>&emoji=4"><img class="emoji" src="emojis/1f60c.png"><a> 
+        <a class="emojilink" href="index.php?floor=<?php echo $floorDisplay; ?>&emoji=3"><img class="emoji" src="emojis/1f610.png"></a>
+        <a class="emojilink" href="index.php?floor=<?php echo $floorDisplay; ?>&emoji=2"><img class="emoji" src="emojis/1f620.png"></a> 
+        <a class="emojilink" href="index.php?floor=<?php echo $floorDisplay; ?>&emoji=1"><img class="emoji" src="emojis/1f92c.png"></a>
+        </div>
+        <!--confirmation message for touching an emoji-->
+        <div ID="modal" class="modal<?php if (isset($emoji)) {echo "show";} else {echo "hide";} ?>">
+           <?php
+
+
+            if (isset($emoji)) {
+                echo "<P>" . $feedbackMessage . "<P>";
+                if ($emoji >= 3) {
+                    
+                    echo  "<p>Thank you for your feedback!</p>";
+                } else {
+                    echo "<p>
+                    We want you to have a great library experience! Text us at (616) 818-0219 and let us know how we can make it better.
+                </p>
+                <p>
+                    You can also contact us at library@gvsu.edu or talk to a staff member at the Service Desk!
+                </p>";
+                }
+
+             }
+
             
-        </ul>
-        <div class="modal modal1" >
+
            
-           <p>We are sorry you are sad! Is there anything we can do to help?</p>
-           <p><span>Yes, I have a complaint or need help!</span><p>
-           
-        </div>
-        <div class="modal modal2">
-            <p>
-                We want you to have a great library experience! Text us at (616) 818-0219 and let us know how we can make it better.
-            </p>
-            <p>
-                You can also contact us at library@gvsu.edu or talk to a staff member at the Service Desk!
-            </p>
-        </div>
-        <div class="modal modal3">
-            <p>
-                Thank you for your feedback!
-            </p>
-        </div>
-    </div>
-    <div class="modal close">Close</div>
+    ?>
+    <a href="index.php?floor=<?php echo $floorDisplay; ?>">Close</a>
 </div>
 
 </body>
-<script>
-    var floor = <?php echo isset($_GET['floor']) ? $_GET['floor'] : 1;?>;
-   
-</script>
+
 <script src="js/jquery-1.11.1.min.js" ></script>
 <script src="js/jquery.simpleWeather.min.js"></script>
 <script src="js/jquery-idletimer.js"></script>
 <script src="js/moment.js"></script>
-<script src="js/emojione.min.js"></script>
-<!--<script src="js/scripts.js"></script>-->
+<script src="js/scripts.js"></script>
 
+
+<?php
+//code to relead the page if the emoji confirmation window is showing.  
+//Reloading the page will reset the visibility class on the div, hiding it.
+if (isset($emoji)) {
+            echo <<<EOT
+
+
+            <script>
+
+            function hideModalReset(s){
+                setTimeout(function(){
+                    window.location.href='index.php?floor=$floorDisplay';
+                }, s * 1000);
+            }
+            hideModalReset(20);
+
+            </script>
+
+
+EOT;
+}
+
+?>
 </html>

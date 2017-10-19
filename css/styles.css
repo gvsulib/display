@@ -174,7 +174,22 @@ i {
 	display: inline-block;
     line-height: 110px;
 }
+/** Messages **/
 
+.messageContainer {
+    background: white;
+    position: fixed;
+    height: 150px;
+    width: 100%;
+    top: 0px;
+    display: none;
+    font-size: 1.5em;
+   
+
+}
+.message-text {
+    padding: 10px;
+}
 
 /** Hours **/
 
@@ -278,6 +293,10 @@ i {
 }
 
 /** TRAFFIC MAP **/
+.last-updated {
+    margin-left: 50px;
+    font-size: small;
+}
 
 .traffic-map-container {
 	height: 562px;
@@ -409,14 +428,7 @@ i {
     top: -50px;
 }
 #mp-event {
-    width: 200px;
-    height: 60px;
-    position: absolute;
-    top: 1430px;
-    left: 530px;
-    display: block;
-    text-align: center;
-    color: #FFF;
+    
 }
 
 #atrium_living_room {
@@ -680,17 +692,6 @@ i {
     color: #575757;
 }
 
-.spinner {
-  width: 60px;
-  height: 60px;
-  margin: 210px auto;
-  background-color: #333;
-
-  border-radius: 100%;
-  -webkit-animation: scaleout 1.0s infinite ease-in-out;
-  animation: scaleout 1.0s infinite ease-in-out;
-}
-
 @-webkit-keyframes scaleout {
   0% { -webkit-transform: scale(0.0) }
   100% {
@@ -735,88 +736,33 @@ i {
 .feedback {
     background-color: white;
 }
-.feedback ul {
-    margin-top: 10px;
-}
-.feedback ul.emojis li {
+
+.emoji{
     display: inline;
     margin: 0 39px;
 }
-.modal {
+.modalhide{
+    display: none;
+}
+.modalshow {
+    display: block;
     position: fixed;
     bottom: 0px;
     width: auto;
     text-align: center;
     margin: 0 auto;
-    display: none;
     cursor: pointer;
     z-index: 4;
-}
-.feedback .modal2, .feedback .modal1, .feedback .modal3, .close{
-    font-size: 28px;
-    background: #f6f6f6;
-    border: 1px solid #ccc;
-    padding: 20px;
+    background-color: white;
     width: 100%;
-    bottom: 65px;
-}
-.modal1 p span {
-    color: #fff;
-    background-color: #0275d8;
-    border-color: #0275d8;
-    display: inline-block;
-font-weight: 400;
-line-height: 1.25;
-text-align: center;
-white-space: nowrap;
-vertical-align: middle;
--webkit-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
-border: 1px solid transparent;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-padding: .5rem 1rem;
-margin: .7em auto;
-border-radius: .25rem;
--webkit-transition: all .2s ease-in-out;
--o-transition: all .2s ease-in-out;
-transition: all .2s ease-in-out;
+    height: 150px;
+    font-size: 1.5em;
+    padding: 15px;
 }
 
 .close {
     bottom: 0;
 }
-.feedback .modal2 p {
-    margin: 10px;
-}
-.feedback .modal3 {
-    height: 170px;
-    padding-top: 60px;
-    left: 0;
-}
-.feedback .modal1 ul{
-    text-align: center;
-    margin: 0 auto;
-}
-.feedback .modal1 ul li {
-    background-color: white;
-    display: inline-block;
-    width: 30%;
-    font-size: 20px;
-    border: 2px solid #646464;
-    border-radius: 10px;
-    text-align: center;
-    padding: 5px;
-    min-height: 60px;
-}
-.feedback .modal ul li.other {
-    font-size: 44px;
-}
 
-.emojione {
-    font-size: 70px;
-}
+
+

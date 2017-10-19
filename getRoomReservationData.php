@@ -16,16 +16,16 @@ function checkRoomReservationData() {
 		} catch (Exception $e) {
 				//if the XML in the file can't be parsed, return false
 				fclose($XML_File);
+				
 				return false;
 						
 		}
 		//okay, now extract the timestamp from the file.
 		$timestamp = (int) $xml->timestamp;
 
-		//we have to calculate time from date strings consistent 
-		
-		$hourAgo = time() - (60 * 60);
-		if ($timestamp <= $hourAgo) {
+		//see if the timestamp on the file is older than the top of the current hour.
+		$hour = strtotime(date('Y-m-d\TH:00:00'));
+		if ($timestamp < $hour) {
 			return false;
 
 		} else {
@@ -86,7 +86,7 @@ function getNewRoomData($username, $password) {
 
 
 	$nowdisplay = date('h:s a');  
-	$timestamp = time();   
+	$timestamp = strtotime(date('Y-m-d\TH:i:s'));   
 	$outPut = new SimpleXMLElement("<bookings><timedisplay>" . $nowdisplay . "</timedisplay><timestamp>" . $timestamp . "</timestamp></bookings>");
 
 	//the API requires that we request data on each room as a separate URL.  So prepare to cycle through the list of rooms, 
@@ -272,6 +272,7 @@ function getNewRoomData($username, $password) {
 	fwrite($XML_File, $outPut->asXML());
 	fclose($XML_File);
 	//echo $outPut->asXML(); //echo contents of file for debugging purposes.
+	return true;
 }
 
 //this function extracts the groupname and does not show groupnames for bookings made by admins
