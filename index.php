@@ -12,7 +12,7 @@ date_default_timezone_set('America/Detroit');
 
 //check the cached XML room data.  If it's unopenable, unreadable, or older than an hour, try to get new data
 
-echo checkRoomReservationData();
+
 
 if (!checkRoomReservationData()) {
     getNewRoomData($username, $password);  
