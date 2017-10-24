@@ -12,8 +12,6 @@ date_default_timezone_set('America/Detroit');
 
 //check the cached XML room data.  If it's unopenable, unreadable, or older than an hour, try to get new data
 
-
-
 if (!checkRoomReservationData()) {
     getNewRoomData($username, $password);  
     
@@ -113,7 +111,7 @@ $trafficUpdate = getLastUpdatedTraffic($con);
     <link rel="stylesheet" type="text/css" href="css/emojione.min.css" />
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     
-    <META HTTP-EQUIV="refresh" CONTENT="18000">
+    <META HTTP-EQUIV="refresh" CONTENT="900">
 
 </head>
 
