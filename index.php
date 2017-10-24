@@ -198,7 +198,7 @@ $trafficUpdate = getLastUpdatedTraffic($con);
 -->
 	<div class="room-availability-container">
     
-		<h2 data-refresh="3">Study Room Availability <span id="last-updated">Last Updated: <?php if ($roomXML != false) {echo (string) $roomXML->timedisplay;} ?></span></h2>
+		<h2 data-refresh="3">Study Room Availability <span id="last-updated">Last Updated: <?php if ($roomXML) {echo (string) $roomXML->timedisplay;} ?></span></h2>
 
        <ul class="traffic-legend" style="display: block;" id="room-traffic-legend">
             <li class="low"><div></div>Available</li>
