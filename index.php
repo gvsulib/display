@@ -12,6 +12,8 @@ date_default_timezone_set('America/Detroit');
 
 //check the cached XML room data.  If it's unopenable, unreadable, or older than an hour, try to get new data
 
+echo checkRoomReservationData();
+
 if (!checkRoomReservationData()) {
     getNewRoomData($username, $password);  
     
@@ -22,7 +24,7 @@ if (!checkRoomReservationData()) {
 
 //get room reservation data XML object set up for use later
 $XML_File = fopen("RoomReservationData.xml", "r");
-if ($XML_File != false ) {
+if ($XML_File) {
     $rawXML = fread($XML_File, filesize("RoomReservationData.xml"));
     try {$roomXML = new SimpleXMLElement($rawXML);} catch (Exception $e) {
         $roomXML = false;
@@ -30,7 +32,7 @@ if ($XML_File != false ) {
 } else {
     $roomXML = false;
 }
-if ($roomXML != false) {
+if ($roomXML) {
     $reservedRooms = array();
 
     foreach ($roomXML->room as $booking) {
