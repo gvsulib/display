@@ -209,7 +209,7 @@ $trafficUpdate = getLastUpdatedTraffic($con);
         <?php
 
         //set up an array of floors and associated rooms to use to build the display
-        if ($roomXML != false) {
+        if ($roomXML) {
             $studyRooms = array(
                 "atrium" => array("7678" => "003 - Media Prep", "7679" => "004 - Media Prep", "7680" => "005 - Media Prep"),
                 "1st Floor" => array("7686"=> "133 - Media Prep", "7687" => "134 - Presentation Practice", "7688" => "135 - Presentation Practice"),
