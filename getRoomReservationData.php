@@ -8,32 +8,40 @@ function checkRoomReservationData() {
 	$XML_File = fopen("RoomReservationData.xml", "r");
 	if (!$XML_File) {
 		return false;
-	} else {
-		$rawXML = fread($XML_File, filesize("RoomReservationData.xml"));
-		try {
-			$xml = new SimpleXMLElement($rawXML);
+	}
+
+
+
+	if (filesize("RoomReservationData.xml") == 0 ) {
+		return false;
+	}
+	
+	$rawXML = fread($XML_File, filesize("RoomReservationData.xml"));
+	try {
+		$xml = new SimpleXMLElement($rawXML);
 			
-		} catch (Exception $e) {
+	} catch (Exception $e) {
 				//if the XML in the file can't be parsed, return false
 				fclose($XML_File);
 				
-				return false;
+		return false;
 						
-		}
-		//okay, now extract the timestamp from the file.
-		$timestamp = (int) $xml->timestamp;
-
-		//see if the timestamp on the file is older than the top of the current hour.
-		$hour = strtotime(date('Y-m-d\TH:00:00'));
-		if ($timestamp < $hour) {
-			return false;
-
-		} else {
-			return true;
-		}
-
-
 	}
+	
+	//okay, now extract the timestamp from the file.
+	$timestamp = (int) $xml->timestamp;
+
+	//see if the timestamp on the file is older than the top of the current hour.
+	$hour = strtotime(date('Y-m-d\TH:00:00'));
+	if ($timestamp < $hour) {
+		return false;
+
+	} else {
+		return true;
+	}
+
+
+	
 }
 
 
