@@ -13,7 +13,7 @@ date_default_timezone_set('America/Detroit');
 //check the cached XML room data.  If it's unopenable, unreadable, or older than an hour, try to get new data
 
 if (!checkRoomReservationData()) {
-    getNewRoomData($username, $password);  
+    $result = getNewRoomData($username, $password);  
     
 }
 
@@ -22,6 +22,7 @@ if (!checkRoomReservationData()) {
 
 //get room reservation data XML object set up for use later
 $XML_File = fopen("RoomReservationData.xml", "r");
+flock($XML_File, LOCK_SH);
 if ($XML_File) {
     $rawXML = fread($XML_File, filesize("RoomReservationData.xml"));
     try {$roomXML = new SimpleXMLElement($rawXML);} catch (Exception $e) {
@@ -45,7 +46,7 @@ if ($roomXML) {
         );
     } 
 }
-
+fclose($XML_File);
 //has the user selected an emoji?  log it!
 
 if (isset($_GET["emoji"])) {
@@ -323,7 +324,7 @@ $trafficUpdate = getLastUpdatedTraffic($con);
         <a class="emojilink" href="index.php?floor=<?php echo $floorDisplay; ?>&emoji=4"><img class="emoji" src="emojis/1f60c.png"><a> 
         <a class="emojilink" href="index.php?floor=<?php echo $floorDisplay; ?>&emoji=3"><img class="emoji" src="emojis/1f610.png"></a>
         <a class="emojilink" href="index.php?floor=<?php echo $floorDisplay; ?>&emoji=2"><img class="emoji" src="emojis/1f620.png"></a> 
-        <a class="emojilink" href="index.php?floor=<?php echo $floorDisplay; ?>&emoji=1"><img class="emoji" src="emojis/1f92c.png"></a>
+        <a class="emojilink" href="index.php?floor=<?php echo $floorDisplay; ?>&emoji=1"><img class="emoji" src="emojis/1f621.png"></a>
         </div>
         <!--confirmation message for touching an emoji-->
         <div ID="modal" class="modal<?php if (isset($emoji)) {echo "show";} else {echo "hide";} ?>">

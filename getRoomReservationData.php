@@ -280,6 +280,7 @@ function getNewRoomData($username, $password) {
 	//displays will access the data from that file.
 	//we start by overwriting the file, if one is already there.
 	$XML_File = fopen("RoomReservationData.xml", "w");
+	flock($XML_File, LOCK_EX);
 	fwrite($XML_File, $outPut->asXML());
 	fclose($XML_File);
 	//echo $outPut->asXML(); //echo contents of file for debugging purposes.

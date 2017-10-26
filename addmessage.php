@@ -49,7 +49,10 @@ EOF;
 
 
 if (isset($_POST["messagesubmit"])){
-	$sql = "INSERT INTO status_messages (entryDate, expirationDate, heading, body, display) VALUES (STR_TO_DATE('" . $_POST['entryDate'] . " " . $_POST['entryTime'] . "', '%m/%d/%Y %H:%i'), STR_TO_DATE('" . $_POST['expirationDate'] . " " . $_POST['expirationTime'] . "', '%m/%d/%Y %H:%i'),  '" . $_POST['heading'] . "', '" . $_POST['body'] . "', '2')";
+	$sql = "INSERT INTO status_messages (entryDate, expirationDate, heading, body, display) VALUES (STR_TO_DATE('" . $_POST['entryDate'] . " " . $_POST['entryTime'] . "', '%m/%d/%Y %H:%i'), STR_TO_DATE('" . $_POST['expirationDate'] . " " . $_POST['expirationTime'] . "', '%m/%d/%Y %H:%i'),  '" . $_POST['heading'] . "', '" . $_POST['body'] . "','" . $_POST['where'] . "')";
+	
+	//echo $sql;
+	
 	if ($con->query($sql)){
 		$m = "Message added successfully.";
 		$e = FALSE;
@@ -97,7 +100,9 @@ if ($res && $res->num_rows > 0){
 					<th>Expiration Date</th>
 					<th>Heading</th>
 					<th>Body</th>
+					<th>Showing</th>
 					<th>Delete</th>
+					
 				</tr>
 			</thead>
 			<tbody>
@@ -106,6 +111,25 @@ if ($res && $res->num_rows > 0){
 					<td><?php echo $messages['expirationdate']; ?></td>
 					<td><?php echo $messages['heading']; ?></td>
 					<td><?php echo $messages['body']; ?></td>
+					<td><?php 
+					
+					switch ((int) $messages['display']) {
+						
+						case 0:
+						echo "All";
+						break;
+						case 1:
+						echo "Event only";
+						break;
+						case 2:
+						echo "Interactive only";
+						break;
+
+
+					}
+					
+					
+					?></td>
 					<td><a href="addMessage.php?delete=<?php echo $messages['messageid']; ?>">Delete</a></td>
 				</tr>
 			</tbody>
@@ -129,6 +153,17 @@ if ($res && $res->num_rows > 0){
 	<input type="text" size="50" maxlength="255"name="heading" required><br>
 	<label for="body">Message</label><br>
 	<textarea rows="4" cols="50"name="body" required></textarea><br>
+
+	<label for="where">Which Displays?</label><br>
+	<select name="where">
+  <option value="0" selected>All</option>
+  <option value="1">Events Only</option>
+  <option value="2">Interactive only</option>
+  
+	</select>
+	
+
+
 	<input type="submit" name="messagesubmit" value="Submit">
 </form>
 <script src="js/jquery-1.11.1.min.js"></script>
