@@ -1,21 +1,17 @@
 <?php 
 //database connection for traffic heatmap
-include 'connection.php';
+include 'php/connection.php';
 
 //authenitcatiuon data for the room reservation API
-include 'authentication.php';
-include 'getRoomReservationData.php';
-include 'getTraffic.php';
+include 'php/APIauthentication.php';
+include 'php/functions.php';
+
 date_default_timezone_set('America/Detroit');
 
 
 
 //check the cached XML room data.  If it's unopenable, unreadable, or older than an hour, try to get new data
 
-if (!checkRoomReservationData()) {
-    $result = getNewRoomData($username, $password);  
-    
-}
 
 //unfortunately, the page tries to load broken data before the process of writing the new file is finished, 
 //so we still have to check for errors
@@ -47,6 +43,12 @@ if ($roomXML) {
     } 
 }
 fclose($XML_File);
+
+if (!checkRoomReservationData()) {
+    $result = refreshRoomData($username, $password);  
+    
+}
+
 //has the user selected an emoji?  log it!
 
 if (isset($_GET["emoji"])) {
@@ -109,8 +111,7 @@ $trafficUpdate = getLastUpdatedTraffic($con);
 <head>
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="https://prod.library.gvsu.edu/labs/opac/css/fonts.css" />
-    <link rel="stylesheet" type="text/css" href="css/emojione.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/interactive.css">
     
     <META HTTP-EQUIV="refresh" CONTENT="900">
 
@@ -280,19 +281,19 @@ $trafficUpdate = getLastUpdatedTraffic($con);
         //show the traffic map for the selected floor.  if no floor is specfied, the default is 1
         switch ($floorDisplay) {
             case 0:
-            include 'php/atrium.php';
+            include 'php/floors/atrium.php';
             break;
             case 1:
-            include 'php/first.php';
+            include 'php/floors/first.php';
             break;
             case 2:
-            include 'php/second.php';
+            include 'php/floors/second.php';
             break;
             case 3:
-            include 'php/third.php';
+            include 'php/floors/third.php';
             break;
             case 4:
-            include 'php/fourth.php';
+            include 'php/floors/fourth.php';
             break;
 
 
@@ -307,11 +308,11 @@ $trafficUpdate = getLastUpdatedTraffic($con);
     <div class="floor-toggle">
         
         <ul class="floors">
-        <a href="index.php?floor=0"><li class="atrium-floor-button <?php if ($floorDisplay == 0) {echo "selected";}?>">Atrium</li></a>
-            <a href="index.php?floor=1"><li class="first-floor-button <?php if ($floorDisplay == 1) {echo "selected";}?>">1st Floor</li></a>
-            <a href="index.php?floor=2"><li class="second-floor-button <?php if ($floorDisplay == 2) {echo "selected";}?>">2nd Floor</li></a>
-            <a href="index.php?floor=3"><li class="third-floor-button <?php if ($floorDisplay == 3) {echo "selected";}?>">3rd Floor</li></a>
-            <a href="index.php?floor=4"><li class="fourth-floor-button <?php if ($floorDisplay == 4) {echo "selected";}?>">4th Floor</li></a>
+        <a href="interactive.php?floor=0"><li class="atrium-floor-button <?php if ($floorDisplay == 0) {echo "selected";}?>">Atrium</li></a>
+            <a href="interactive.php?floor=1"><li class="first-floor-button <?php if ($floorDisplay == 1) {echo "selected";}?>">1st Floor</li></a>
+            <a href="interactive.php?floor=2"><li class="second-floor-button <?php if ($floorDisplay == 2) {echo "selected";}?>">2nd Floor</li></a>
+            <a href="interactive.php?floor=3"><li class="third-floor-button <?php if ($floorDisplay == 3) {echo "selected";}?>">3rd Floor</li></a>
+            <a href="interactive.php?floor=4"><li class="fourth-floor-button <?php if ($floorDisplay == 4) {echo "selected";}?>">4th Floor</li></a>
         </ul>
         
     </div>
@@ -320,11 +321,11 @@ $trafficUpdate = getLastUpdatedTraffic($con);
     <div class="feedback">
         <h2>How was your library experience today? Touch below to let us know!</h2>
         <div class="emoji-container">
-        <a class="emojilink" href="index.php?floor=<?php echo $floorDisplay; ?>&emoji=5"><img class="emoji" src="emojis/1f60d.png"></a> 
-        <a class="emojilink" href="index.php?floor=<?php echo $floorDisplay; ?>&emoji=4"><img class="emoji" src="emojis/1f60c.png"><a> 
-        <a class="emojilink" href="index.php?floor=<?php echo $floorDisplay; ?>&emoji=3"><img class="emoji" src="emojis/1f610.png"></a>
-        <a class="emojilink" href="index.php?floor=<?php echo $floorDisplay; ?>&emoji=2"><img class="emoji" src="emojis/1f620.png"></a> 
-        <a class="emojilink" href="index.php?floor=<?php echo $floorDisplay; ?>&emoji=1"><img class="emoji" src="emojis/1f621.png"></a>
+        <a class="emojilink" href="interactive.php?floor=<?php echo $floorDisplay; ?>&emoji=5"><img class="emoji" src="img/emojis/1f60d.png"></a> 
+        <a class="emojilink" href="interactive.php?floor=<?php echo $floorDisplay; ?>&emoji=4"><img class="emoji" src="img/emojis/1f60c.png"><a> 
+        <a class="emojilink" href="interactive.php?floor=<?php echo $floorDisplay; ?>&emoji=3"><img class="emoji" src="img/emojis/1f610.png"></a>
+        <a class="emojilink" href="interactive.php?floor=<?php echo $floorDisplay; ?>&emoji=2"><img class="emoji" src="img/emojis/1f620.png"></a> 
+        <a class="emojilink" href="interactive.php?floor=<?php echo $floorDisplay; ?>&emoji=1"><img class="emoji" src="img/emojis/1f621.png"></a>
         </div>
         <!--confirmation message for touching an emoji-->
         <div ID="modal" class="modal<?php if (isset($emoji)) {echo "show";} else {echo "hide";} ?>">
@@ -360,7 +361,9 @@ $trafficUpdate = getLastUpdatedTraffic($con);
 <script src="js/jquery.simpleWeather.min.js"></script>
 <script src="js/jquery-idletimer.js"></script>
 <script src="js/moment.js"></script>
-<script src="js/scripts.js"></script>
+<script src="js/getMessages.js"></script>
+
+<script src="js/interactive.js"></script>
 
 
 <?php

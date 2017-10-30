@@ -1,6 +1,4 @@
-var xPosition = 0;
-var yPosition = 0;
-var lastClicked;
+
 
 $.ajaxSetup({ cache: false }); 
 
@@ -26,6 +24,30 @@ $( document ).ready(function() {
    
 });
 
+function getMessages(){
+    jQuery.ajax({
+        datatype: 'json',
+        url: 'php/getMessages.php?cache=' + new Date().getTime(),
+        method: 'GET',
+        success: function(message){
+            var container = jQuery('#messageContainer');
+            message = JSON.parse(message);
+            if (message != "none"){
+
+                console.log("this is the message:" + message);
+                
+                container.fadeIn();
+                
+                container.find('#heading').text(message.heading);
+                container.find('#msgtime').text('Alert: ' + moment(message.entrydate).format("h:mm A"));
+                container.find('#msgbody').text(message.body);
+            } else {
+                container.fadeOut();
+                
+            }
+        }
+    });
+}
 
 function updateComputerAvailability(){
     console.log('refreshing iframe');
@@ -40,9 +62,6 @@ function updateTime(){
     $day.html(now.format("MMMM D"));
     $time.html(now.format("h:mm A"));
 }
-
-
-
 
 function getWeather() {
     $.simpleWeather({
@@ -59,30 +78,6 @@ function getWeather() {
         }
     });
 }
-
-function getMessages(){
-    jQuery.ajax({
-        datatype: 'json',
-        url: 'getMessages.php?cache=' + new Date().getTime(),
-        method: 'GET',
-        success: function(message){
-            var container = jQuery('#messageContainer');
-            
-            if (message != null && message != 'null'){
-                message = JSON.parse(message);
-                container.fadeIn();
-                
-                container.find('#heading').text(message.heading);
-                container.find('#time').text('Alert: ' + moment(message.entrydate).format("h:mm A"));
-                container.find('#body').text(message.body);
-            } else {
-                container.fadeOut();
-                
-            }
-        }
-    });
-}
-
 
 var code = "4231";
 var codeSoFar = "";
