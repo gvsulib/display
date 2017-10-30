@@ -6,8 +6,8 @@ if(session_status() != PHP_SESSION_ACTIVE) {
 
 if (!isset($_SESSION['check'])) {$_SESSION['check'] = false;}
 
-require 'password.php';
-include 'connection.php';
+require 'php/messagePass.php';
+include 'php/connection.php';
 
 
 if ($_SESSION['check'] == false) { 

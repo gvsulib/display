@@ -128,7 +128,7 @@ if ($rawXML) {
 			}
 
 			displayEmoji();
-			setInterval(displayEmoji(), 5000);
+			setInterval(displayEmoji(), 50000);
 		</script>
 		
 	</body>
