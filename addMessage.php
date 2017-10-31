@@ -68,6 +68,8 @@ $sql = "SELECT * FROM `status_messages` WHERE entryDate < NOW() AND NOW() < expi
 $res = $con->query($sql);
 if ($res){
 	$messages = $res->fetch_assoc();
+} else {
+    $messages = false;
 }
 ?>
 <!DOCTYPE html>
