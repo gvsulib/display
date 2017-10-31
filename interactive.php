@@ -3,7 +3,7 @@
 include 'php/connection.php';
 
 //authenitcatiuon data for the room reservation API
-include 'php/APIauthentication.php';
+include 'php/authentication.php';
 include 'php/functions.php';
 
 date_default_timezone_set('America/Detroit');
@@ -125,8 +125,8 @@ $trafficUpdate = getLastUpdatedTraffic($con);
 <div class="messageContainer" ID="messageContainer"> 
     <h2 class="message-heading" ID="heading"></h2>
     <div class="message-text">
-    <span ID="time"></span></br>
-    <span ID="body"></span>
+    <span ID="msgtime"></span></br>
+    <span ID="msgbody"></span>
     </div>
 </div>
 
@@ -361,8 +361,6 @@ $trafficUpdate = getLastUpdatedTraffic($con);
 <script src="js/jquery.simpleWeather.min.js"></script>
 <script src="js/jquery-idletimer.js"></script>
 <script src="js/moment.js"></script>
-<script src="js/getMessages.js"></script>
-
 <script src="js/interactive.js"></script>
 
 

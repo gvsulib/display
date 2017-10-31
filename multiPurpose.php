@@ -3,7 +3,7 @@ date_default_timezone_set('America/Detroit');
 
 include 'php/connection.php';
 include 'php/functions.php';
-include 'php/APIauthentication.php';
+include 'php/authentication.php';
 
 $reservations = getReservationXML($username, $password, "7681", false);
 

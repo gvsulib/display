@@ -2,7 +2,7 @@
 
 include 'php/connection.php';
 include 'php/functions.php';
-include 'php/APIauthentication.php';
+include 'php/authentication.php';
 
 if (isset($_GET["room"])) {
 
