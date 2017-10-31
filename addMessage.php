@@ -3,7 +3,7 @@
 
 if (session_status() != PHP_SESSION_ACTIVE) {session_start();}
 
-require 'php/password.php';
+require 'php/messagepass.php';
 require 'php/connection.php';
 
 if (!isset($_SESSION["check"])) {
