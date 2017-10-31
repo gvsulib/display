@@ -1,29 +1,12 @@
 <?php
-
-if(session_status() != PHP_SESSION_ACTIVE) {
-	session_start();
-}
-
-if (!isset($_SESSION['check'])) {$_SESSION['check'] = false;}
-
-require 'php/messagePass.php';
-include 'php/connection.php';
-
-
-if ($_SESSION['check'] == false) { 
-	if (isset($_POST['password'])){
-		
-		if (password_verify($_POST["password"], $password)){
-			$_SESSION['check'] = true;
-			
-		} 
-	} 
-}
-
-
-if (!$_SESSION["check"]) {
-
-	echo <<<EOF
+session_start();
+if ($_SESSION['check'] != TRUE){ 
+	if ($_POST['password'] ){
+		require 'password.php';
+		if ($password == sha1($_POST['password'])){
+			$_SESSION['check'] = TRUE;
+		}
+	} else { ?>
 	<!DOCTYPE html>
 	<html>
 	<head>
@@ -43,16 +26,14 @@ if (!$_SESSION["check"]) {
 		</form>
 	</body>
 	</html>
-EOF;
-	die();
+<?php
+die();
 }
-
-
-if (isset($_POST["messagesubmit"])){
-	$sql = "INSERT INTO status_messages (entryDate, expirationDate, heading, body, display) VALUES (STR_TO_DATE('" . $_POST['entryDate'] . " " . $_POST['entryTime'] . "', '%m/%d/%Y %H:%i'), STR_TO_DATE('" . $_POST['expirationDate'] . " " . $_POST['expirationTime'] . "', '%m/%d/%Y %H:%i'),  '" . $_POST['heading'] . "', '" . $_POST['body'] . "','" . $_POST['where'] . "')";
-	
-	//echo $sql;
-	
+}
+include 'connection.php';
+$con = getConnection();
+if ($_POST){
+	$sql = "INSERT INTO `status_messages` (entryDate, expirationDate, heading, body) VALUES (STR_TO_DATE('" . $_POST['entryDate'] . " " . $_POST['entryTime'] . "', '%m/%d/%Y %H:%i'), STR_TO_DATE('" . $_POST['expirationDate'] . " " . $_POST['expirationTime'] . "', '%m/%d/%Y %H:%i'),  '" . $_POST['heading'] . "', '" . $_POST['body'] . "')";
 	if ($con->query($sql)){
 		$m = "Message added successfully.";
 		$e = FALSE;
@@ -61,7 +42,7 @@ if (isset($_POST["messagesubmit"])){
 		$e = TRUE;
 	}
 }
-if (!isset($_POST["messagesubmit"]) && isset($_GET['delete'])){
+if (isset($_GET['delete'])){
 	$sql = "DELETE FROM `status_messages` WHERE messageId = " . $_GET['delete'];
 	if ($con->query($sql)){
 		$m = "Message deleted successfully";
@@ -73,7 +54,7 @@ if (!isset($_POST["messagesubmit"]) && isset($_GET['delete'])){
 }
 $sql = "SELECT * FROM `status_messages` WHERE entryDate < NOW() AND NOW() < expirationDate";
 $res = $con->query($sql);
-if ($res && $res->num_rows > 0){
+if ($res){
 	$messages = $res->fetch_assoc();
 }
 ?>
@@ -91,7 +72,7 @@ if ($res && $res->num_rows > 0){
 </head>
 <body>
 	<h1>Current Message</h1>
-	<?php if (isset($messages)){ ?>
+	<?php if ($messages){ ?>
 
 		<table cellpadding="5">
 			<thead>
@@ -100,9 +81,7 @@ if ($res && $res->num_rows > 0){
 					<th>Expiration Date</th>
 					<th>Heading</th>
 					<th>Body</th>
-					<th>Showing</th>
 					<th>Delete</th>
-					
 				</tr>
 			</thead>
 			<tbody>
@@ -111,25 +90,6 @@ if ($res && $res->num_rows > 0){
 					<td><?php echo $messages['expirationdate']; ?></td>
 					<td><?php echo $messages['heading']; ?></td>
 					<td><?php echo $messages['body']; ?></td>
-					<td><?php 
-					
-					switch ((int) $messages['display']) {
-						
-						case 0:
-						echo "All";
-						break;
-						case 1:
-						echo "Event only";
-						break;
-						case 2:
-						echo "Interactive only";
-						break;
-
-
-					}
-					
-					
-					?></td>
 					<td><a href="addMessage.php?delete=<?php echo $messages['messageid']; ?>">Delete</a></td>
 				</tr>
 			</tbody>
@@ -138,33 +98,22 @@ if ($res && $res->num_rows > 0){
 	<h2>No current message. Why not add a new one?</h2>
 <?php } ?>
 <h1>Add Status Message</h1>
-<?php if (isset($m)){?>
+<?php if ($m){?>
 <h2 style="color: <?php echo $e ? 'red' : 'darkgreen'; ?>"><?php echo $m;?></h2>
 <?php } ?>
 
 <form method="post">
 	<label for="expirationDate">Entry Date/Time</label><br>
-	<input type="text" class="date" name="entryDate" id="entryDate" size="25" required>
-	<input type="text" class="time" name="entryTime" id="entryTime" size="10" required><br>
+	<input type="text" class="date" name="entryDate" id="entryDate" size="25">
+	<input type="text" class="time" name="entryTime" id="entryTime" size="10"><br>
 	<label for="expirationDate">Expiration Date/Time</label><br>
-	<input type="text" class="date" name="expirationDate" id="expirationDate" size="25" required>
-	<input class="time" type="text" name="expirationTime" id="expirationTime" size="10" required><br>
+	<input type="text" class="date" name="expirationDate" id="expirationDate" size="25">
+	<input class="time" type="text" name="expirationTime" id="expirationTime" size="10"><br>
 	<label for="heading">Heading</label><br>
-	<input type="text" size="50" maxlength="255"name="heading" required><br>
-	<label for="body">Message</label><br>
-	<textarea rows="4" cols="50"name="body" required></textarea><br>
-
-	<label for="where">Which Displays?</label><br>
-	<select name="where">
-  <option value="0" selected>All</option>
-  <option value="1">Events Only</option>
-  <option value="2">Interactive only</option>
-  
-	</select>
-	
-
-
-	<input type="submit" name="messagesubmit" value="Submit">
+	<input type="text" size="50" maxlength="255"name="heading"><br>
+	<label for="body">Expiration Date/Time</label><br>
+	<textarea rows="4" cols="50"name="body"></textarea><br>
+	<input type="submit" value="Submit">
 </form>
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/jquery.timepicker.js"></script>
