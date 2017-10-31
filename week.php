@@ -35,7 +35,7 @@ if ($rawXML) {
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	
 	<link rel="stylesheet" type="text/css" href="css/events.css">
-	<meta http-equiv="refresh" content="300">
+	<meta http-equiv="refresh" content="900">
 	<style>
 		body{
     		overflow: hidden;

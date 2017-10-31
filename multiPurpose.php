@@ -95,7 +95,7 @@ if (!$inUse) {
 		if ($parsedReservations) {
 			echo '<ul>';
 			foreach ($parsedReservations->event as $event) {
-				echo '<li id="none">' . formatDate($event->timestart) . " to " . formatDate($event->timeend) . " " . $event->eventname
+				echo '<li class="mpevents">' . formatDate($event->timestart) . " to " . formatDate($event->timeend) . " " . $event->eventname
 			 . '</li>';
 			}
 			echo '</ul>';
@@ -110,7 +110,7 @@ if (!$inUse) {
 	<div id="traffic-container">
 		<h2>Current Traffic</h2>
 		<div id="traffic-level" class="<?php if ($inUse) {echo "event";} else {echo $level;} ?>">
-
+		<div class="traffic-text-container">
 		<?php
 		if ($inUse) {
 			echo '<span class="eventname">' . $eventName . '</span>';
@@ -122,16 +122,15 @@ if (!$inUse) {
 		}
 
 		?>
-			
+			</div>
 		</div>
 		<span id="open-close"></span>
 	</div>
 	
 
 	<script src="js/jquery-1.11.1.min.js"></script>
-	<script src="js/mustache.js"></script>
 	<script src="js/moment.js"></script>
-	<script src="js/multiPurpose.js"></script>
+	<script src="js/eventMessage.js"></script>
 	
 </body>
 </html>
