@@ -224,12 +224,15 @@ i {
 }
 
 .hours-display-secondary {
-    font-size: 3em;
-    
+    font-size: 2.5em;
     width: 100%;
     padding: 10px 10px 10px 115px;
     font-family: 'AlternateGothic', Arial, sans-serif;
-    
+}
+
+div.hours-display-secondary:nth-of-type(3) { 
+    /* Margin at the top of secondary area */
+    margin-top: 1em;
 }
 
 /** COMPUTER AVAILABILITY **/
