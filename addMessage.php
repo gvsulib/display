@@ -1,12 +1,24 @@
 <?php
-session_start();
-if ($_SESSION['check'] != TRUE){ 
-	if ($_POST['password'] ){
-		require 'password.php';
+
+
+if (session_status() != PHP_SESSION_ACTIVE) {session_start();}
+
+require 'php/messagepass.php';
+require 'php/connection.php';
+
+if (!isset($_SESSION["check"])) {
+    $_SESSION["check"] = false;
+
+}
+
+if (!$_SESSION['check']){ 
+	if (isset($_POST['password'])){
+		
 		if ($password == sha1($_POST['password'])){
 			$_SESSION['check'] = TRUE;
 		}
-	} else { ?>
+	} else { 
+        echo <<<EOF
 	<!DOCTYPE html>
 	<html>
 	<head>
@@ -26,14 +38,14 @@ if ($_SESSION['check'] != TRUE){
 		</form>
 	</body>
 	</html>
-<?php
+EOF;
 die();
+    }
 }
-}
-include 'connection.php';
-$con = getConnection();
-if ($_POST){
-	$sql = "INSERT INTO `status_messages` (entryDate, expirationDate, heading, body) VALUES (STR_TO_DATE('" . $_POST['entryDate'] . " " . $_POST['entryTime'] . "', '%m/%d/%Y %H:%i'), STR_TO_DATE('" . $_POST['expirationDate'] . " " . $_POST['expirationTime'] . "', '%m/%d/%Y %H:%i'),  '" . $_POST['heading'] . "', '" . $_POST['body'] . "')";
+
+
+if (isset($_POST["post"])){
+	$sql = "INSERT INTO `status_messages` (entryDate, expirationDate, heading, body, display) VALUES (STR_TO_DATE('" . $_POST['entryDate'] . " " . $_POST['entryTime'] . "', '%m/%d/%Y %H:%i'), STR_TO_DATE('" . $_POST['expirationDate'] . " " . $_POST['expirationTime'] . "', '%m/%d/%Y %H:%i'),  '" . $_POST['heading'] . "', '" . $_POST['body'] . "','" . $_POST['display'] . "')";
 	if ($con->query($sql)){
 		$m = "Message added successfully.";
 		$e = FALSE;
@@ -56,6 +68,8 @@ $sql = "SELECT * FROM `status_messages` WHERE entryDate < NOW() AND NOW() < expi
 $res = $con->query($sql);
 if ($res){
 	$messages = $res->fetch_assoc();
+} else {
+    $messages = false;
 }
 ?>
 <!DOCTYPE html>
@@ -81,6 +95,7 @@ if ($res){
 					<th>Expiration Date</th>
 					<th>Heading</th>
 					<th>Body</th>
+                    <th>Display</th>
 					<th>Delete</th>
 				</tr>
 			</thead>
@@ -90,6 +105,22 @@ if ($res){
 					<td><?php echo $messages['expirationdate']; ?></td>
 					<td><?php echo $messages['heading']; ?></td>
 					<td><?php echo $messages['body']; ?></td>
+                    <td><?php
+                        switch ($messages['display']) {
+                            case "0":
+                            echo "All Displays";
+                            break;
+                            case "1":
+                            echo "Event";
+                            break;
+                            case "2":
+                            echo "Interactive";
+                            break;
+
+                        }
+                    
+                    
+                    ?></td>
 					<td><a href="addMessage.php?delete=<?php echo $messages['messageid']; ?>">Delete</a></td>
 				</tr>
 			</tbody>
@@ -104,16 +135,23 @@ if ($res){
 
 <form method="post">
 	<label for="expirationDate">Entry Date/Time</label><br>
-	<input type="text" class="date" name="entryDate" id="entryDate" size="25">
-	<input type="text" class="time" name="entryTime" id="entryTime" size="10"><br>
+	<input type="text" class="date" name="entryDate" id="entryDate" size="25" required>
+	<input type="text" class="time" name="entryTime" id="entryTime" size="10" required><br>
 	<label for="expirationDate">Expiration Date/Time</label><br>
-	<input type="text" class="date" name="expirationDate" id="expirationDate" size="25">
-	<input class="time" type="text" name="expirationTime" id="expirationTime" size="10"><br>
+	<input type="text" class="date" name="expirationDate" id="expirationDate" size="25" required>
+	<input class="time" type="text" name="expirationTime" id="expirationTime" size="10" required><br>
 	<label for="heading">Heading</label><br>
-	<input type="text" size="50" maxlength="255"name="heading"><br>
+	<input type="text" size="50" maxlength="255"name="heading" required><br>
 	<label for="body">Expiration Date/Time</label><br>
-	<textarea rows="4" cols="50"name="body"></textarea><br>
-	<input type="submit" value="Submit">
+	<textarea rows="4" cols="50"name="body" required></textarea><br>
+    <label for="display">Display</label><br>
+    <select name="display">
+    <option value="0" selected>All Displays</option>
+    <option value="1">Event</option>
+    <option value="2">Interactive</option>
+    </select>
+
+	<input type="submit" name="post" value="Submit">
 </form>
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/jquery.timepicker.js"></script>
