@@ -10,16 +10,13 @@ date_default_timezone_set('America/Detroit');
 
 
 
-//check the cached XML room data.  If it's unopenable, unreadable, or older than an hour, try to get new data
-
-
-//unfortunately, the page tries to load broken data before the process of writing the new file is finished, 
-//so we still have to check for errors
-
 //get room reservation data XML object set up for use later
 $XML_File = fopen("RoomReservationData.xml", "r");
-flock($XML_File, LOCK_SH);
+
 if ($XML_File) {
+    //check the cached XML room data.  If it's unreadable, set the variale to false-this will produce an error message
+    //the check function later should catch this and regenerate the file
+
     $rawXML = fread($XML_File, filesize("RoomReservationData.xml"));
     try {$roomXML = new SimpleXMLElement($rawXML);} catch (Exception $e) {
         $roomXML = false;
