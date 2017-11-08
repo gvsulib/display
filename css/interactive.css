@@ -11,13 +11,24 @@
 body {
 	font-family: Arial;
 	background-color: #88b3da;
-	color: #575757;
+    color: #575757;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+html {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
 .page-container {
 	margin: 0 auto;
 	height: 1910px;
-	width: 1080px;
+	width: 1075px;
     background-color: #0065a4;
     overflow: hidden;
 }
