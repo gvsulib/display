@@ -14,7 +14,7 @@ date_default_timezone_set('America/Detroit');
 $XML_File = fopen("RoomReservationData.xml", "r");
 
 if ($XML_File) {
-    //check the cached XML room data.  If it's unreadable, set the variale to false-this will produce an error message
+    //check the cached XML room data.  If it's unreadable, set the variable to false-this will produce an error message
     //the check function later should catch this and regenerate the file
 
     $rawXML = fread($XML_File, filesize("RoomReservationData.xml"));
@@ -41,6 +41,8 @@ if ($roomXML) {
 }
 fclose($XML_File);
 
+
+//check the data file for problems and to see if it's fresh enough.  If not, regenerate it
 if (!checkRoomReservationData()) {
     $result = refreshRoomData($username, $password);  
     
@@ -102,6 +104,9 @@ foreach ($traffic as $roomID => $level) {
 $trafficUpdate = getLastUpdatedTraffic($con);
 
 ?>
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -147,13 +152,18 @@ $trafficUpdate = getLastUpdatedTraffic($con);
         
         <?php
         //code that gets hours from the hours API
-
+        /*
         $hours =array(1 => "Mary%20Idema%20Pew", 
                         6 => "Argo%20Tea",
                         2 => "Steelcase", 
                         3 => "Frey", 
                         4 => "Seidman%20House", 
                         5 => "Curriculum%20Materials%20Library"
+        );
+        */
+        $hours =array(1 => "Mary%20Idema%20Pew", 
+        6 => "Argo%20Tea"
+        
         );
 
         //get JSON for all hours and format them for display
@@ -187,12 +197,12 @@ $trafficUpdate = getLastUpdatedTraffic($con);
         </div>
         
   </div>
-  <!--
+  
   <div class="computer-availability-container">
        <h2 data-refresh="2">Library Computer Availability</h2>
       <iframe width="100%" height="250" id="cpumap" style="padding-left: 20px; padding-right: 10px; padding-top: 10px;" src="https://prod.library.gvsu.edu/computer_availability/?x=true&amp;library=maryi&amp;notitle"></iframe>
 	</div>
--->
+
 	<div class="room-availability-container">
     
 		<h2 data-refresh="3">Study Room Availability <span id="last-updated">Last Updated: <?php if ($roomXML) {echo (string) $roomXML->timedisplay;} ?></span></h2>

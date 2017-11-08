@@ -194,8 +194,8 @@ i {
 /** Hours **/
 
 .hours-container {
-	height: 540px;
-	background-color: #fff;
+	height: 280px;
+	background-color: #6c6;
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: cover;
