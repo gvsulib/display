@@ -18,7 +18,8 @@ body {
 	margin: 0 auto;
 	height: 1910px;
 	width: 1080px;
-	background-color: #0065a4;
+    background-color: #0065a4;
+    overflow: hidden;
 }
 
 @font-face {
@@ -194,7 +195,7 @@ i {
 /** Hours **/
 
 .hours-container {
-	height: 280px;
+	height: 220px;
 	background-color: #6c6;
     background-repeat: no-repeat;
     background-position: bottom;
