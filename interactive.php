@@ -69,39 +69,65 @@ if (isset($_GET['floor'])) {
 } else {
     $floorDisplay = 1;
 }
-//get traffic data from database
-
-$traffic = getTrafficData($con);
-
-//map traffic levels to the colors for display
-
-foreach ($traffic as $roomID => $level) {
-    switch ($level) {
-        case '4':
-        $traffic[$roomID] = "red";
-        break;
-        case '-1':
-        $traffic[$roomID] = "red";
-        break;
-        case '3':
-        $traffic[$roomID] = "orange";
-        break;
-        case '2':
-        $traffic[$roomID] = "yellow";
-        break;
-        case '1':
-        $traffic[$roomID] = "green";
-        break;
-        case '0':
-        $traffic[$roomID] = "green";
-        break;
-        
-    }
-}
 
 //get last update time of traffic from database
 
-$trafficUpdate = getLastUpdatedTraffic($con);
+$trafficUpdate = getLastUpdatedTraffic(false, $con);
+
+$timeCheck = getLastUpdatedTraffic(true, $con);
+
+$timeCheck = strtotime($timeCheck);
+
+$fiveHoursAgo = strtotime("-5 hours");
+
+//check to see how long ago the last update was.  If it's more than five hours, the library probably closed.
+//so instead of showing data from the day before,  show all spaces open until a roam happens
+
+if (strtotime($timeCheck <= $fiveHoursAgo)) {
+    $refresh = false;
+} else {
+    $refresh = true;
+}
+
+$traffic = getTrafficData($con);
+
+if ($refresh) {
+    //get traffic data from database
+
+    $traffic = getTrafficData($con);
+
+    //map traffic levels to the colors for display
+
+    foreach ($traffic as $roomID => $level) {
+        switch ($level) {
+            case '4':
+            $traffic[$roomID] = "red";
+            break;
+            case '-1':
+            $traffic[$roomID] = "red";
+            break;
+            case '3':
+            $traffic[$roomID] = "orange";
+            break;
+            case '2':
+            $traffic[$roomID] = "yellow";
+            break;
+            case '1':
+            $traffic[$roomID] = "green";
+            break;
+            case '0':
+            $traffic[$roomID] = "green";
+            break;
+        
+        }
+    }
+} else {
+    foreach ($traffic as $roomID => $level) {
+        $trafficUpdate = date("h:i A");
+        $traffic[$roomID] = "green";
+    }
+}
+
 
 ?>
 

@@ -97,9 +97,12 @@ function getTrafficData($con){
 
 //get the last time the traffic data was updated-this data resides in a different part of the database
 
-function getLastUpdatedTraffic($con){
-    
-    $query = "SELECT DATE_FORMAT(time,'%h:%i %p') FROM entries WHERE entryID = (select max(entryID) from entries);";
+function getLastUpdatedTraffic($full, $con){
+    if ($full) {
+		$query = "SELECT time FROM entries WHERE entryID = (select max(entryID) from entries);";
+	} else {
+		$query = "SELECT DATE_FORMAT(time,'%h:%i %p') FROM entries WHERE entryID = (select max(entryID) from entries);";
+	}
     $db_result = $con->query($query);
 
     if (!$db_result) {
