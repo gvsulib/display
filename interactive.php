@@ -336,7 +336,10 @@ if ($refresh) {
          ?>   
         </div>
         <!--buttons to select floors-->
-        <div class="floor-toggle">
+       
+
+	</div>
+    <div class="floor-toggle">
         
         <ul class="floors">
         <a href="interactive.php?floor=0"><li class="atrium-floor-button <?php if ($floorDisplay == 0) {echo "selected";}?>">Atrium</li></a>
@@ -346,10 +349,7 @@ if ($refresh) {
             <a href="interactive.php?floor=4"><li class="fourth-floor-button <?php if ($floorDisplay == 4) {echo "selected";}?>">4th Floor</li></a>
         </ul>
         
-        </div>
-
-	</div>
-    
+    </div>
     
 
     <!--emojis-->
