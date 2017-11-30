@@ -150,13 +150,13 @@ if ($refresh) {
 <div class="page-container">
 
 
-<div class="messageContainer" ID="messageContainer"> 
-    <h2 class="message-heading" ID="heading"></h2>
-    <div class="message-text">
-    <span ID="msgtime"></span></br>
-    <span ID="msgbody"></span>
+    <div class="messageContainer" ID="messageContainer"> 
+        <h2 class="message-heading" ID="heading"></h2>
+        <div class="message-text">
+        <span ID="msgtime"></span></br>
+        <span ID="msgbody"></span>
+        </div>
     </div>
-</div>
 
 
 
@@ -335,10 +335,8 @@ if ($refresh) {
 
          ?>   
         </div>
-
-	</div>
-<!--button sto select floors-->
-    <div class="floor-toggle">
+        <!--buttons to select floors-->
+        <div class="floor-toggle">
         
         <ul class="floors">
         <a href="interactive.php?floor=0"><li class="atrium-floor-button <?php if ($floorDisplay == 0) {echo "selected";}?>">Atrium</li></a>
@@ -348,7 +346,11 @@ if ($refresh) {
             <a href="interactive.php?floor=4"><li class="fourth-floor-button <?php if ($floorDisplay == 4) {echo "selected";}?>">4th Floor</li></a>
         </ul>
         
-    </div>
+        </div>
+
+	</div>
+    
+    
 
     <!--emojis-->
     <div class="feedback">
@@ -359,10 +361,10 @@ if ($refresh) {
         <a class="emojilink" href="interactive.php?floor=<?php echo $floorDisplay; ?>&emoji=3"><img class="emoji" src="img/emojis/1f610.png"></a>
         <a class="emojilink" href="interactive.php?floor=<?php echo $floorDisplay; ?>&emoji=2"><img class="emoji" src="img/emojis/1f620.png"></a> 
         <a class="emojilink" href="interactive.php?floor=<?php echo $floorDisplay; ?>&emoji=1"><img class="emoji" src="img/emojis/1f621.png"></a>
-        </div>
+    </div>
         <!--confirmation message for touching an emoji-->
-        <div ID="modal" class="modal<?php if (isset($emoji)) {echo "show";} else {echo "hide";} ?>">
-           <?php
+    <div ID="modal" class="modal<?php if (isset($emoji)) {echo "show";} else {echo "hide";} ?>">
+            <?php
 
 
             if (isset($emoji)) {
@@ -384,8 +386,9 @@ if ($refresh) {
             
 
            
-    ?>
-    <a href="index.php?floor=<?php echo $floorDisplay; ?>">Close</a>
+            ?>
+            <a href="index.php?floor=<?php echo $floorDisplay; ?>">Close</a>
+     </div>
 </div>
 
 </body>
