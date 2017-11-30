@@ -26,9 +26,15 @@ html {
 }
 
 .page-container {
+<<<<<<< HEAD
 	margin: 0;
 	height: 1920px;
 	width: 1080px;
+=======
+	margin: 0 auto;
+	height: 1920px;
+	width: 1075px;
+>>>>>>> 597f90493dbdf25c2139e79d60a1065fe96302b8
     background-color: #0065a4;
     overflow: hidden;
 }

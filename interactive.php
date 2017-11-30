@@ -387,6 +387,7 @@ if ($refresh) {
 
            
             ?>
+            
             <a href="interactive.php?floor=<?php echo $floorDisplay; ?>">Close</a>
      </div>
 </div>
