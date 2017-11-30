@@ -747,7 +747,8 @@ i {
 
 .feedback {
     background-color: white;
-    height: 333px;
+    height: 340px;
+    width: 100%;
 }
 
 .emoji{
