@@ -311,7 +311,7 @@ i {
 }
 
 .traffic-map-container {
-	height: 562px;
+	height: 570px;
 	background-color: #fff;
 }
 
@@ -747,8 +747,7 @@ i {
 
 .feedback {
     background-color: white;
-    height: 340px;
-    width: 100%;
+   
 }
 
 .emoji{
