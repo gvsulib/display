@@ -387,7 +387,7 @@ if ($refresh) {
 
            
             ?>
-            
+
             <a href="interactive.php?floor=<?php echo $floorDisplay; ?>">Close</a>
      </div>
 </div>
@@ -412,7 +412,7 @@ if (isset($emoji)) {
 
             function hideModalReset(s){
                 setTimeout(function(){
-                    window.location.href='index.php?floor=$floorDisplay';
+                    window.location.href='interactive.php?floor=$floorDisplay';
                 }, s * 1000);
             }
             hideModalReset(20);
