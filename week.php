@@ -77,7 +77,7 @@ if ($rawXML) {
             }
             
         } else {
-			echo '<div id="eventcontainer">No Events this week.</div>';
+			echo '<div class="eventcontainer">No Events this week.</div>';
 		}
 
 
