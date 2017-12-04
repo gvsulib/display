@@ -18,8 +18,15 @@ Atrium
 */
 
 if (isset($reservedRooms["7681"])) {
+
+    //format end time for display
+
+    $endTime = strtotime($reservedRooms["7681"]["end"]);
+
+    $endTime = date("g:i A", $endTime);
+
     $event_name = $reservedRooms["7681"]["groupname"];
-    $end_time = "Until " . $reservedRooms["7681"]["end"];
+    $end_time = "Until " . $endTime;
     $multiDisplay = "event";
 
 } else {
