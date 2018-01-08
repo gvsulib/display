@@ -7,3 +7,4 @@ php/messagepass.php
 php/authentication.php
 php_error_log.log
 RoomReservationData.xml
+.DS_Store

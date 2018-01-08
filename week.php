@@ -69,7 +69,7 @@ if ($rawXML) {
 
 				
 				echo '<div class="eventdetails">' . $event->eventname . '<br><span class="eventtimes">' . formatDate($event->timestart) . '-' .
-				formatDate($event->timestart) . '</span></div>';
+				formatDate($event->timeend) . '</span></div>';
 
 				echo '<div class="clear"></div>';
 				echo '</div>';
