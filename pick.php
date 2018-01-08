@@ -1,5 +1,7 @@
 <?php
 
+date_default_timezone_set('America/Detroit');
+
 include 'php/connection.php';
 include 'php/functions.php';
 include 'php/authentication.php';
