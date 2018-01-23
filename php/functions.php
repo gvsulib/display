@@ -373,6 +373,7 @@ function getReservationXML($username, $password, $EMSID, $week) {
 		$plusSeven->modify('+7 days');
 		$start = $today->format('Y-m-d');
 		$end = $plusSeven->format('Y-m-d');
+
 	} else {
 		$today = new dateTime();
 		$start = $today->format('Y-m-d');
@@ -454,6 +455,9 @@ function parseReservationData($xml) {
     //in order to get it to escape characters properly and creete the correct document structure,
 	//this is the bizarre syntax I have to use.  Took me hours to work this out, and the documentation is NOT HELPFUL.
 	foreach($sortable as $reservation) {
+		if ($reservation->EventTypeDescription == "Private Use") {
+			continue;
+		}
     	$event = $outPut->addChild('event');
                 
     	$event->roomcode = $reservation->RoomID;
