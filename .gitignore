@@ -3,6 +3,7 @@ logging/cache
 logging/password.php
 .idea/*
 .vscode/*
+weekDataLog.xml
 php/connection.php
 php/messagepass.php
 php/authentication.php
