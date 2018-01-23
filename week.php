@@ -17,6 +17,9 @@ function extractDay($date) {
 
 
 $rawXML = getReservationXML($username, $password, "7681", true);
+$logfile = fopen("weekDataLog.xml", "a");
+fwrite($logfile, $rawXML);
+fclose($logfile);
 
 if ($rawXML) {
     $events = parseReservationData($rawXML);
