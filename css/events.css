@@ -55,7 +55,7 @@ html {
     float: right;
     width: 30%;
     background-color: #004875;
-    height: 875px;
+    height: 700px;
     border-left: 5px solid white;
     text-align: center;
 }
@@ -64,17 +64,17 @@ html {
     font-family: 'AlternateGothic', Arial, sans-serif;
     font-size: 85px;
     font-style: italic;
-    width: 450px;
-    height: 450px;
-    border-radius: 225px;
+    width: 350px;
+    height: 350px;
+    border-radius: 200px;
     position: absolute;
-    margin: 60px 0 0 60px;
+    margin: 50px 0 0 50px;
     /*padding-top: 175px;*/
 }
 
 .traffic-text-container {
     text-align: center;
-    padding-top: 175px;
+    padding-top: 140px;
 }
 
 #traffic-container #open-close {
