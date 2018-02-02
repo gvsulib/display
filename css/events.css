@@ -13,7 +13,15 @@
 body {
 	font-family: 'AlternateGothic', Arial, sans-serif;
 	background-color: #88b3da;
-	color: #575757;
+    color: #575757;
+    margin: 0; 
+    height: 100%; 
+    overflow: hidden;
+}
+
+html {
+    height: 100%; 
+    overflow: hidden;
 }
 
 .messageContainer {
