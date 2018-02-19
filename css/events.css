@@ -62,10 +62,10 @@ html {
 
 #traffic-container #traffic-level {
     font-family: 'AlternateGothic', Arial, sans-serif;
-    font-size: 80px;
+    font-size: 70px;
     font-style: italic;
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     border-radius: 200px;
     position: absolute;
     margin: 50px 0 0 50px;
