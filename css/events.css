@@ -53,9 +53,9 @@ html {
 
 #traffic-container {
     float: right;
-    width: 30%;
+    width: 350px;
     background-color: #004875;
-    height: 700px;
+    height: 600px;
     border-left: 5px solid white;
     text-align: center;
 }
@@ -68,13 +68,13 @@ html {
     height: 250px;
     border-radius: 200px;
     position: absolute;
-    margin: 50px 0 0 50px;
+    margin: 50px 0 0 60px;
     /*padding-top: 175px;*/
 }
 
 .traffic-text-container {
     text-align: center;
-    padding-top: 140px;
+    padding-top: 90px;
 }
 
 #traffic-container #open-close {

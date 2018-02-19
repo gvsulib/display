@@ -113,7 +113,7 @@ if (!$inUse) {
 		<div class="traffic-text-container">
 		<?php
 		if ($inUse) {
-			echo '<span class="eventname">' . $eventName . '</span>';
+			echo '<span class="eventname">Event</span>';
 			echo '<span class="eventtimes"> Until  ' . $timeEnd . "</span>";
 
 		} else {
