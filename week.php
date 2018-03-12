@@ -106,7 +106,7 @@ if ($rawXML) {
 				emojione.imagePathSVGSprites = 'img/emojione.sprites.svg'
 				var emojis = {
 					1: ':rage:',
-					2: ':sad:',
+					2: ':unamused:',
 					3: ':neutral_face:',
 					4: ':smile:',
 					5: ':heart_eyes:'
