@@ -4,7 +4,7 @@
 
 function postFeedback ($feedback, $con) {
 
-    $sql = "INSERT INTO feedback_response (response_id, emotion_id) VALUES (NULL,$feedback)";
+    $sql = "INSERT INTO feedback_response (emotion_id) VALUES ($feedback)";
     if ($con->query($sql)) {
 	    return true;
     } else {
