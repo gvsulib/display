@@ -57,7 +57,7 @@ if (isset($_GET["emoji"])) {
     if ($posted === true) {
         $feedbackMessage = "Feedback logged!";
     } else {
-        $feedbackMessage = "ERROR: Feedback not logged! $posted";
+        $feedbackMessage = "ERROR: Feedback not logged!" . $posted;
     }
 
 }
