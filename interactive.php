@@ -52,10 +52,12 @@ if (!checkRoomReservationData()) {
 
 if (isset($_GET["emoji"])) {
     $emoji = $_GET["emoji"];
-    if (postFeedback($emoji, $con)) {
+    echo $emoji;
+    $posted = postFeedback($emoji, $con);
+    if ($posted === true) {
         $feedbackMessage = "Feedback logged!";
     } else {
-        $feedbackMessage = "ERROR: Feedback not logged!";
+        $feedbackMessage = "ERROR: Feedback not logged! $posted";
     }
 
 }

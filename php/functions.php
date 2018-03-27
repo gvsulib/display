@@ -8,7 +8,7 @@ function postFeedback ($feedback, $con) {
     if ($con->query($sql)) {
 	    return true;
     } else {
-	    return false;
+	    return $con->error;;
     }
 }
 
