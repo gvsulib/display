@@ -51,8 +51,8 @@ if (!checkRoomReservationData()) {
 //has the user selected an emoji?  log it!
 
 if (isset($_GET["emoji"])) {
-    $emoji = $_GET["emoji"];
-    echo $emoji;
+    $emoji = trim($_GET["emoji"]);
+    
     $posted = postFeedback($emoji, $con);
     if ($posted === true) {
         $feedbackMessage = "Feedback logged!";
