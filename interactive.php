@@ -205,8 +205,10 @@ if ($refresh) {
             //for mary I and argo tea, format the string differently and wrap a different div around them
             if ($order == 1 || $order == 6) {
                 $divopen = '<div class="hours-display-primary">';
-                $hoursFormat[$string] = "Open Until " . substr($hoursFormat[$string], (strpos($hoursFormat[$string], '-') + 2) , (strlen($hoursFormat[$string]) - 1) );
-
+                //check to see if we are in exam cram week and open 24 hours
+                if (strpos($hoursFormat[$string], "24 Hours") === false) {
+                    $hoursFormat[$string] = "Open Until " . substr($hoursFormat[$string], (strpos($hoursFormat[$string], '-') + 2) , (strlen($hoursFormat[$string]) - 1) );
+                }
             } else {
                 $divopen = '<div class="hours-display-secondary">';
             }
