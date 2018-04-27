@@ -206,9 +206,11 @@ if ($refresh) {
             if ($order == 1 || $order == 6) {
                 $divopen = '<div class="hours-display-primary">';
                 //check to see if we are in exam cram week and open 24 hours
-                if (strpos($hoursFormat[$string], "24 Hours") === false) {
+                if (strpos($hoursFormat[$string], "24 Hours") === false && strpos($hoursFormat[$string], "Closed") === false) {
                     $hoursFormat[$string] = "Open Until " . substr($hoursFormat[$string], (strpos($hoursFormat[$string], '-') + 2) , (strlen($hoursFormat[$string]) - 1) );
                 }
+
+
             } else {
                 $divopen = '<div class="hours-display-secondary">';
             }
