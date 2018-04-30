@@ -458,6 +458,10 @@ function parseReservationData($xml) {
 		if ($reservation->EventTypeDescription == "Private Use") {
 			continue;
 		}
+		if ($reservation->status == "Cancelled") {
+			continue;
+		}
+
     	$event = $outPut->addChild('event');
                 
     	$event->roomcode = $reservation->RoomID;
