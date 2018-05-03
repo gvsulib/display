@@ -189,8 +189,8 @@ if ($refresh) {
                         5 => "Curriculum%20Materials%20Library"
         );
         */
-        $hours =array(1 => "Mary%20Idema%20Pew", 
-        6 => "Argo%20Tea"
+        $hours =array(0 => "Mary%20Idema%20Pew", 
+        5 => "Argo%20Tea"
         
         );
 
