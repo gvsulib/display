@@ -203,7 +203,7 @@ if ($refresh) {
             $string = urldecode($string);
 
             //for mary I and argo tea, format the string differently and wrap a different div around them
-            if ($order == 1 || $order == 6) {
+            if ($order == 0 || $order == 5) {
                 $divopen = '<div class="hours-display-primary">';
                 //check to see if we are in exam cram week and open 24 hours
                 if (strpos($hoursFormat[$string], "24 Hours") === false && strpos($hoursFormat[$string], "Closed") === false) {
