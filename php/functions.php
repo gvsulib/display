@@ -458,7 +458,8 @@ function parseReservationData($xml) {
 		if ($reservation->EventTypeDescription == "Private Use") {
 			continue;
 		}
-		if ($reservation->Status == "Cancelled") {
+		//screen out cancelled events
+		if ($reservation->StatusID == "1005") {
 			continue;
 		}
 
