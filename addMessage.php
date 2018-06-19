@@ -45,22 +45,37 @@ die();
 
 
 if (isset($_POST["post"])){
-	$sql = "INSERT INTO `status_messages` (entryDate, expirationDate, heading, body, display) VALUES (STR_TO_DATE('" . $_POST['entryDate'] . " " . $_POST['entryTime'] . "', '%m/%d/%Y %H:%i'), STR_TO_DATE('" . $_POST['expirationDate'] . " " . $_POST['expirationTime'] . "', '%m/%d/%Y %H:%i'),  '" . $_POST['heading'] . "', '" . $_POST['body'] . "','" . $_POST['display'] . "')";
-	if ($con->query($sql)){
+	$sql = "INSERT INTO `status_messages` (entryDate, expirationDate, heading, body, display) VALUES (STR_TO_DATE(?, '%m/%d/%Y %H:%i'), STR_TO_DATE(?, '%m/%d/%Y %H:%i'),  ?, ?,?)";
+	$stmt = $con->prepare($sql);
+	$entrydate = $_POST['entryDate'] . " " .$_POST['entryTime'];
+	$expiration = $_POST['expirationDate'] . " " . $_POST['expirationTime'];
+
+
+	if (!$stmt->bind_param("ssssi", $entrydate, $expiration, $_POST['heading'], $_POST['body'], $_POST['display'])) {
+		$m = "Error adding status:" . $stmt->error;
+		$e = TRUE;
+	}
+	
+	if ($stmt->execute()){
 		$m = "Message added successfully.";
 		$e = FALSE;
 	} else {
-		$m = "Error adding message.";
+		$m = "Error adding message:". $stmt->error;
 		$e = TRUE;
 	}
 }
 if (isset($_GET['delete'])){
-	$sql = "DELETE FROM `status_messages` WHERE messageId = " . $_GET['delete'];
-	if ($con->query($sql)){
+	$sql = "DELETE FROM `status_messages` WHERE messageId = ?";
+	$stmt = $con->prepare($sql);
+	if (!$stmt->bind_param("i", $_GET['delete'])) {
+		$m = "Error removing status:" . $stmt->error;
+		$e = TRUE;
+	}
+	if ($stmt->execute()){
 		$m = "Message deleted successfully";
 		$e = FALSE;
 	} else {
-		$m = "Error deleting message.";
+		$m = "Error deleting message:" . $stmt->error;
 		$e = TRUE;
 	}
 }

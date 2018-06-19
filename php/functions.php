@@ -4,11 +4,17 @@
 
 function postFeedback ($feedback, $con) {
 
-    $sql = "INSERT INTO feedback_response (emotion_id) VALUES ('$feedback')";
-    if ($con->query($sql)) {
+	$sql = "INSERT INTO feedback_response (emotion_id) VALUES (?)";
+	$stmt = $com->prepare($query);
+	if (!$stmt->bind_param("s", $feedback)) {
+		return "Cannot bind variable: " . $stmt->error;
+	}
+
+
+    if ($stmt->execute()) {
 	    return true;
     } else {
-	    return $con->error;;
+	    return $stmt->error;
     }
 }
 
@@ -121,7 +127,7 @@ function getLastUpdatedTraffic($full, $con){
 }
 
 function getRoomTrafficByDatabaseID($id, $con){
-	
+	settype($id, "int");
 	$query = "
 	SELECT level
 	 FROM traffic 
