@@ -5,7 +5,8 @@ logging/password.php
 .vscode/*
 weekDataLog.xml
 php/connection.php
-php/messagepass.php
+messagePass.php
+messagepass.php
 php/authentication.php
 php_error_log.log
 RoomReservationData.xml

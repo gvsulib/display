@@ -1,23 +1,86 @@
 <?php
 
+require 'php/messagePass.php';
 
-if (session_status() != PHP_SESSION_ACTIVE) {session_start();}
+if (!isset($_COOKIE["login"])) {
+	setcookie("login", "", 0, "/");
+    $_COOKIE["login"] = "";
+}
 
-require 'php/messagepass.php';
-require 'php/connection.php';
+if (isset($_POST['password'])){
+		
+	if ($password == $_POST['password']){
+		setcookie("login", "true", 0, "/");
+		$_COOKIE["login"] = "true";
+		
+	}
+}
 
-if (!isset($_SESSION["check"])) {
-    $_SESSION["check"] = false;
+
+
+$errMsg = "";
+function insertMessage($entryDate, $expirationDate, $heading, $body, $display, $con) {
+	$sql = "INSERT INTO `status_messages` (entryDate, expirationDate, heading, body, display) VALUES (STR_TO_DATE(?, '%m/%d/%Y %H:%i'), STR_TO_DATE(?, '%m/%d/%Y %H:%i'), ?, ?,?)";
+	$stmt = $con->prepare($sql);
+	if (!$stmt->bind_param("ssssi", $entrydate, $expiration, $_POST['heading'], $_POST['body'], $_POST['display'])) {
+		return "Error adding status:" . $stmt->error;
+		
+	}
+	
+	if ($stmt->execute()){
+		return true;
+	} else {
+		return "Error adding message:". $stmt->error;
+		
+	}
 
 }
 
-if (!$_SESSION['check']){ 
-	if (isset($_POST['password'])){
+function deleteMessage($messageID, $con) {
+	$sql = "DELETE FROM `status_messages` WHERE messageId = ?";
+	$stmt = $con->prepare($sql);
+	if (!$stmt->bind_param("i", $messageID)) {
+		return "Error removing status:" . $stmt->error;
 		
-		if ($password == sha1($_POST['password'])){
-			$_SESSION['check'] = TRUE;
+	}
+	if ($stmt->execute()){
+		return true;
+		
+	} else {
+		return "Error deleting message:" . $stmt->error;
+		
+	}
+}
+
+function getMessages($con) {
+	$sql = "SELECT * FROM status_messages";
+	$stmt = $con->prepare($sql);
+
+	if ($stmt->execute()){
+		$messages = array();
+		$stmt->store_result();
+		$stmt->bind_result($messageId, $entryDate, $expirationDate, $heading, $body, $display);
+		while ($stmt->fetch()) {
+			$messages[] = array("messageID" => $messageId, "entryDate" => $entryDate, "expirationDate" => $expirationDate, "heading" => $heading, "body" => $body, "display" => $display);
 		}
-	} else { 
+
+		return $messages;
+		
+	} else {
+		return "Error getting messages:" . $stmt->error;
+		
+	}
+
+}
+
+
+
+require 'php/connection.php';
+
+
+if ($_COOKIE["login"] == ""){ 
+	
+	
         echo <<<EOF
 	<!DOCTYPE html>
 	<html>
@@ -40,51 +103,41 @@ if (!$_SESSION['check']){
 	</html>
 EOF;
 die();
-    }
+    
 }
 
 
 if (isset($_POST["post"])){
-	$sql = "INSERT INTO `status_messages` (entryDate, expirationDate, heading, body, display) VALUES (STR_TO_DATE(?, '%m/%d/%Y %H:%i'), STR_TO_DATE(?, '%m/%d/%Y %H:%i'),  ?, ?,?)";
-	$stmt = $con->prepare($sql);
-	$entrydate = $_POST['entryDate'] . " " .$_POST['entryTime'];
-	$expiration = $_POST['expirationDate'] . " " . $_POST['expirationTime'];
+	
+	$entryDate = $_POST['entryDate'] . " " .$_POST['entryTime'];
+	$expirationDate = $_POST['expirationDate'] . " " . $_POST['expirationTime'];
 
+	$messages = insertMessage($entryDate, $expirationDate, $_POST['heading'], $_POST['body'], $_POST['display'], $con);
 
-	if (!$stmt->bind_param("ssssi", $entrydate, $expiration, $_POST['heading'], $_POST['body'], $_POST['display'])) {
-		$m = "Error adding status:" . $stmt->error;
-		$e = TRUE;
+	if (is_string($messages)){
+		$errMssg = "Problem retrieving messages:" . $messages;
+
+	} else {
+		$errMssg = "";
 	}
 	
-	if ($stmt->execute()){
-		$m = "Message added successfully.";
-		$e = FALSE;
-	} else {
-		$m = "Error adding message:". $stmt->error;
-		$e = TRUE;
-	}
+	
 }
 if (isset($_GET['delete'])){
-	$sql = "DELETE FROM `status_messages` WHERE messageId = ?";
-	$stmt = $con->prepare($sql);
-	if (!$stmt->bind_param("i", $_GET['delete'])) {
-		$m = "Error removing status:" . $stmt->error;
-		$e = TRUE;
-	}
-	if ($stmt->execute()){
-		$m = "Message deleted successfully";
-		$e = FALSE;
+	$isDeleted = deleteMessage($_GET['delete'], $con);
+	if (is_string($isDeleted)) {
+		$errMsg = "Could not delete message: " . $isDeleted;
+
 	} else {
-		$m = "Error deleting message:" . $stmt->error;
-		$e = TRUE;
+		$errMsg = "Message Deleted.";
 	}
+	
 }
-$sql = "SELECT * FROM `status_messages` WHERE entryDate < NOW() AND NOW() < expirationDate";
-$res = $con->query($sql);
-if ($res){
-	$messages = $res->fetch_assoc();
-} else {
-    $messages = false;
+$messages = getMessages($con);
+
+if (is_string($messages)){
+	$errMsg = "Could not get messages: " . $messages;
+
 }
 ?>
 <!DOCTYPE html>
@@ -100,8 +153,10 @@ if ($res){
 	<link rel="stylesheet" type="text/css" href="css/jquery.datepick.css">
 </head>
 <body>
+
+
 	<h1>Current Message</h1>
-	<?php if ($messages){ ?>
+	<?php if (!is_string($messages) && !empty($messages)){ ?>
 
 		<table cellpadding="5">
 			<thead>
@@ -115,13 +170,14 @@ if ($res){
 				</tr>
 			</thead>
 			<tbody>
+			<?php foreach ($messages as $message) { ?>
 				<tr>
-					<td><?php echo $messages['entrydate']; ?></td>
-					<td><?php echo $messages['expirationdate']; ?></td>
-					<td><?php echo $messages['heading']; ?></td>
-					<td><?php echo $messages['body']; ?></td>
+					<td><?php echo $message['entryDate']; ?></td>
+					<td><?php echo $message['expirationDate']; ?></td>
+					<td><?php echo $message['heading']; ?></td>
+					<td><?php echo $message['body']; ?></td>
                     <td><?php
-                        switch ($messages['display']) {
+                        switch ($message['display']) {
                             case "0":
                             echo "All Displays";
                             break;
@@ -136,16 +192,17 @@ if ($res){
                     
                     
                     ?></td>
-					<td><a href="addMessage.php?delete=<?php echo $messages['messageid']; ?>">Delete</a></td>
+					<td><a href="addMessage.php?delete=<?php echo $message['messageID']; ?>">Delete</a></td>
 				</tr>
+					<?php } //end foreach ?>
 			</tbody>
 		</table>
 	<?php } else { ?>
 	<h2>No current message. Why not add a new one?</h2>
 <?php } ?>
 <h1>Add Status Message</h1>
-<?php if ($m){?>
-<h2 style="color: <?php echo $e ? 'red' : 'darkgreen'; ?>"><?php echo $m;?></h2>
+<?php if (!$errMsg == ""){?>
+<h2 style="color: <?php echo $e ? 'red' : 'darkgreen'; ?>"><?php echo $errMsg;?></h2>
 <?php } ?>
 
 <form method="post">
