@@ -5,7 +5,7 @@
 function postFeedback ($feedback, $con) {
 
 	$sql = "INSERT INTO feedback_response (emotion_id) VALUES (?)";
-	$stmt = $con->prepare($query);
+	$stmt = $con->prepare($sql);
 	if (!$stmt->bind_param("s", $feedback)) {
 		return "Cannot bind variable: " . $stmt->error;
 	}
