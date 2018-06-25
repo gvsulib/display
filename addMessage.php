@@ -200,10 +200,13 @@ if (is_string($messages)){
 	<?php } else { ?>
 	<h2>No current message. Why not add a new one?</h2>
 <?php } ?>
-<h1>Add Status Message</h1>
+
 <?php if (!$errMsg == ""){?>
-<h2 style="color: <?php echo $e ? 'red' : 'darkgreen'; ?>"><?php echo $errMsg;?></h2>
+	<h2 style="color: red"><?php echo $errMsg;?></h2>
 <?php } ?>
+
+<h1>Add Status Message</h1>
+
 
 <form method="post">
 	<label for="expirationDate">Entry Date/Time</label><br>
