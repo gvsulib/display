@@ -181,48 +181,66 @@ if ($refresh) {
         <?php
         //code that gets hours from the hours API
         /*
-        $hours =array(1 => "Mary%20Idema%20Pew", 
-                        6 => "Argo%20Tea",
-                        2 => "Steelcase", 
-                        3 => "Frey", 
-                        4 => "Seidman%20House", 
-                        5 => "Curriculum%20Materials%20Library"
-        );
+        8552 is the id for the MIP, 8922 is the id for argo tea
         */
-        $hours =array(0 => "Mary%20Idema%20Pew", 
-        5 => "Argo%20Tea"
         
-        );
 
         //get JSON for all hours and format them for display
-        $hoursOutput = array();
-        foreach ($hours as $order => $string) {
-            $handle = fopen("http://prod.library.gvsu.edu/hours_api/index.php?order=$order&string=$string", "r");
-            $output = fread($handle, 800);
-            $hoursFormat = json_decode($output, true);
-            $string = urldecode($string);
+        $handle = fopen("https://api3.libcal.com/api_hours_today.php?iid=1647&lid=0&format=json&systemTime=1", "r");
+        $output = fread($handle, 4000);
+        $hours = json_decode($output, true);
+        fclose($handle);
 
-            //for mary I and argo tea, format the string differently and wrap a different div around them
-            if ($order == 0 || $order == 5) {
-                $divopen = '<div class="hours-display-primary">';
-                //check to see if we are in exam cram week and open 24 hours
-                if (strpos($hoursFormat[$string], "24 Hours") === false && strpos($hoursFormat[$string], "Closed") === false) {
-                    $hoursFormat[$string] = "Open Until " . substr($hoursFormat[$string], (strpos($hoursFormat[$string], '-') + 2) , (strlen($hoursFormat[$string]) - 1) );
+        $locations = $hours["locations"];
+        $MIPString = "Mary Idema Pew: ";
+        $argoString = "Argo Tea: ";
+
+        foreach($locations as $location) {
+            if ($location["lid"] == "8552") {
+              $times = $location["times"];
+              if ($times["currently_open"]) {
+                $hours = $times["hours"][0];
+                $MIPString = $MIPString . " Open Until " . $hours["to"];
+              } else {
+                if (array_key_exists("note", $times)) {
+                    $MIPString = $MIPString . " " . $times["note"];
+                } else {
+                    $MIPString = $MIPString . " Closed";
                 }
-
-
-            } else {
-                $divopen = '<div class="hours-display-secondary">';
+          
+              }
             }
-
-            $hoursOutput[] = $divopen . $string . " : " .  $hoursFormat[$string] . '</div>';
-            fclose($handle);
-
-        }
+              if ($location["lid"] == "8922") {
+                $times = $location["times"];
+                if ($times["currently_open"]) {
+                  $hours = $times["hours"][0];
+                  $argoString = $argoString . "Open Until " . $hours["to"];
+                } else {
+                  if (array_key_exists("note", $times)) {
+                    $argoString = $argoString . " " . $times["note"];
+                  } else {
+                    $argoString = $argoString . "Closed";
+                  }
+            
+                }
+              }
+            }
         
-        foreach ($hoursOutput as $html) {
-            echo $html;
-        }
+        //for mary I and argo tea, format the string differently and wrap a different div around them
+        echo '<div class="hours-display-primary">';
+        echo $MIPString;
+        echo "</div>";
+                
+
+        echo '<div class="hours-display-secondary">';
+        echo $argoString;
+        echo "</div>";
+
+            
+
+        
+        
+        
 
         ?>
         <div id="hours"><h4 class="message-post-time"></h4>
