@@ -192,7 +192,7 @@ if ($refresh) {
         fclose($handle);
 
         $locations = $hours["locations"];
-        $MIPString = "Mary Idema Pew: ";
+        $MIPString = "Mary Idema Pew Library: ";
         $argoString = "Argo Tea: ";
 
         foreach($locations as $location) {
