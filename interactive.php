@@ -52,8 +52,9 @@ if (!checkRoomReservationData()) {
 
 if (isset($_GET["emoji"])) {
     $emoji = trim($_GET["emoji"]);
+    $emoji = (int) $emoji;
     
-    $posted = postFeedback($emoji, $con);
+    $posted = postFeedback($emoji);
     if ($posted === true) {
         $feedbackMessage = "Feedback logged!";
     } else {

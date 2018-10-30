@@ -1,20 +1,35 @@
 <?php
 
+
+include "apiKey.php";
 //EMOJI FUNCTIONS
 
-function postFeedback ($feedback, $con) {
+function postFeedback ($feedback) {
+	
 
-	$sql = "INSERT INTO feedback_response (emotion_id) VALUES (?)";
-	$stmt = $con->prepare($sql);
-	if (!$stmt->bind_param("s", $feedback)) {
-		return "Cannot bind variable: " . $stmt->error;
-	}
+	$feedBackLevel = "feedBackLevel=$feedback";
 
+	$curl = curl_init("https://prod.library.gvsu.edu/trafficapi/feedback/");
 
-    if ($stmt->execute()) {
+	curl_setopt($curl, CURLOPT_POST, 1);
+	curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+	curl_setopt($curl, CURLOPT_USERPWD, ":$apiKey");
+	curl_setopt($curl, CURLOPT_POSTFIELDS, $feedBackLevel);
+	curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($curl, CURLOPT_HEADER  , true);  // we want headers
+	curl_setopt($curl, CURLOPT_NOBODY  , true);
+
+	curl_exec($curl);
+
+	$httpcode =  (int) curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+	curl_close ($curl);
+	
+
+    if ($httpcode == 200) {
 	    return true;
     } else {
-	    return $stmt->error;
+	    return "api returned error code: " . $httpcode;
     }
 }
 
