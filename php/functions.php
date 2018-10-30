@@ -1,5 +1,5 @@
 <?php
-
+date_default_timezone_set ( "America/Detroit" );
 
 include "apiKey.php";
 //EMOJI FUNCTIONS
@@ -93,51 +93,79 @@ Fourth Floor
 16 => "Reading Room"
 */
 
-//Get the current traffic data
-function getTrafficData($con){
-    
-    $query = "SELECT space, level FROM traffic WHERE entryID = (select max(entryID) from entries);";
-    $db_result = $con->query($query);
-    if (!$db_result) {
+function getLastUpdatedTraffic() {
+	//get the entire list of entries.  Someday I'll add a fucntion to the API so that you can request only the most current
+	$entriesJSON = file_get_contents('https://prod.library.gvsu.edu/trafficapi/entries');
 
-        return $con->error;
-    } 
-    
-    if ($db_result->num_rows == 0) {
-        return "No Traffic Data found.";
+	if ($entriesJSON === false) {
+		return "Unable to get traffic entry data.";
+	}
 
-    }
+	$entries = json_decode($entriesJSON, TRUE);
 
-    while ($space = $db_result->fetch_row()) {
-       $data[$space[0]] = $space[1];
-    }
+	if (is_null($entries)) {
+		return "Unable to parse JSON entry data.";
+	}
 
-    return $data;
-    
+	//the first entry should be the most recent, pull the timestamp from there
+
+	$timestamp = $entries[0]["time"];
+
+	$unixTimeStamp = strtotime($timestamp);
+
+	//get rid of the huge list of entries, we don't need it anymore and we don't want it cluttering up memory
+	unset($entriesJSON);
+
+	unset($entries);
+
+	return $unixTimeStamp;
+
+	
+
+
+
 }
 
-//get the last time the traffic data was updated-this data resides in a different part of the database
+//Get the current traffic data
+function getTrafficData(){
 
-function getLastUpdatedTraffic($full, $con){
-    if ($full) {
-		$query = "SELECT time FROM entries WHERE entryID = (select max(entryID) from entries);";
-	} else {
-		$query = "SELECT DATE_FORMAT(time,'%h:%i %p') FROM entries WHERE entryID = (select max(entryID) from entries);";
+	//get the entire list of entries.  Someday I'll add a fucntion to the API so that you can request only the most current
+	$entriesJSON = file_get_contents('https://prod.library.gvsu.edu/trafficapi/entries');
+
+	if ($entriesJSON === false) {
+		return "Unable to get traffic entry data.";
 	}
-    $db_result = $con->query($query);
 
-    if (!$db_result) {
-        return $con->error;
+	$entries = json_decode($entriesJSON, TRUE);
 
-    }
+	if (is_null($entries)) {
+		return "Unable to parse JSON entry data.";
+	}
 
-    if ($db_result->num_rows == 0) {
-        return "Could not get time.";
-    }
 
-    $lastUpdated = $db_result->fetch_row();
+	//the first entry should be the most recent
+	$entrynum = $entries[0]["entryID"];
+
+	//get rid of the huge list of entries, we don't need it anymore and we don't want it cluttering up memory
+	unset($entriesJSON);
+
+	unset($entries);
+
+	$trafficData = file_get_contents("https://prod.library.gvsu.edu/trafficapi/entries/$entrynum/traffic");
+
+	if ($trafficData === false) {
+		return "Unable to get traffic data.";
+	}
+
+	$trafficArray = json_decode($trafficData, TRUE);
+
+	if (is_null($trafficArray)) {
+		return "Unable to parse JSON traffic data.";
+	}
+	
+
+	return $trafficArray;
     
-    return $lastUpdated[0];
      
 }
 

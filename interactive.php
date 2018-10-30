@@ -75,11 +75,8 @@ if (isset($_GET['floor'])) {
 
 //get last update time of traffic from database
 
-$trafficUpdate = getLastUpdatedTraffic(false, $con);
 
-$timeCheck = getLastUpdatedTraffic(true, $con);
-
-$timeCheck = strtotime($timeCheck);
+$timeCheck = getLastUpdatedTraffic();
 
 $fiveHoursAgo = strtotime("-5 hours");
 
@@ -92,42 +89,43 @@ if (strtotime($timeCheck <= $fiveHoursAgo)) {
     $refresh = true;
 }
 
-$traffic = getTrafficData($con);
+$trafficRaw = getTrafficData();
+
+$traffic = array();
 
 if ($refresh) {
-    //get traffic data from database
+    
 
-    $traffic = getTrafficData($con);
-
+    
+    $trafficUpdate = date("h:i A", $timeCheck);
     //map traffic levels to the colors for display
-
-    foreach ($traffic as $roomID => $level) {
-        switch ($level) {
+    foreach ($trafficRaw as $entry) {
+        switch ($entry["level"]) {
             case '4':
-            $traffic[$roomID] = "red";
+            $traffic[$entry["space"]] = "red";
             break;
             case '-1':
-            $traffic[$roomID] = "red";
+            $traffic[$entry["space"]] = "red";
             break;
             case '3':
-            $traffic[$roomID] = "orange";
+            $traffic[$entry["space"]] = "orange";
             break;
             case '2':
-            $traffic[$roomID] = "yellow";
+            $traffic[$entry["space"]] = "yellow";
             break;
             case '1':
-            $traffic[$roomID] = "green";
+            $traffic[$entry["space"]] = "green";
             break;
             case '0':
-            $traffic[$roomID] = "green";
+            $traffic[$entry["space"]] = "green";
             break;
         
         }
     }
 } else {
-    foreach ($traffic as $roomID => $level) {
+    foreach ($trafficRaw as $entry) {
         $trafficUpdate = date("h:i A");
-        $traffic[$roomID] = "green";
+        $traffic[$entry["space"]] = "green";
     }
 }
 
