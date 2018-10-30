@@ -169,20 +169,29 @@ function getTrafficData(){
      
 }
 
-function getRoomTrafficByDatabaseID($id, $con){
-	settype($id, "int");
-	$query = "
-	SELECT level
-	 FROM traffic 
-	 WHERE entryID = (
-	 	SELECT MAX(entryID) 
-		FROM entries )
-	 AND space = $id;";
-	$level = array();
-    $dbResult = $con->query($query);
-    $row = $dbResult->fetch_row();
-    
-    return $row[0];
+function getRoomTrafficByDatabaseID($id){
+	//get the entire list of entries.  Someday I'll add a fucntion to the API so that you can request only the most current
+	
+
+	$trafficData = file_get_contents("https://prod.library.gvsu.edu/trafficapi/spaces/$id/traffic");
+
+	if ($trafficData === false) {
+		return "Unable to get traffic data.";
+	}
+
+	$trafficArray = json_decode($trafficData, TRUE);
+
+	if (is_null($trafficArray)) {
+		return "Unable to parse JSON traffic data.";
+	}
+
+	//most recent entry should be first
+
+	$traffic = $trafficArray[0];
+
+	return $traffic["level"];
+
+	
 }
 
 
