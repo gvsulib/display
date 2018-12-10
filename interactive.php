@@ -198,16 +198,17 @@ if ($refresh) {
             if ($location["lid"] == "8552") {
               $times = $location["times"];
               if ($times["currently_open"]) {
-                $hours = $times["hours"][0];
-                $MIPString = $MIPString . " Open Until " . $hours["to"];
-              } else {
-                if (array_key_exists("note", $times)) {
+                  if (array_key_exists("hours", $times)) {
+                    $hours = $times["hours"][0];
+                    $MIPString = $MIPString . " Open Until " . $hours["to"];
+                  } else if (array_key_exists("status", $times)){
+                    $MIPString = $MIPString . " " . $times["status"];
+                  } else if (array_key_exists("note", $times)) {
                     $MIPString = $MIPString . " " . $times["note"];
+                  }
                 } else {
-                    $MIPString = $MIPString . " Closed";
+                $MIPString = $MIPString . " Closed";
                 }
-          
-              }
             }
               if ($location["lid"] == "8922") {
                 $times = $location["times"];

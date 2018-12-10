@@ -44,7 +44,7 @@ if ($parsedReservations) {
 } 
 //if it isn't currently reserved, get the current traffic level and map that to a color
 if (!$inUse) {
-	$level = getRoomTrafficByDatabaseID("2", $con);
+	$level = getRoomTrafficByDatabaseID("2");
 	switch ($level) {
         case '4':
         $level = "high";
