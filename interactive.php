@@ -170,8 +170,9 @@ if ($refresh) {
 		<h4 id="time"></h4>
 	</div>
 
-	<div class="weather-container">
-		<h3 id="weather">--<span>&deg;F</span></h3>
+	<div class="text-container">
+        <h3 id="text">Questions?</h3>
+        Text the library at </br>616-818-0219
 	</div>
 
 	<div class="hours-container">
@@ -419,7 +420,6 @@ if ($refresh) {
 </body>
 
 <script src="js/jquery-1.11.1.min.js" ></script>
-<script src="js/jquery.simpleWeather.min.js"></script>
 <script src="js/jquery-idletimer.js"></script>
 <script src="js/moment.js"></script>
 <script src="js/interactive.js"></script>

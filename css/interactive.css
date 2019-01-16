@@ -55,9 +55,9 @@ h2 {
 }
 
 
-/** LOGO, TIME, WEATHER **/
+/** LOGO, TIME TEXT **/
 
-.logo-container, .date-time-container, .weather-container {
+.logo-container, .date-time-container, .text-container {
 	display: inline-block;
 	width: 350px;
 	height: 150px;
@@ -166,27 +166,21 @@ i {
 .icon-46:before { content: "U"; }
 .icon-47:before { content: "S"; }
 
-.weather-container {
 
-}
-
-.weather-container h3 {
+.text-container h3 {
 	color: #fff;
 	font-family: 'AlternateGothic';
-	font-size: 100px;
+	font-size: 50px;
 	text-align: center;
 	margin-top: 10px;
 }
-.weather-container span {
+.text-container {
 	color: #fff;
-	font-family: 'AlternateGothic';
-	font-size: 60px;
 	text-align: center;
 	vertical-align: top;
-	margin-top: 4px;
-	margin-left: 10px;
-	display: inline-block;
-    line-height: 110px;
+	margin-top: 10px;
+    display: inline-block;
+    font-size: 30px;
 }
 /** Messages **/
 
