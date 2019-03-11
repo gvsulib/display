@@ -15,8 +15,8 @@ $( document ).ready(function() {
     setTimeout(function(){
         updateTime();
         setTimeout(arguments.callee, 20 * seconds);
-    }, 30 * seconds);
-    setInterval(updateTime, 20 * seconds);
+    }, 20 * seconds);
+    
     setInterval(getMessages, 5 * minutes);
     
 
