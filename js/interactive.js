@@ -10,12 +10,12 @@ $( document ).ready(function() {
     
     updateTime();
     getMessages();
-    getWeather(); //Get the initial weather.
+    
       
     //setInterval(updateComputerAvailability, 10 * minutes);
     setInterval(updateTime, 30 * seconds);
     setInterval(getMessages, 5 * minutes);
-    setInterval(getWeather, 30 * minutes); //Update the weather every 30 minutes.
+    
 
     document.addEventListener("contextmenu", function(e){
         e.preventDefault();
@@ -63,21 +63,7 @@ function updateTime(){
     $time.html(now.format("h:mm A"));
 }
 
-function getWeather() {
-    $.simpleWeather({
-        location: 'Allendale, MI',
-        woeid: '',
-        unit: 'f',
-        success: function(weather) {
-            html = '<i class="icon-'+weather.code+'"></i>'+weather.temp+'<span>&deg;'+weather.units.temp+'</span>';
 
-            $("#weather").html(html);
-        },
-        error: function(error) {
-            $("#weather").html('--<span>&deg;F</span>');
-        }
-    });
-}
 
 var code = "4231";
 var codeSoFar = "";
