@@ -92,13 +92,18 @@ if (!$inUse) {
 
 	<header><h2>LIB 030 - Multi-purpose Room<span id="time"></span></h2>
 	</header>
-	<h2 id="events-header">Today's Events: <span id="date"><?php echo date('D, j M'); ?></span></h2>
+	<h2 id="events-header">Room Reserved Today for: <span id="date"><?php echo date('D, j M'); ?></span></h2>
 	<section id="events-container">
 		<?php
 		if ($parsedReservations) {
 			echo '<ul>';
 			foreach ($parsedReservations->event as $event) {
-				echo '<li class="mpevents">' . formatDate($event->timestart) . " to " . formatDate($event->timeend) . " " . $event->eventname
+				//show 90 minutes before start time, since this is when setup for event usually begins
+				$timestamp = strtotime($event->timestart) - $addTime;
+    			$startTime = date('g:i A', $timestamp);
+
+
+				echo '<li class="mpevents">' . $startTime . " to " . formatDate($event->timeend) . " " . $event->eventname
 			 . '</li>';
 			}
 			echo '</ul>';
