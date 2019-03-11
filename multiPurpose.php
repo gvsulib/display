@@ -31,8 +31,11 @@ fclose($xmlFile);
 $inUse = false;
 
 if ($parsedReservations) {
+
+	$addTime = 60 * 90; //calculate 90 minutes before event
 	foreach ($parsedReservations->event as $event) {
-		if (time() >= strtotime($event->timestart) && time() <= strtotime($event->timeend)) {
+		$adjustedStartTime = $addTime + strtotime($event->timestart);
+		if (time() >= $adjustedStartTime && time() <= strtotime($event->timeend)) {
 			$inUse = true;
 			$eventName = $event->eventname;
 			$timeStart = formatDate($event->timestart);
@@ -101,7 +104,7 @@ if (!$inUse) {
 			echo '</ul>';
 		} else {
 			echo '<ul>
-					<li id="none">No Events Currently Scheduled</li>
+					<li class="mpevents" id="none">No Events Currently Scheduled</li>
 				</ul>';
 		}
 		?>
