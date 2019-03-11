@@ -12,8 +12,11 @@ $( document ).ready(function() {
     getMessages();
     
       
-    //setInterval(updateComputerAvailability, 10 * minutes);
-    setInterval(updateTime, 30 * seconds);
+    setTimeout(function(){
+        updateTime();
+        setTimeout(arguments.callee, 20 * seconds);
+    }, 30 * seconds);
+    setInterval(updateTime, 20 * seconds);
     setInterval(getMessages, 5 * minutes);
     
 
