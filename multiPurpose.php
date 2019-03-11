@@ -34,7 +34,7 @@ if ($parsedReservations) {
 
 	$addTime = 60 * 90; //calculate 90 minutes before event
 	foreach ($parsedReservations->event as $event) {
-		$adjustedStartTime = $addTime + strtotime($event->timestart);
+		$adjustedStartTime = strtotime($event->timestart) - $addTime;
 		if (time() >= $adjustedStartTime && time() <= strtotime($event->timeend)) {
 			$inUse = true;
 			$eventName = $event->eventname;
