@@ -229,9 +229,9 @@ function checkRoomReservationData() {
 	//okay, now extract the timestamp from the file.
 	$timestamp = (int) $xml->timestamp;
 
-	//see if the timestamp on the file is older than the top of the current hour.
-	$hour = strtotime(date('Y-m-d\TH:00:00'));
-	if ($timestamp < $hour) {
+	//see if the timestamp on the file is older than thirty minutes
+	$hour = strtotime("-30 minutes");
+	if ($timestamp > $hour) {
 		fclose($XML_File);
 		return false;
 
@@ -333,28 +333,20 @@ function refreshRoomData($username, $password) {
 	
 	
 		foreach ($parsedXML->event as $event) {
-			/*
-			$timeStart = substr($reservation->TimeEventStart, strpos($reservation->TimeEventStart, "T") + 1);
-			$timeEnd = substr($reservation->TimeEventEnd, strpos($reservation->TimeEventEnd, "T") + 1);
-			*/
-
+			
 			$timeStart = $event->timestart;
 			$timeEnd = $event->timeend;
 
-			//echo strtotime($timeStart);
-			//echo strtotime($timeEnd);
-
-			
 			//the structure here should ensure that when there is both a current and upcoming reservation,
 			//only the current reservation gets logged to the file.  We don't want to display a reservation an hour from now if there's
 			//someone in there now!
 			
 			//also, I log a lot more information to the XML file than we need, but that's to make troubleshooting easier 
-			//if there's a problem.  also, we neeed more data for the multipurpose room display, which has to show event name and times
+			//if there's a problem.  We need more data for the multipurpose room display, which has to show event name and times
 			//of the event if it's reserved.
 			if ($now >= strtotime($timeStart) && $now < strtotime($timeEnd)) {
 				//simpleXML is anything but simple to work with if you're constructing an XML object.
-				//in order to get it to escape characters properly and creete the correct document structure,
+				//in order to get it to escape characters properly and create the correct document structure,
 				//this is the bizarre syntax I have to use.  Took me hours to work this out, and the documentation is NOT HELPFUL.
 				$room = $outPut->addChild('room');
 				
@@ -375,7 +367,7 @@ function refreshRoomData($username, $password) {
 				$room->status = "reserved";
 				
 				
-				//stop checking reservations for ther current room if we find one happening now
+				//stop checking reservations for the current room if we find one happening now
 				break;
 					
 			} else if ($hour_from_now == strtotime($timeStart)) {
