@@ -230,8 +230,11 @@ function checkRoomReservationData() {
 	$timestamp = (int) $xml->timestamp;
 
 	//see if the timestamp on the file is older than thirty minutes
-	$hour = strtotime("-30 minutes");
-	if ($timestamp > $hour) {
+	$now = time();
+
+	$diff = round(($now - $timestamp) / 60);
+
+	if ($diff >= 30) {
 		fclose($XML_File);
 		return false;
 
