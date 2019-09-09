@@ -191,6 +191,12 @@ if ($refresh) {
         $hours = json_decode($output, true);
         fclose($handle);
 
+        $name = "logs/hours" . date("Fj-Y-g:ia"); 
+
+        $LOG_Hours = fopen($name, "w");
+        fwrite($LOG_Hours, $output);
+        fclose($LOG_Hours);
+
         $locations = $hours["locations"];
         $MIPString = "Mary Idema Pew Library: ";
         $argoString = "Argo Tea: ";

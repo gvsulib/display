@@ -302,9 +302,11 @@ function refreshRoomData($username, $password) {
 
 
 	$nowdisplay = date('h:s a');  
-	$timestamp = strtotime(date('Y-m-d\TH:i:s'));   
+	$timestamp = strtotime(date('Y-m-d\TH:i:s')); 
+	
+	$formattedTimeStamp = date("Fj-Y-g:ia");   
 	$outPut = new SimpleXMLElement("<bookings><timedisplay>" . $nowdisplay . "</timedisplay><timestamp>" . $timestamp . "</timestamp></bookings>");
-
+	$rawData = "";
 	//the API requires that we request data on each room as a separate URL.  So prepare to cycle through the list of rooms, 
 	//requesting data for each one, and storing it in the XML file as it's retrieved.
 
@@ -312,6 +314,8 @@ function refreshRoomData($username, $password) {
 		$week = false;
 		//get the raw reservation data for today from for the room
 		$reservationXML = getReservationXML($username, $password, $roomNumber, $week);
+
+		$rawData = $rawData . "\n\nfor room: " . $roomNumber . "\n\n" . $reservationXML->asXML();
 		
 		if ($reservationXML) {
 			//clean up and sort the raw reservation data 
@@ -411,9 +415,13 @@ function refreshRoomData($username, $password) {
 	//displays will access the data from that file.
 	//we start by overwriting the file, if one is already there.
 	$XML_File = fopen("RoomReservationData.xml", "w");
+	$LOG_File = fopen("logs/roomsRes" . $formattedTimeStamp, "w");
+	flock($LOG_File, LOCK_EX);
 	flock($XML_File, LOCK_EX);
+	fwrite($LOG_File, $rawData);
 	fwrite($XML_File, $outPut->asXML());
 	fclose($XML_File);
+	fclose($LOG_File);
 	//echo $outPut->asXML(); //echo contents of file for debugging purposes.
 	return true;
 }
