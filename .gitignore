@@ -11,4 +11,5 @@ messagepass.php
 php/authentication.php
 php_error_log.log
 RoomReservationData.xml
+logs/*
 .DS_Store

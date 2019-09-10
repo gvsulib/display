@@ -445,7 +445,11 @@ function getReservationXML($username, $password, $EMSID, $week) {
 	
 	$ch = curl_init();
 	$url = 'https://www.gvsu.edu/reserve/files/cfc/functions.cfc?method=bookings&roomId='. $EMSID.'&startDate='.$start.'&endDate='.$end.'';
-	
+	$reqlog = fopen("logs/reservationRequest.log", "a");
+    $string = $url . "\n";
+    fwrite($reqlog, $string);
+    fclose($reqlog);
+            
 
     //curl seems to be the only option on our server in which to negociate HTTP authentication in PHP
     //which is a requirement of the API
