@@ -1,0 +1,2634 @@
+
+
+for room: 7678
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Bookings><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 003 - Media Prep</RoomDescription>
+    <TimeEventStart>2019-09-10T09:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T11:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>dowdellq - GV Bumble</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>905718</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11499768</BookingID>
+    <TimeBookingStart>2019-09-10T09:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T11:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T13:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T15:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>003</RoomCode>
+    <Room>003 - Media Prep</Room>
+    <RoomID>7678</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-07T11:35:08.433</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-07T11:35:08.433</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 003 - Media Prep</RoomDescription>
+    <TimeEventStart>2019-09-10T15:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T15:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>figursja - Bio group meeting</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>904848</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11494391</BookingID>
+    <TimeBookingStart>2019-09-10T15:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T15:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T19:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T19:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>003</RoomCode>
+    <Room>003 - Media Prep</Room>
+    <RoomID>7678</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-03T11:54:42.743</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-03T11:54:42.743</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 003 - Media Prep</RoomDescription>
+    <TimeEventStart>2019-09-10T17:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T17:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>grobbelh - Email Training</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>905787</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11500542</BookingID>
+    <TimeBookingStart>2019-09-10T17:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T17:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T21:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T21:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>003</RoomCode>
+    <Room>003 - Media Prep</Room>
+    <RoomID>7678</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>1005</StatusID>
+    <StatusTypeID>-12</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-08T12:47:29.197</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-08T12:51:23.33</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 003 - Media Prep</RoomDescription>
+    <TimeEventStart>2019-09-10T18:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T19:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>jonesmez - Tor-Pre-Alex-Mezei</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>906146</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11502196</BookingID>
+    <TimeBookingStart>2019-09-10T18:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T19:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T22:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T23:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>003</RoomCode>
+    <Room>003 - Media Prep</Room>
+    <RoomID>7678</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-09T19:20:19.023</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-09T19:20:19.023</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 003 - Media Prep</RoomDescription>
+    <TimeEventStart>2019-09-10T20:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T20:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>fishe - ODK E-Board Meeting</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>905073</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11495693</BookingID>
+    <TimeBookingStart>2019-09-10T20:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T20:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-11T00:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-11T00:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>003</RoomCode>
+    <Room>003 - Media Prep</Room>
+    <RoomID>7678</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-04T09:05:59.59</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-04T09:05:59.59</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data></Bookings>
+
+
+for room: 7679
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Bookings><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 004 - Media Prep</RoomDescription>
+    <TimeEventStart>2019-09-10T11:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T12:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>nguyson - Son N</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>906179</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11502229</BookingID>
+    <TimeBookingStart>2019-09-10T11:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T12:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T15:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T16:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>004</RoomCode>
+    <Room>004 - Media Prep</Room>
+    <RoomID>7679</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-10T00:20:13.79</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-10T00:20:13.79</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 004 - Media Prep</RoomDescription>
+    <TimeEventStart>2019-09-10T13:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T13:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>trippka - BioChem</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>905671</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11499037</BookingID>
+    <TimeBookingStart>2019-09-10T13:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T13:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T17:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T17:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>004</RoomCode>
+    <Room>004 - Media Prep</Room>
+    <RoomID>7679</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>1005</StatusID>
+    <StatusTypeID>-12</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-06T15:01:04.043</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-08T15:32:12.72</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 004 - Media Prep</RoomDescription>
+    <TimeEventStart>2019-09-10T17:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T17:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>grobbelh - Email Training</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>905790</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11500545</BookingID>
+    <TimeBookingStart>2019-09-10T17:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T17:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T21:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T21:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>004</RoomCode>
+    <Room>004 - Media Prep</Room>
+    <RoomID>7679</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-08T12:51:45.147</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-08T12:51:45.147</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 004 - Media Prep</RoomDescription>
+    <TimeEventStart>2019-09-10T20:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T20:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>grobbelh - Email Training</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>905788</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11500543</BookingID>
+    <TimeBookingStart>2019-09-10T20:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T20:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-11T00:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-11T00:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>004</RoomCode>
+    <Room>004 - Media Prep</Room>
+    <RoomID>7679</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-08T12:51:07.5</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-08T12:51:07.5</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data></Bookings>
+
+
+for room: 7680
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Bookings><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 005 - Media Prep</RoomDescription>
+    <TimeEventStart>2019-09-10T11:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T12:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>cowlesl - Lane Cowles - FLYB</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>905190</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11496296</BookingID>
+    <TimeBookingStart>2019-09-10T11:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T12:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T15:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T16:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>005 </RoomCode>
+    <Room>005 - Media Prep</Room>
+    <RoomID>7680</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-04T13:28:50.287</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-04T13:28:50.287</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 005 - Media Prep</RoomDescription>
+    <TimeEventStart>2019-09-10T17:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T19:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>nguylin - Spanish 101</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>906163</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11502213</BookingID>
+    <TimeBookingStart>2019-09-10T17:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T19:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T21:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T23:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>005 </RoomCode>
+    <Room>005 - Media Prep</Room>
+    <RoomID>7680</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-09T22:13:10.723</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-09T22:13:10.723</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data></Bookings>
+
+
+for room: 7686
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Bookings><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 133 - Presentation Practice</RoomDescription>
+    <TimeEventStart>2019-09-10T14:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T15:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>horgere - study room!!</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>906099</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11501894</BookingID>
+    <TimeBookingStart>2019-09-10T14:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T15:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T18:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T19:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>133</RoomCode>
+    <Room>133 - Presentation Practice</Room>
+    <RoomID>7686</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-09T15:54:12.437</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-09T15:54:12.437</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 133 - Presentation Practice</RoomDescription>
+    <TimeEventStart>2019-09-10T16:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T23:00:00</TimeEventEnd>
+    <GroupName>Library</GroupName>
+    <EventName>Knowledge Market</EventName>
+    <SetupTypeDescription>As Is</SetupTypeDescription>
+    <SetupCount>2</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>903656</ReservationID>
+    <EventCoordinator/>
+    <GroupID>11079</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Allendale - Academic</GroupTypeDescription>
+    <EventTypeDescription>Library--Internal</EventTypeDescription>
+    <Contact>Jennifer Torreano 1-2604</Contact>
+    <AltContact>Kristin Meyer 1-3294</AltContact>
+    <BookingID>11484458</BookingID>
+    <TimeBookingStart>2019-09-10T16:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T23:00:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T20:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-11T03:00:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>133</RoomCode>
+    <Room>133 - Presentation Practice</Room>
+    <RoomID>7686</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>1001</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>3966</EventTypeID>
+    <GroupTypeID>1044</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-08-26T08:17:13.663</DateAdded>
+    <AddedBy>Shyceka Armstrong</AddedBy>
+    <DateChanged>2019-08-26T08:17:13.663</DateChanged>
+    <ChangedBy>Shyceka Armstrong</ChangedBy>
+    <ContactEmailAddress>torreaje@gvsu.edu</ContactEmailAddress>
+    <CheckedIn>false</CheckedIn>
+  </Data></Bookings>
+
+
+for room: 7687
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Bookings><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 134 - Presentation Practice</RoomDescription>
+    <TimeEventStart>2019-09-10T11:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T13:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>remijanl - Movement 19th cent</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>905424</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11497277</BookingID>
+    <TimeBookingStart>2019-09-10T11:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T13:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T15:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T17:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>134</RoomCode>
+    <Room>134 - Presentation Practice</Room>
+    <RoomID>7687</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-05T12:26:52.41</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-05T12:26:52.41</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 134 - Presentation Practice</RoomDescription>
+    <TimeEventStart>2019-09-10T16:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T18:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>morricas - study.!</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>906180</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11502230</BookingID>
+    <TimeBookingStart>2019-09-10T16:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T18:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T20:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T22:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>134</RoomCode>
+    <Room>134 - Presentation Practice</Room>
+    <RoomID>7687</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-10T01:31:54.493</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-10T01:31:54.493</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 134 - Presentation Practice</RoomDescription>
+    <TimeEventStart>2019-09-10T20:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T22:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>inbodye - FVP 225</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>905944</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11501320</BookingID>
+    <TimeBookingStart>2019-09-10T20:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T22:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-11T00:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-11T02:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>134</RoomCode>
+    <Room>134 - Presentation Practice</Room>
+    <RoomID>7687</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-09T10:30:29.677</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-09T10:30:29.677</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data></Bookings>
+
+
+for room: 7689
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Bookings><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 202 - Multi-purpose Room </RoomDescription>
+    <TimeEventStart>2019-09-10T08:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T10:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>philljor - Psych 400-8:30 G1</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>904841</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11494384</BookingID>
+    <TimeBookingStart>2019-09-10T08:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T10:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T12:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T14:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>202</RoomCode>
+    <Room>202 - Multi-purpose Room </Room>
+    <RoomID>7689</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-03T11:42:00.457</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-03T11:42:00.457</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 202 - Multi-purpose Room </RoomDescription>
+    <TimeEventStart>2019-09-10T11:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T12:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>walknata - Dship</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>906161</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11502211</BookingID>
+    <TimeBookingStart>2019-09-10T11:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T12:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T15:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T16:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>202</RoomCode>
+    <Room>202 - Multi-purpose Room </Room>
+    <RoomID>7689</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-09T21:43:12.01</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-09T21:43:12.01</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 202 - Multi-purpose Room </RoomDescription>
+    <TimeEventStart>2019-09-10T12:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T13:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>nashka - study</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>904713</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11493647</BookingID>
+    <TimeBookingStart>2019-09-10T12:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T13:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T16:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T17:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>202</RoomCode>
+    <Room>202 - Multi-purpose Room </Room>
+    <RoomID>7689</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>1005</StatusID>
+    <StatusTypeID>-12</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-02T20:19:48.26</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-07T21:46:34.973</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 202 - Multi-purpose Room </RoomDescription>
+    <TimeEventStart>2019-09-10T13:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T15:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>gingrico - Studying :)</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>906172</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11502222</BookingID>
+    <TimeBookingStart>2019-09-10T13:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T15:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T17:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T19:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>202</RoomCode>
+    <Room>202 - Multi-purpose Room </Room>
+    <RoomID>7689</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-09T23:25:20.407</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-09T23:25:20.407</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 202 - Multi-purpose Room </RoomDescription>
+    <TimeEventStart>2019-09-10T16:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T17:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>wellinky - CJ 325 Team 3</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>906034</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11501680</BookingID>
+    <TimeBookingStart>2019-09-10T16:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T17:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T20:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T21:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>202</RoomCode>
+    <Room>202 - Multi-purpose Room </Room>
+    <RoomID>7689</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-09T14:02:38.3</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-09T14:02:38.3</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 202 - Multi-purpose Room </RoomDescription>
+    <TimeEventStart>2019-09-10T21:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T23:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>yanezh - Puckers</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>905159</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11496071</BookingID>
+    <TimeBookingStart>2019-09-10T21:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T23:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-11T01:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-11T03:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>202</RoomCode>
+    <Room>202 - Multi-purpose Room </Room>
+    <RoomID>7689</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-04T11:55:28.117</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-04T11:55:28.117</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data></Bookings>
+
+
+for room: 7690
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Bookings><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 203 - Multi-purpose Room </RoomDescription>
+    <TimeEventStart>2019-09-10T12:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T13:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>gardneba - BMS 250 Study </EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>905197</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11496304</BookingID>
+    <TimeBookingStart>2019-09-10T12:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T13:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T16:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T17:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>203</RoomCode>
+    <Room>203 - Multi-purpose Room </Room>
+    <RoomID>7690</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-04T13:52:58.283</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-04T13:52:58.283</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 203 - Multi-purpose Room </RoomDescription>
+    <TimeEventStart>2019-09-10T15:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T17:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>carreraa - CSD 200 STUDY GROUP</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>906124</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11502017</BookingID>
+    <TimeBookingStart>2019-09-10T15:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T17:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T19:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T21:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>203</RoomCode>
+    <Room>203 - Multi-purpose Room </Room>
+    <RoomID>7690</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-09T16:57:02.57</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-09T16:57:02.57</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 203 - Multi-purpose Room </RoomDescription>
+    <TimeEventStart>2019-09-10T19:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T21:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>langlaly - DungeonsDurkheim</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>905184</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11496245</BookingID>
+    <TimeBookingStart>2019-09-10T19:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T21:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T23:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-11T01:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>203</RoomCode>
+    <Room>203 - Multi-purpose Room </Room>
+    <RoomID>7690</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-04T13:22:13.197</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-04T13:22:13.197</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data></Bookings>
+
+
+for room: 7801
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Bookings><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 204 - Multi-purpose Room</RoomDescription>
+    <TimeEventStart>2019-09-10T11:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T12:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>mcdonore - MOV 101 group </EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>905406</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11497257</BookingID>
+    <TimeBookingStart>2019-09-10T11:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T12:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T15:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T16:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>204 </RoomCode>
+    <Room>204 - Multi-purpose Room</Room>
+    <RoomID>7801</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-05T11:43:14.047</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-05T11:43:14.047</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 204 - Multi-purpose Room</RoomDescription>
+    <TimeEventStart>2019-09-10T16:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T18:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>workun - Group Project Econ</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>905022</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11495190</BookingID>
+    <TimeBookingStart>2019-09-10T16:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T18:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T20:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T22:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>204 </RoomCode>
+    <Room>204 - Multi-purpose Room</Room>
+    <RoomID>7801</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-03T18:04:44.117</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-03T18:04:44.117</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data></Bookings>
+
+
+for room: 7691
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Bookings><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 205 - Multi-purpose Room</RoomDescription>
+    <TimeEventStart>2019-09-10T08:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T09:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>seoemp1 - Megan Moma</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>906072</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11501786</BookingID>
+    <TimeBookingStart>2019-09-10T08:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T09:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T12:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T13:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>205</RoomCode>
+    <Room>205 - Multi-purpose Room</Room>
+    <RoomID>7691</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-09T14:52:43.463</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-09T14:52:43.463</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 205 - Multi-purpose Room</RoomDescription>
+    <TimeEventStart>2019-09-10T11:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T12:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>andepaig - Paige Anderson</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>905422</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11497275</BookingID>
+    <TimeBookingStart>2019-09-10T11:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T12:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T15:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T16:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>205</RoomCode>
+    <Room>205 - Multi-purpose Room</Room>
+    <RoomID>7691</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-05T12:25:17.2</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-05T12:25:17.2</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 205 - Multi-purpose Room</RoomDescription>
+    <TimeEventStart>2019-09-10T16:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T17:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>schabal - MGT 331</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>905527</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11497905</BookingID>
+    <TimeBookingStart>2019-09-10T16:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T17:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T20:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T21:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>205</RoomCode>
+    <Room>205 - Multi-purpose Room</Room>
+    <RoomID>7691</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-05T17:43:53.933</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-05T17:43:53.933</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 205 - Multi-purpose Room</RoomDescription>
+    <TimeEventStart>2019-09-10T18:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T20:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>mitchej1 - SW study group </EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>906100</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11501895</BookingID>
+    <TimeBookingStart>2019-09-10T18:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T20:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T22:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-11T00:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>205</RoomCode>
+    <Room>205 - Multi-purpose Room</Room>
+    <RoomID>7691</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-09T15:54:26.047</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-09T15:54:26.047</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data></Bookings>
+
+
+for room: 7692
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Bookings><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 216 - Seminar Room</RoomDescription>
+    <TimeEventStart>2019-09-10T10:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T12:00:00</TimeEventEnd>
+    <GroupName>GVSU-Library</GroupName>
+    <EventName>KM Meeting</EventName>
+    <SetupTypeDescription>As Is</SetupTypeDescription>
+    <SetupCount>12</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>905462</ReservationID>
+    <EventCoordinator/>
+    <GroupID>3244</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>GVSU</GroupTypeDescription>
+    <EventTypeDescription>Meeting</EventTypeDescription>
+    <Contact>Jennifer Torreano 616-331-2604</Contact>
+    <AltContact/>
+    <BookingID>11497437</BookingID>
+    <TimeBookingStart>2019-09-10T10:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T12:00:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T14:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T16:00:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>216</RoomCode>
+    <Room>216 - Seminar Room</Room>
+    <RoomID>7692</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>1001</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>3866</EventTypeID>
+    <GroupTypeID>1040</GroupTypeID>
+    <RoomTypeID>4112</RoomTypeID>
+    <RoomType>Seminar</RoomType>
+    <DateAdded>2019-09-05T14:22:16.63</DateAdded>
+    <AddedBy>Jenna Vainner</AddedBy>
+    <DateChanged>2019-09-05T14:22:16.63</DateChanged>
+    <ChangedBy>Jenna Vainner</ChangedBy>
+    <ContactEmailAddress>torreaje@gvsu.edu</ContactEmailAddress>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 216 - Seminar Room</RoomDescription>
+    <TimeEventStart>2019-09-10T13:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T14:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>lib-scrc - IDEA Committee Mtg</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>904727</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11493931</BookingID>
+    <TimeBookingStart>2019-09-10T13:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T14:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T17:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T18:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>216</RoomCode>
+    <Room>216 - Seminar Room</Room>
+    <RoomID>7692</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4112</RoomTypeID>
+    <RoomType>Seminar</RoomType>
+    <DateAdded>2019-09-03T07:47:16.197</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-03T07:47:16.197</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 216 - Seminar Room</RoomDescription>
+    <TimeEventStart>2019-09-10T18:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T19:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>helmera - HIS-101 Study</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>906131</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11502099</BookingID>
+    <TimeBookingStart>2019-09-10T18:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T19:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T22:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T23:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>216</RoomCode>
+    <Room>216 - Seminar Room</Room>
+    <RoomID>7692</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4112</RoomTypeID>
+    <RoomType>Seminar</RoomType>
+    <DateAdded>2019-09-09T17:52:24.517</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-09T17:52:24.517</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 216 - Seminar Room</RoomDescription>
+    <TimeEventStart>2019-09-10T20:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T20:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>mcdonam1 - Arendsen Davis</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>904668</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11491536</BookingID>
+    <TimeBookingStart>2019-09-10T20:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T20:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-11T00:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-11T00:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>216</RoomCode>
+    <Room>216 - Seminar Room</Room>
+    <RoomID>7692</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4112</RoomTypeID>
+    <RoomType>Seminar</RoomType>
+    <DateAdded>2019-08-31T08:37:19.607</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-08-31T08:37:19.607</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data></Bookings>
+
+
+for room: 7693
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Bookings><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 302 - Multi-purpose Room</RoomDescription>
+    <TimeEventStart>2019-09-10T11:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T12:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>morrikyl - MOV 101 group work</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>905420</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11497273</BookingID>
+    <TimeBookingStart>2019-09-10T11:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T12:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T15:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T16:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>302</RoomCode>
+    <Room>302 - Multi-purpose Room</Room>
+    <RoomID>7693</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-05T12:18:34.167</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-05T12:18:34.167</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 302 - Multi-purpose Room</RoomDescription>
+    <TimeEventStart>2019-09-10T16:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T16:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>colemanc - PSY400</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>906055</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11501715</BookingID>
+    <TimeBookingStart>2019-09-10T16:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T16:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T20:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T20:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>302</RoomCode>
+    <Room>302 - Multi-purpose Room</Room>
+    <RoomID>7693</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-09T14:35:52.643</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-09T14:35:52.643</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 302 - Multi-purpose Room</RoomDescription>
+    <TimeEventStart>2019-09-10T18:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T20:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>sullivje - Neuroscience</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>906093</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11501885</BookingID>
+    <TimeBookingStart>2019-09-10T18:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T20:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T22:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-11T00:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>302</RoomCode>
+    <Room>302 - Multi-purpose Room</Room>
+    <RoomID>7693</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-09T15:39:48.99</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-09T15:39:48.99</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data></Bookings>
+
+
+for room: 7694
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Bookings><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 303 - Multi-purpose Room</RoomDescription>
+    <TimeEventStart>2019-09-10T11:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T12:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>nashka - study</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>905744</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11500094</BookingID>
+    <TimeBookingStart>2019-09-10T11:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T12:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T15:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T16:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>303</RoomCode>
+    <Room>303 - Multi-purpose Room</Room>
+    <RoomID>7694</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-07T21:46:24.223</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-07T21:46:24.223</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 303 - Multi-purpose Room</RoomDescription>
+    <TimeEventStart>2019-09-10T18:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T18:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>flaminie - MGT 331</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>905940</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11501316</BookingID>
+    <TimeBookingStart>2019-09-10T18:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T18:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T22:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T22:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>303</RoomCode>
+    <Room>303 - Multi-purpose Room</Room>
+    <RoomID>7694</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-09T10:24:44.043</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-09T10:24:44.043</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 303 - Multi-purpose Room</RoomDescription>
+    <TimeEventStart>2019-09-10T19:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T21:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>templema - BIO 120 PREP</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>906160</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11502210</BookingID>
+    <TimeBookingStart>2019-09-10T19:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T21:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T23:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-11T01:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>303</RoomCode>
+    <Room>303 - Multi-purpose Room</Room>
+    <RoomID>7694</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-09T21:41:24.46</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-09T21:41:24.46</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data></Bookings>
+
+
+for room: 7695
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Bookings><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 304 - Multi-purpose Room</RoomDescription>
+    <TimeEventStart>2019-09-10T10:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T12:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>walterrl - Egr stats study ses</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>906017</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11501568</BookingID>
+    <TimeBookingStart>2019-09-10T10:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T12:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T14:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T16:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>304</RoomCode>
+    <Room>304 - Multi-purpose Room</Room>
+    <RoomID>7695</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-09T13:00:10.723</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-09T13:00:10.723</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 304 - Multi-purpose Room</RoomDescription>
+    <TimeEventStart>2019-09-10T13:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T13:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>holmesp - Biochem</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>906174</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11502224</BookingID>
+    <TimeBookingStart>2019-09-10T13:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T13:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T17:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T17:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>304</RoomCode>
+    <Room>304 - Multi-purpose Room</Room>
+    <RoomID>7695</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-10T00:07:03.043</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-10T00:07:03.043</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 304 - Multi-purpose Room</RoomDescription>
+    <TimeEventStart>2019-09-10T14:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T15:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>holmesp - Biochem</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>906178</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11502228</BookingID>
+    <TimeBookingStart>2019-09-10T14:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T15:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T18:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T19:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>304</RoomCode>
+    <Room>304 - Multi-purpose Room</Room>
+    <RoomID>7695</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-10T00:07:57.163</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-10T00:07:57.163</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 304 - Multi-purpose Room</RoomDescription>
+    <TimeEventStart>2019-09-10T17:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T18:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>cundifkr - The Warrior Movment </EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>905775</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11500500</BookingID>
+    <TimeBookingStart>2019-09-10T17:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T18:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T21:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T22:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>304</RoomCode>
+    <Room>304 - Multi-purpose Room</Room>
+    <RoomID>7695</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-08T11:00:21.457</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-08T11:00:21.457</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data></Bookings>
+
+
+for room: 7696
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Bookings><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 305 - Multi-purpose Room</RoomDescription>
+    <TimeEventStart>2019-09-10T10:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T12:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>westerfs - study </EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>906158</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11502208</BookingID>
+    <TimeBookingStart>2019-09-10T10:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T12:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T14:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T16:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>305</RoomCode>
+    <Room>305 - Multi-purpose Room</Room>
+    <RoomID>7696</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-09T21:11:49.217</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-09T21:11:49.217</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 305 - Multi-purpose Room</RoomDescription>
+    <TimeEventStart>2019-09-10T17:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T19:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>rakere - Emma-Study</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>906042</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11501689</BookingID>
+    <TimeBookingStart>2019-09-10T17:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T19:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T21:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T23:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>305</RoomCode>
+    <Room>305 - Multi-purpose Room</Room>
+    <RoomID>7696</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-09T14:10:41.063</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-09T14:10:41.063</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data></Bookings>
+
+
+for room: 7698
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Bookings><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 404 - Multi-purpose Room </RoomDescription>
+    <TimeEventStart>2019-09-10T07:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T09:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>adamslan - Chapter Review</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>906162</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11502212</BookingID>
+    <TimeBookingStart>2019-09-10T07:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T09:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T11:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T13:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>404</RoomCode>
+    <Room>404 - Multi-purpose Room </Room>
+    <RoomID>7698</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-09T22:04:58.927</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-09T22:04:58.927</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 404 - Multi-purpose Room </RoomDescription>
+    <TimeEventStart>2019-09-10T11:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T13:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>staceyn - CIS 162 Study Group</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>904875</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11494554</BookingID>
+    <TimeBookingStart>2019-09-10T11:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T13:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T15:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T17:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>404</RoomCode>
+    <Room>404 - Multi-purpose Room </Room>
+    <RoomID>7698</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-03T12:49:06.6</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-03T12:49:06.6</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 404 - Multi-purpose Room </RoomDescription>
+    <TimeEventStart>2019-09-10T14:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T15:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>johpatri - KM privacy policy</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>905392</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11497196</BookingID>
+    <TimeBookingStart>2019-09-10T14:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T15:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T18:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T19:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>404</RoomCode>
+    <Room>404 - Multi-purpose Room </Room>
+    <RoomID>7698</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>1005</StatusID>
+    <StatusTypeID>-12</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-05T11:02:43.95</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-05T16:17:00.067</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 404 - Multi-purpose Room </RoomDescription>
+    <TimeEventStart>2019-09-10T14:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T16:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>coberlya - School Psych. Study</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>906159</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11502209</BookingID>
+    <TimeBookingStart>2019-09-10T14:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T16:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T18:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T20:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>404</RoomCode>
+    <Room>404 - Multi-purpose Room </Room>
+    <RoomID>7698</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-09T21:38:08.11</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-09T21:38:08.11</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 404 - Multi-purpose Room </RoomDescription>
+    <TimeEventStart>2019-09-10T17:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T19:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>nicholau - Nicholson</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>906116</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11501915</BookingID>
+    <TimeBookingStart>2019-09-10T17:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T19:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T21:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T23:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>404</RoomCode>
+    <Room>404 - Multi-purpose Room </Room>
+    <RoomID>7698</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-09T16:29:59.35</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-09T16:29:59.35</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data></Bookings>
+
+
+for room: 7699
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Bookings><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 405 - Multi-purpose Room </RoomDescription>
+    <TimeEventStart>2019-09-10T12:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T14:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>walkerza - Biochem Study</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>906069</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11501772</BookingID>
+    <TimeBookingStart>2019-09-10T12:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T14:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T16:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T18:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>405</RoomCode>
+    <Room>405 - Multi-purpose Room </Room>
+    <RoomID>7699</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-09T14:49:31.633</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-09T14:49:31.633</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data><Data>
+    <BookingDate>2019-09-10T00:00:00</BookingDate>
+    <StartBookingDate>2019-09-10T00:00:00</StartBookingDate>
+    <RoomDescription>LIB 405 - Multi-purpose Room </RoomDescription>
+    <TimeEventStart>2019-09-10T17:00:00</TimeEventStart>
+    <TimeEventEnd>2019-09-10T19:59:00</TimeEventEnd>
+    <GroupName>GVSU-API User</GroupName>
+    <EventName>meigsp - it`s cryin time yall</EventName>
+    <SetupTypeDescription>(none)</SetupTypeDescription>
+    <SetupCount>0</SetupCount>
+    <BuildingDescription>Mary Idema Pew Library</BuildingDescription>
+    <ReservationID>906169</ReservationID>
+    <EventCoordinator/>
+    <GroupID>13247</GroupID>
+    <VIP xml:space="preserve"> </VIP>
+    <VIPEvent>false</VIPEvent>
+    <ClosedAllDay>false</ClosedAllDay>
+    <OpenTime>1900-01-01T07:00:00</OpenTime>
+    <CloseTime>1900-01-01T02:00:00</CloseTime>
+    <GroupTypeDescription>Web-API</GroupTypeDescription>
+    <EventTypeDescription/>
+    <Contact/>
+    <AltContact/>
+    <BookingID>11502219</BookingID>
+    <TimeBookingStart>2019-09-10T17:00:00</TimeBookingStart>
+    <TimeBookingEnd>2019-09-10T19:59:00</TimeBookingEnd>
+    <GMTStartTime>2019-09-10T21:00:00</GMTStartTime>
+    <GMTEndTime>2019-09-10T23:59:00</GMTEndTime>
+    <TimeZone>ET</TimeZone>
+    <BuildingCode>LIB</BuildingCode>
+    <Building>Mary Idema Pew Library</Building>
+    <RoomCode>405</RoomCode>
+    <Room>405 - Multi-purpose Room </Room>
+    <RoomID>7699</RoomID>
+    <BuildingID>219</BuildingID>
+    <StatusID>3245</StatusID>
+    <StatusTypeID>-14</StatusTypeID>
+    <EventTypeID>0</EventTypeID>
+    <GroupTypeID>1053</GroupTypeID>
+    <RoomTypeID>4148</RoomTypeID>
+    <RoomType>Group Study</RoomType>
+    <DateAdded>2019-09-09T22:58:51.37</DateAdded>
+    <AddedBy>ems-api-user-gvsu</AddedBy>
+    <DateChanged>2019-09-09T22:58:51.37</DateChanged>
+    <ChangedBy>ems-api-user-gvsu</ChangedBy>
+    <ContactEmailAddress/>
+    <CheckedIn>false</CheckedIn>
+  </Data></Bookings>

@@ -315,11 +315,12 @@ function refreshRoomData($username, $password) {
 		//get the raw reservation data for today from for the room
 		$reservationXML = getReservationXML($username, $password, $roomNumber, $week);
 
-		$rawData = $rawData . "\n\nfor room: " . $roomNumber . "\n\n" . $reservationXML->asXML();
+		
 		
 		if ($reservationXML) {
 			//clean up and sort the raw reservation data 
 			$parsedXML = parseReservationData($reservationXML);
+			$rawData = $rawData . "\n\nfor room: " . $roomNumber . "\n\n" . $reservationXML->asXML();
 		} else {
 			//if there's no parseable XML, skip to the next room
 			continue;
