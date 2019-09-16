@@ -191,12 +191,6 @@ if ($refresh) {
         $hours = json_decode($output, true);
         fclose($handle);
 
-        $name = "logs/hours" . date("Fj-Y-g:ia"); 
-
-        $LOG_Hours = fopen($name, "w");
-        fwrite($LOG_Hours, $output);
-        fclose($LOG_Hours);
-
         $locations = $hours["locations"];
         $MIPString = "Mary Idema Pew Library: ";
         $argoString = "Argo Tea: ";
@@ -204,18 +198,16 @@ if ($refresh) {
         foreach($locations as $location) {
             if ($location["lid"] == "8552") {
               $times = $location["times"];
-              if ($times["currently_open"]) {
+              
                   if (array_key_exists("hours", $times)) {
                     $hours = $times["hours"][0];
-                    $MIPString = $MIPString . " Open Until " . $hours["to"];
+                    $MIPString = $MIPString . " " .$hours["from"] . " to " . $hours["to"];
                   } else if (array_key_exists("status", $times)){
                     $MIPString = $MIPString . " " . $times["status"];
                   } else if (array_key_exists("note", $times)) {
                     $MIPString = $MIPString . " " . $times["note"];
                   }
-                } else {
-                $MIPString = $MIPString . " Closed";
-                }
+                
             }
               if ($location["lid"] == "8922") {
                 $times = $location["times"];
