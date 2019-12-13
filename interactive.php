@@ -193,7 +193,7 @@ if ($refresh) {
 
         $locations = $hours["locations"];
         $MIPString = "Mary Idema Pew Library: ";
-        $argoString = "Argo Tea: ";
+        $argoString = "GV Brew: ";
 
         foreach($locations as $location) {
             if ($location["lid"] == "8552") {
