@@ -8,8 +8,6 @@ include 'php/functions.php';
 
 date_default_timezone_set('America/Detroit');
 
-
-
 //get room reservation data XML object set up for use later
 $XML_File = fopen("RoomReservationData.xml", "r");
 
@@ -191,6 +189,13 @@ if ($refresh) {
         $hours = json_decode($output, true);
         fclose($handle);
 
+        //log hours data for checking later
+
+        $timeLog = fopen("logs/time.log", "a");
+        $dateTime = date("Y-m-d h:i:sa");
+
+        
+
         $locations = $hours["locations"];
         $MIPString = "Mary Idema Pew Library: ";
         $argoString = "GV Brew: ";
@@ -198,9 +203,13 @@ if ($refresh) {
         foreach($locations as $location) {
             if ($location["lid"] == "8552") {
               $times = $location["times"];
+              $currentlyOpen = $times["currently_open"];
+              $statusTime = $times["status"];
+              fwrite($timeLog, $dateTime . " Currently Open flag: " . $currentlyOpen . " status flag: " . $statusTime . "\n");
               
                   if (array_key_exists("hours", $times)) {
                     $hours = $times["hours"][0];
+                    
                     $MIPString = $MIPString . " " .$hours["from"] . " to " . $hours["to"];
                   } else if (array_key_exists("status", $times)){
                     $MIPString = $MIPString . " " . $times["status"];
@@ -224,7 +233,7 @@ if ($refresh) {
                 }
               }
             }
-        
+        fclose($timeLog);
         //for mary I and argo tea, format the string differently and wrap a different div around them
         echo '<div class="hours-display-primary">';
         echo $MIPString;
