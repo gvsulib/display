@@ -203,7 +203,11 @@ if ($refresh) {
         foreach($locations as $location) {
             if ($location["lid"] == "8552") {
               $times = $location["times"];
-              $currentlyOpen = $times["currently_open"];
+              if ($times["currently_open"]) {
+                $currentlyOpen = "true";
+              } else {
+                $currentlyOpen = "false";
+              }
               $statusTime = $times["status"];
               fwrite($timeLog, $dateTime . " Currently Open flag: " . $currentlyOpen . " status flag: " . $statusTime . "\n");
               
