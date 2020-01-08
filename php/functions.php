@@ -416,13 +416,13 @@ function refreshRoomData($username, $password) {
 	//displays will access the data from that file.
 	//we start by overwriting the file, if one is already there.
 	$XML_File = fopen("RoomReservationData.xml", "w");
-	$LOG_File = fopen("logs/roomsRes" . $formattedTimeStamp, "w");
-	flock($LOG_File, LOCK_EX);
+	//$LOG_File = fopen("logs/roomsRes" . $formattedTimeStamp, "w");
+	//flock($LOG_File, LOCK_EX);
 	flock($XML_File, LOCK_EX);
-	fwrite($LOG_File, $rawData);
+	//fwrite($LOG_File, $rawData);
 	fwrite($XML_File, $outPut->asXML());
 	fclose($XML_File);
-	fclose($LOG_File);
+	//fclose($LOG_File);
 	//echo $outPut->asXML(); //echo contents of file for debugging purposes.
 	return true;
 }

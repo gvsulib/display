@@ -204,25 +204,20 @@ if ($refresh) {
             if ($location["lid"] == "8552") {
               $times = $location["times"];
               if ($times["currently_open"]) {
-                $currentlyOpen = "true";
-              } else {
-                $currentlyOpen = "false";
-              }
-              $statusTime = $times["status"];
-              fwrite($timeLog, $dateTime . " Currently Open flag: " . $currentlyOpen . " status flag: " . $statusTime . "\n");
-              
-                  if (array_key_exists("hours", $times)) {
                     $hours = $times["hours"][0];
-                    
-                    $MIPString = $MIPString . " " .$hours["from"] . " to " . $hours["to"];
-                  } else if (array_key_exists("status", $times)){
-                    $MIPString = $MIPString . " " . $times["status"];
-                  } else if (array_key_exists("note", $times)) {
-                    $MIPString = $MIPString . " " . $times["note"];
-                  }
+                    $MIPString = $MIPString . "Open Until " . $hours["to"];
+              } else {
+              
+                  
+                    if (array_key_exists("note", $times)) {
+                        $MIPString = $MIPString . " " . $times["note"];
+                    } else {
+                        $MIPString = $MIPString . "Closed";
+                    }
                 
+                }
             }
-              if ($location["lid"] == "8922") {
+            if ($location["lid"] == "8922") {
                 $times = $location["times"];
                 if ($times["currently_open"]) {
                   $hours = $times["hours"][0];
