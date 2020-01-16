@@ -17,7 +17,7 @@ function postFeedback ($feedback) {
 	curl_setopt($curl, CURLOPT_POSTFIELDS, $feedBackLevel);
 	curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($curl, CURLOPT_HEADER  , true);  // we want headers
-	curl_setopt($curl, CURLOPT_NOBODY  , true);
+	
 
 	curl_exec($curl);
 
