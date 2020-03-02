@@ -268,7 +268,11 @@ function checkRoomReservationData() {
     7696 / 305 - Conference Style
     7698 / 404 - Conference Style
     7699 / 405 - Conference Style
-    7681 / 030 - Multi-Purpose Room
+	7681 / 030 - Multi-Purpose Room
+	7653 / lab 01
+	7677 / lab 02
+	7700 / 440 - Meeting Room
+	
 */
 
 // Generate an array of room IDs
@@ -280,6 +284,9 @@ function refreshRoomData($username, $password) {
 	
 	$roomIDs = array(
 		
+		'7700',
+		'7653',
+		'7677',
 		'7678', 
 		'7679',
 		'7680',
